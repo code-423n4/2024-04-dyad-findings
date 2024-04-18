@@ -48,5 +48,3 @@ https://github.com/code-423n4/2024-04-dyad/blob/44becc2f09c3a75bd548d5ec756a8e88
 File: src/core/Vault.kerosine.unbounded.sol
 
 https://github.com/code-423n4/2024-04-dyad/blob/44becc2f09c3a75bd548d5ec756a8e88a345e826/src/core/Vault.kerosine.unbounded.sol#L54
-
-File: 
