@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Tigerfrake",
+  "risk": "2",
+  "title": "Missing check for the max/min price in `assetPrice()`",
+  "issueId": 10,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/10"
+}
