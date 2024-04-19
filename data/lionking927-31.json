@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "lionking927",
+  "risk": "2",
+  "title": "saving mintedDyad by address and id can occur unexpected behaviour when using it in mintDyad and burnDyad function of VaultManagerV2 contract",
+  "issueId": 31,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/31"
+}
