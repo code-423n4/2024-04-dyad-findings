@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x486776",
+  "risk": "2",
+  "title": "No liquidation reward when the collateral ratio is smaller than 100%.",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/42"
+}
