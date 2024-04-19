@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "lionking927",
+  "risk": "2",
+  "title": "deposit in VaultManagerV2 doesn't check zero amount so it causes to fail normal withdrawal if attacker find normal withdrawal in pending tx pool and create zero amount deposit",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/34"
+}
