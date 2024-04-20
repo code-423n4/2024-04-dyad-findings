@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "BiasedMerc",
+  "risk": "3",
+  "title": "Deploy.V2.s.sol does not add boundedKerosineVault to vaultLicenser",
+  "issueId": 81,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/81"
+}
