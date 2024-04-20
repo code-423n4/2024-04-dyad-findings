@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Pataroff",
+  "risk": "3",
+  "title": " `VaultManagerV2.sol::burnDyad` function is missing an `isDNftOwner` modifier, allowing a user to burn another user's minted DYAD",
+  "issueId": 100,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/100"
+}
