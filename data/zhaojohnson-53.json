@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "zhaojohnson",
+  "risk": "3",
+  "title": "Possible Dos for KerosineVault::assetPrice() because of existing VaultManagerV1",
+  "issueId": 53,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/53"
+}
