@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "zhaojohnson",
+  "risk": "3",
+  "title": "Normal withdraw could be blocked via deposit()",
+  "issueId": 44,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/44"
+}
