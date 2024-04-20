@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Pelz",
+  "risk": "2",
+  "title": "Inadequate Handling of Fee-on-Transfer Tokens in deposit Function of VaultManagerV2 Contract",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/63"
+}
