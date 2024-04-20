@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ptsanev",
+  "risk": "3",
+  "title": "VaultManagerV2.sol#deposit()/withdraw() - potential front-running/MEV DoS due to block number protection",
+  "issueId": 101,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/101"
+}
