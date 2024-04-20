@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "carrotsmuggler",
+  "risk": "2",
+  "title": "Users might be unable to withdraw funds from paused vaults even with healthy accounts.",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/73"
+}
