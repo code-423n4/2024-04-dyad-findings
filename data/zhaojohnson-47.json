@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "zhaojohnson",
+  "risk": "3",
+  "title": "incorrect getKeroseneValue() implementation",
+  "issueId": 47,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/47"
+}
