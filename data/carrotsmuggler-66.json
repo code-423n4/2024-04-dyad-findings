@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "carrotsmuggler",
+  "risk": "3",
+  "title": "Withdrawals from vaults can be denied with small deposits by a griefer",
+  "issueId": 66,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/66"
+}
