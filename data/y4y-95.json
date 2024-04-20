@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "y4y",
+  "risk": "2",
+  "title": "It's possible to deny an NFT owner's withdraw call persistently by depositing 0 amount of tokens",
+  "issueId": 95,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/95"
+}
