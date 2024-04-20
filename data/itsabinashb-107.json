@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "itsabinashb",
+  "risk": "3",
+  "title": "Kerosene vaults cannot be added by calling VaultManagerV2::addKerosene() due to unnecessary restriction",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/107"
+}
