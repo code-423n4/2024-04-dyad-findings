@@ -1,8 +1,0 @@
-{
-  "contest": 367,
-  "handle": "Mylifechangefast_eth",
-  "risk": "2",
-  "title": "No uniqueness in the VaultManagerV2 due to improper validation",
-  "issueId": 206,
-  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/206"
-}
