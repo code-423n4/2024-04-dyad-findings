@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "3",
+  "title": "VaultManagerV2.sol - If a vault is licensed by both `Licenser` and `KeroseneManager` the `collatRatio` is doubled",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/204"
+}
