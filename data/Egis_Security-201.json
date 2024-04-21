@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "3",
+  "title": "VaultManagerV2.sol - Doesn't support fee on transfer tokens, which completely breaks the tokenomics of the protocol",
+  "issueId": 201,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/201"
+}
