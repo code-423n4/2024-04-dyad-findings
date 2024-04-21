@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "DarkTower",
+  "risk": "2",
+  "title": "Malicious user can soil the protocol with bad collateral ratio by minting DYADs in smaller bands",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/178"
+}
