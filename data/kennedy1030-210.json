@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "kennedy1030",
+  "risk": "3",
+  "title": "Depositing 1wei for another user's `id` can lead to a denial of service (DoS) during withdrawal or redemption.",
+  "issueId": 210,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/210"
+}
