@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "donkicha",
+  "risk": "3",
+  "title": "Fake balances can be created for not-yet-existing ERC20 tokens, which allows attackers to set traps to steal funds from future users",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/186"
+}
