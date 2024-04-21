@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "DarkTower",
+  "risk": "3",
+  "title": "Positions tied to a `NOTE` cannot be realistically liquidated as the liquidator incurs a loss",
+  "issueId": 162,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/162"
+}
