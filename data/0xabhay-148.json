@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xabhay",
+  "risk": "2",
+  "title": "Denial of Service Exploit via block.number Dependency Bug in VaultManagerV2::deposit",
+  "issueId": 148,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/148"
+}
