@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "joicygiore",
+  "risk": "3",
+  "title": "There is no incentive to call \"VaultManagerV2::liquidate()\" to perform liquidation",
+  "issueId": 123,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/123"
+}
