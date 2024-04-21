@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "3",
+  "title": "VaultManagerV2.sol - It's impossible to `withdraw/redeemDyad` from a unbounded kerosene vault.",
+  "issueId": 203,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/203"
+}
