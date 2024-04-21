@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "3docSec",
+  "risk": "3",
+  "title": "VaultManagerV2's liquidation does not seize kerosene collaterals nor offset their value",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/151"
+}
