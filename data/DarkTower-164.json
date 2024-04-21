@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "DarkTower",
+  "risk": "3",
+  "title": "Whan a liquidation happens, the rolled over collateral from the liquidated NOTE cannot be redeemed by the liquidator resulting in a loss",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/164"
+}
