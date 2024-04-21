@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "3docSec",
+  "risk": "2",
+  "title": "Permissionless VaultManagerV2.deposit can be weaponized to DoS withdraws",
+  "issueId": 153,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/153"
+}
