@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Invalid check non-Kerosene collateral check in `mintDyad` and `withdraw`",
+  "issueId": 158,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/158"
+}
