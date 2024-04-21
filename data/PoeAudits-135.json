@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "PoeAudits",
+  "risk": "3",
+  "title": "Malicious Actors can Freeze User Withdrawls",
+  "issueId": 135,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/135"
+}
