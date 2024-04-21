@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "kennedy1030",
+  "risk": "2",
+  "title": "No balance check in `Licenser::remove` and `KerosineManager::remove`.",
+  "issueId": 137,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/137"
+}
