@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "2",
+  "title": "VaultManagerV2.sol#remove() - Anyone can DoS the function by depositing 1 wei of `asset`",
+  "issueId": 199,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/199"
+}
