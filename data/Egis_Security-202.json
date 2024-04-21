@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "2",
+  "title": "VaultManagerV2.sol#liquidate() - If a DNft holds > 50% of the dyad supply, it impossible to liquidate the position",
+  "issueId": 202,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/202"
+}
