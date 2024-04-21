@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AlexCzm",
+  "risk": "3",
+  "title": "DYAD deppeg  because getNonKeroseneValue() can return a bigger USD value than actual exogenous collateral ",
+  "issueId": 163,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/163"
+}
