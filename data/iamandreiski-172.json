@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "A lack of minimum mint size doesn't incentivize liquidators to liquidate small positions due to gas costs creating bad debt",
+  "issueId": 172,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/172"
+}
