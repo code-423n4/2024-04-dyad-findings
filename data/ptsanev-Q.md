@@ -20,3 +20,5 @@ It currently is not needed, but shifting to voting would beg the need for checki
 1. People can potentially abuse this by intentionally minting Dyad to get as low of a CR as possible, since they always get liquidated for a minimum a 100% ratio
 2. Using 100% as the cap (1e18), would lead to getting zeroes when calculating equity shares and asset shares, leading to the liquidator getting no reward for liquidating <= 100% vaults. This incentivization can hurt the liquidation mechanism.
 If the intention is for there to be a cap on the minimum CR, then consider increasing it to atleast 110% to retain the reward and incentive. Otherwise, consider refactoring reward calculation to properly reward liquidations of CR<100%.
+
+[L-03] - the ``redeemDyad`` function of the manager is tied closely to the asset's oracle price, based on the amount of burned Dyad. Having slippage protection, deadline or best-case both is crucial in times of price volatility, oracle fluctuations, etc to make sure the user withdraws funds in an acceptable time and amount range.
