@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "GuardianSphere",
+  "risk": "3",
+  "title": "KerosineManager can replaced with a malicious contract",
+  "issueId": 249,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/249"
+}
