@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ZanyBonzy",
+  "risk": "3",
+  "title": "Deployment script licenses `wsteth` and `eth` vaults as both kersoene and non kerosene vaults",
+  "issueId": 347,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/347"
+}
