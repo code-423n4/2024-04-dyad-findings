@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xAsen",
+  "risk": "3",
+  "title": "Insufficient access control on deposit() can lead to DOS of important functions",
+  "issueId": 227,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/227"
+}
