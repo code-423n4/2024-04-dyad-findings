@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xDemon",
+  "risk": "2",
+  "title": "The protocol expect the max vault per user is 10 (5 `nonKerosene` and 5 `Kerosene`) but in reality a user can only have 8 vaults in total",
+  "issueId": 267,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/267"
+}
