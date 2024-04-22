@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Krace",
+  "risk": "3",
+  "title": "Wrong calculation of `collatRatio` in the contract `VaultManagerV2`",
+  "issueId": 220,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/220"
+}
