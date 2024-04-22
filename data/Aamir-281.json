@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Aamir",
+  "risk": "3",
+  "title": "The `VaultManagerV2::liquidate(...)` mistakenly decreases the Dyad minted balance of the person who is being liquidated causing the liquidator to unable to withdraw portion of their collateral. ",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/281"
+}
