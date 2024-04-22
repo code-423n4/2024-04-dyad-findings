@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xEllipticCurve",
+  "risk": "2",
+  "title": "Strict check on KerosineManager.sol",
+  "issueId": 349,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/349"
+}
