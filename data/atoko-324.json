@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "atoko",
+  "risk": "2",
+  "title": "Potential Vulnerability in Token Transfers Using Solmate's SafeTransferLib",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/324"
+}
