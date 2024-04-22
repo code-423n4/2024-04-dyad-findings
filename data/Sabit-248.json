@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Sabit",
+  "risk": "3",
+  "title": "It is impossible to liquidate a user with the highest minted DYAD when such a user is undercollateralized",
+  "issueId": 248,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/248"
+}
