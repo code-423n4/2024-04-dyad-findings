@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "Missing enough exogeneous collateral check in `VaultManagerV2::liquidate` makes the liquidation revert even if (DYAD Minted > Non Kerosene Value)",
+  "issueId": 338,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/338"
+}
