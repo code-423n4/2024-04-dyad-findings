@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "zigtur",
+  "risk": "2",
+  "title": "DoS of withdrawals by frontrunning with small deposits",
+  "issueId": 244,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/244"
+}
