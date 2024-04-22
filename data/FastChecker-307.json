@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "FastChecker",
+  "risk": "2",
+  "title": "DOS occurs because `Vault.kerosine.bounded.sol#setUnboundedKerosineVault` function is not called in `DeployV2.s.sol`.",
+  "issueId": 307,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/307"
+}
