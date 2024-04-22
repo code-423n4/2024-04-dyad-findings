@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "2",
+  "title": "VaultManagerV2.sol#liquidate() - There is no incentive to liquidate dust positions",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/236"
+}
