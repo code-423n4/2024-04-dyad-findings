@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "web3km",
+  "risk": "3",
+  "title": "Licensing unbounded kerosene vault in `Deploy.V2.s.sol` will cause users to be able to add kerosene vaults inside of `VaultManagerV2::vaults`",
+  "issueId": 328,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/328"
+}
