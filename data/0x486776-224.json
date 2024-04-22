@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x486776",
+  "risk": "3",
+  "title": "If the total collateral value gets smaller than total `dyad` amount, the system will stop.",
+  "issueId": 224,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/224"
+}
