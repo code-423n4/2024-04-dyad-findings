@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "GuardianSphere",
+  "risk": "3",
+  "title": "#Deposit #withdraw will not work properly on Arbitrum or Optimism due to block.number in the future",
+  "issueId": 211,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/211"
+}
