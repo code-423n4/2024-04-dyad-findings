@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Angry_Mustache_Man",
+  "risk": "3",
+  "title": "Mistake in calculation of Liquidation rewards in VaultManagerV2.sol causes heavy losses for the Liquidator",
+  "issueId": 295,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/295"
+}
