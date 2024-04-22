@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Angry_Mustache_Man",
+  "risk": "2",
+  "title": " A Malicious User can prevent withdrawal & redeemalDyad processes of an asset for a User by just paying the gas fees for deposit transaction ",
+  "issueId": 293,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/293"
+}
