@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "`DeployV2` script adds the `unboundedKerosineVault` in `vaultLicenser`, allowing users to add kerosene token based vault in their `vaults` mapping.",
+  "issueId": 277,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/277"
+}
