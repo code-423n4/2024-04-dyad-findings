@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "valentin_s2304",
+  "risk": "3",
+  "title": "Malicious user can drain vault by liquidating himself several times",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/282"
+}
