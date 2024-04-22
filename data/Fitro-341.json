@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Fitro",
+  "risk": "2",
+  "title": "VaultManagerV2.sol :: deposit() Anyone can deposit to a vault without registering the Notes (NFTs) to it, bypassing MAX_VAULTS and MAX_VAULTS_KEROSENE.",
+  "issueId": 341,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/341"
+}
