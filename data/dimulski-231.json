@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "dimulski",
+  "risk": "2",
+  "title": "When VaultManagerV2 is deployed there will be problems with minting any DYAD tokens",
+  "issueId": 231,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/231"
+}
