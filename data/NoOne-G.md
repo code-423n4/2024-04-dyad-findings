@@ -57,7 +57,7 @@ https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06
 
 https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/lib/solmate/src/tokens/ERC721.sol#L21-L24
 
-`All of these constants should be private`
+`All of these constants should be private or internal`
 
 https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/KerosineManager.sol#L14
 
