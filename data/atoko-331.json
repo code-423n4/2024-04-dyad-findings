@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "atoko",
+  "risk": "2",
+  "title": "Inadequate Collateral Ratio Check in Withdrawal Function",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/331"
+}
