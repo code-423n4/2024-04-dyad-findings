@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "2",
+  "title": "VaultManagerV2.sol#burnDyad() - Anyone can burn dyad for any `id` which can be weaponized to DoS other burn calls",
+  "issueId": 265,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/265"
+}
