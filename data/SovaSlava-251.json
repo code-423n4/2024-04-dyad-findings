@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SovaSlava",
+  "risk": "2",
+  "title": "Attacker can prevent the user from removing the volt by frontrunning ",
+  "issueId": 251,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/251"
+}
