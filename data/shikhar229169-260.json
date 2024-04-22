@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "`VaultManagerV2::addKerosene` checks the kerosene vault being added from `keroseneManager` leads to addition of non kerosene token vaults to `vaultsKerosene`",
+  "issueId": 260,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/260"
+}
