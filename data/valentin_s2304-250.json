@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "valentin_s2304",
+  "risk": "2",
+  "title": "A malicious user can cause a DoS attack on the withdraw function for other users",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/250"
+}
