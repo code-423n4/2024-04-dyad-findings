@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "2",
+  "title": "Incorrect ExoCollateral check inside `VaultManagerV2::withdraw` doesn't allow the user to withdraw their kerosene vault collateral, even if they are fully collateralized.",
+  "issueId": 268,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/268"
+}
