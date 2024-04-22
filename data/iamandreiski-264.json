@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Due to a lack of a safety buffer, mint positions can be subject to a forced liquidation / instantly liquidated",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/264"
+}
