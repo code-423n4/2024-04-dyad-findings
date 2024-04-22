@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "theFirstElder",
+  "risk": "3",
+  "title": "The attacker can manipulate liquidate function at a low cost thereby plunging the protocol into bad debt.",
+  "issueId": 360,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/360"
+}
