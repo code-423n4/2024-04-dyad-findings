@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "dimulski",
+  "risk": "3",
+  "title": "Malicious users can honeypot other users by minting all the DYAD tokens that the note's collateralRate allows right before sale",
+  "issueId": 362,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/362"
+}
