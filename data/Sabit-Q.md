@@ -11,3 +11,10 @@ This is because the vaults length of an "id" will never be greater than MAX_VAUL
 So, the correct check should be:
 
   if (vaults[id].length() == MAX_VAULTS) revert TooManyVaults();
+
+
+2. isValidDNft modifier is used two times in the liquidate function.
+
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L211
+
+Using only one isValidDNft is enough. Remove the second one.
