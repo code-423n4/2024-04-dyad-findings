@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Protocol logic assumes that DYAD will always equal to $1, but in case of a depegging event protocol can be exploited",
+  "issueId": 296,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/296"
+}
