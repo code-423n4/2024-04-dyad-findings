@@ -14,4 +14,9 @@ function addKerosene(
   }
 ```
 does no validation if the vault's asset is actually a kerosene asset.
-It currently is not needed, but shifting to voting would beg the need for one.
+It currently is not needed, but shifting to voting would beg the need for checking asset correctness.
+
+[L-02] - inside ``liquidate()`` we cap the minimum CR we work with which is 100%, meaning no matter how low of a CR a vault has, it always gets capped at 100%, which leads to 2 things:
+1. People can potentially abuse this by intentionally minting Dyad to get as low of a CR as possible, since they always get liquidated for a minimum a 100% ratio
+2. Using 100% as the cap (1e18), would lead to getting zeroes when calculating equity shares and asset shares, leading to the liquidator getting no reward for liquidating <= 100% vaults. This incentivization can hurt the liquidation mechanism.
+If the intention is for there to be a cap on the minimum CR, then consider increasing it to atleast 110% to retain the reward and incentive. Otherwise, consider refactoring reward calculation to properly reward liquidations of CR<100%.
