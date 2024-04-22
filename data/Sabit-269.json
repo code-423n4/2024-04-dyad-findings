@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Sabit",
+  "risk": "3",
+  "title": "Liquidation is prevented due to strict liquidation bonus amount implementation",
+  "issueId": 269,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/269"
+}
