@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Myrault",
+  "risk": "3",
+  "title": "A \"FrontRunning attack\" can be made to the `VaultManagerV2::setKeroseneManager` function",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/312"
+}
