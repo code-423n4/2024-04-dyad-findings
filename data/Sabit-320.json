@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Sabit",
+  "risk": "3",
+  "title": "Loss of precision because of wrong use of 1e8 instead of 1e18",
+  "issueId": 320,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/320"
+}
