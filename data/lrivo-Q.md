@@ -12,7 +12,7 @@ function deposit(
    idToBlockOfLastDeposit[id] = block.number;
    Vault _vault = Vault(vault);
    _vault.asset().safeTransferFrom(msg.sender, address(vault), amount);
-   _vault.deposit(id, amount); // chiama la deposit sul Vault 
+   _vault.deposit(id, amount); 
 }
 ```
 
