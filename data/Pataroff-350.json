@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Pataroff",
+  "risk": "2",
+  "title": "KerosineDenominator::denominator` return value can be manipulated, allowing a malicious user to decrease the denominator and inflate the price of `Kerosine` ERC20 token",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/350"
+}
