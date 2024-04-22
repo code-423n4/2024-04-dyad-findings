@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "dimulski",
+  "risk": "2",
+  "title": "The protocol won't work as expected with fee on transfer tokens",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/364"
+}
