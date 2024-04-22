@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "BiasedMerc",
+  "risk": "3",
+  "title": "KerosineManager can remove a vault license that has DYAD minted for it",
+  "issueId": 247,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/247"
+}
