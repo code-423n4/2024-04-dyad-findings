@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "zigtur",
+  "risk": "2",
+  "title": "Licensing a `UnboundedKerosineVault` in `KerosineManager` will break the protocol",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/252"
+}
