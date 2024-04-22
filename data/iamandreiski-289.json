@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Tokens which incur balance changes outside of transfers (such as rebasing tokens) will not work properly within the system",
+  "issueId": 289,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/289"
+}
