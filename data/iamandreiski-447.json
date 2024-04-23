@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "A malicious user can take advantage of other users by minting all the available DYAD tokens that the collateral rate allows right before a NFT sale",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/447"
+}
