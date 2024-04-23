@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Funds from unlicensed vaults will also be moved during liquidations even though they're not part of the collateral",
+  "issueId": 440,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/440"
+}
