@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Strausses",
+  "risk": "2",
+  "title": "Contract cannot handle interaction with fee-on-transfer tokens",
+  "issueId": 525,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/525"
+}
