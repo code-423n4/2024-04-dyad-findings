@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "2",
+  "title": "Incorrect mint and withdrawal check in `VaultManagerV2` contract as mentioned in the protocol docs",
+  "issueId": 494,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/494"
+}
