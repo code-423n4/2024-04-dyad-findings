@@ -2,19 +2,20 @@
 
 | |Issue|Instances| Gas Savings
 |-|:-|:-:|:-:|
-| [[L-01](#l-01)] | `addresses` shouldn't be hard-coded | 1| 0|
+| [[L-01](#l-01)] | `addresses` shouldn't be hard-coded | 2| 0|
 | [[L-02](#l-02)] | Function calls within loops | 3| 0|
 | [[L-03](#l-03)] | Loops in external functions should be avoided due to high gas costs and possible DOS | 1| 0|
 | [[L-04](#l-04)] | External calls in `modifier` | 2| 0|
 | [[L-05](#l-05)] | Missing `require` check while setting min/ max values | 1| 0|
-| [[L-06](#l-06)] | Dangerous strict equalities | 1| 0|
-| [[L-07](#l-07)] | Reentrancy vulnerabilities (events) | 4| 0|
-| [[L-08](#l-08)] | Uninitialized local variables | 2| 0|
+| [[L-06](#l-06)] | Upgradable contracts not taken into account when making wrapped calls | 2| 0|
+| [[L-07](#l-07)] | Dangerous strict equalities | 1| 0|
+| [[L-08](#l-08)] | Reentrancy vulnerabilities (events) | 4| 0|
+| [[L-09](#l-09)] | Uninitialized local variables | 2| 0|
 | [[N-01](#n-01)] | Consider emitting an event at the end of the constructor | 5| 0|
 | [[N-02](#n-02)] | Events are missing sender information | 9| 0|
 | [[N-03](#n-03)] | Validate user inputs | 8| 0|
 | [[N-04](#n-04)] | Conformance to Solidity naming conventions | 3| 0|
-| [[N-05](#n-05)] | Unused state variable | 1| 0|
+| [[N-05](#n-05)] | Unused state variable | 2| 0|
 | [[N-06](#n-06)] | Constant decimal values | 8| 0|
 | [[N-07](#n-07)] | Constants in comparisons should appear on the left side | 4| 0|
 | [[N-08](#n-08)] | Consider using descriptive `constant`s when passing zero as a function argument | 1| 0|
@@ -32,7 +33,7 @@
 
 Hardcoded addresses prevent the contract from upgradation, work on different chains and may brick the system.It is often better to declare `address`es as `immutable`, and assign them via constructor arguments. This allows the code to remain the same across deployments on different networks, and avoids recompilation when addresses need to change.
 
-*There are 1 instance(s) of this issue:*
+*There are 2 instance(s) of this issue:*
 
 ```solidity
 File: src/staking/KerosineDenominator.sol
@@ -94,6 +95,53 @@ KerosineDenominator (src/staking/KerosineDenominator.sol#7-23) has hardcoded add
 ```
 
 *GitHub* : [7-23](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L23)
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2 (script/deploy/Deploy.V2.s.sol#35-114) has hardcoded addresse(s) 
+	- CommonBase.CONSOLE (lib/forge-std/src/Base.sol#11)
+	- CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Base.sol#15)
+	- ScriptBase.CREATE2_FACTORY (lib/forge-std/src/Base.sol#28)
+	- Parameters.GOERLI_OWNER (src/params/Parameters.sol#7)
+	- Parameters.GOERLI_DNFT (src/params/Parameters.sol#8)
+	- Parameters.GOERLI_WETH (src/params/Parameters.sol#9)
+	- Parameters.GOERLI_WETH_ORACLE (src/params/Parameters.sol#10)
+	- Parameters.GOERLI_FEE_RECIPIENT (src/params/Parameters.sol#12)
+	- Parameters.GOERLI_VAULT_MANAGER (src/params/Parameters.sol#13)
+	- Parameters.GOERLI_CHAINLINK_STETH (src/params/Parameters.sol#16)
+	- Parameters.GOERLI_WSTETH (src/params/Parameters.sol#17)
+	- Parameters.GOERLI_DYAD (src/params/Parameters.sol#18)
+	- Parameters.GOERLI_WETH_DYAD_UNI (src/params/Parameters.sol#19)
+	- Parameters.MAINNET_OWNER (src/params/Parameters.sol#22)
+	- Parameters.MAINNET_DNFT (src/params/Parameters.sol#23)
+	- Parameters.MAINNET_WETH (src/params/Parameters.sol#24)
+	- Parameters.MAINNET_WETH_ORACLE (src/params/Parameters.sol#25)
+	- Parameters.MAINNET_FEE_RECIPIENT (src/params/Parameters.sol#27)
+	- Parameters.MAINNET_VAULT_MANAGER (src/params/Parameters.sol#28)
+	- Parameters.MAINNET_CHAINLINK_STETH (src/params/Parameters.sol#29)
+	- Parameters.MAINNET_WSTETH (src/params/Parameters.sol#30)
+	- Parameters.MAINNET_DYAD (src/params/Parameters.sol#31)
+	- Parameters.MAINNET_WETH_DYAD_UNI (src/params/Parameters.sol#32)
+	- Parameters.MAINNET_KEROSENE (src/params/Parameters.sol#33)
+	- Parameters.MAINNET_STAKING (src/params/Parameters.sol#34)
+	- Parameters.MAINNET_WETH_VAULT (src/params/Parameters.sol#35)
+	- Parameters.MAINNET_WSTETH_VAULT (src/params/Parameters.sol#36)
+	- Parameters.MAINNET_VAULT_MANAGER_LICENSER (src/params/Parameters.sol#37)
+	- Parameters.SEPOLIA_OWNER (src/params/Parameters.sol#40)
+	- Parameters.SEPOLIA_WETH (src/params/Parameters.sol#42)
+	- Parameters.SEPOLIA_WETH_ORACLE (src/params/Parameters.sol#43)
+	- Parameters.SEPOLIA_FEE_RECIPIENT (src/params/Parameters.sol#45)
+	- Parameters.SEPOLIA_CHAINLINK_STETH (src/params/Parameters.sol#49)
+	- Parameters.SEPOLIA_WSTETH (src/params/Parameters.sol#50)
+	- Parameters.SEPOLIA_WETH_DYAD_UNI (src/params/Parameters.sol#52)
+
+/// @audit ****************** Affected Code *******************
+
+```
+
+*GitHub* : [35-114](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L35-L114)
 
 ### [L-02]<a name="l-02"></a> Function calls within loops
 
@@ -320,7 +368,61 @@ UnboundedKerosineVault.setDenominator(KerosineDenominator) (src/core/Vault.keros
 
 *GitHub* : [43-48](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43-L48)
 
-### [L-06]<a name="l-06"></a> Dangerous strict equalities
+### [L-06]<a name="l-06"></a> Upgradable contracts not taken into account when making wrapped calls
+
+When wrapping a token address with interfaces like IERC20 for external calls, especially in the context of upgradable contracts, it's essential to account for the potential changes these tokens might undergo. Upgrades can modify a token's behavior or interface, which could introduce compatibility issues or vulnerabilities in the interacting protocol. **Recom:** To manage this risk, integrate an allowlist system in your protocol. This system would monitor for upgrades in token contracts. Upon detecting an upgrade, the corresponding token contract would be automatically removed from the allowlist, suspending its interaction with your protocol. The contract can only be re-added to the allowlist after a thorough review to confirm its continued compatibility and safety post-upgrade. This approach helps maintain a secure and adaptable protocol, ensuring it only interacts with verified, stable versions of external contracts. Regular audits and ongoing monitoring of these external contracts are vital for maintaining the integrity and security of the protocol.
+
+*There are 2 instance(s) of this issue:*
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts address to ERC20
+	- ethVault = new Vault(vaultManager,ERC20(MAINNET_WETH),IAggregatorV3(MAINNET_WETH_ORACLE)) (script/deploy/Deploy.V2.s.sol#49-53) casts (address) to (ERC20).
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#49-53,  
+
+/// @audit ****************** Affected Code *******************
+  49:     Vault ethVault = new Vault(
+  50:       vaultManager,
+  51:       ERC20        (MAINNET_WETH),
+  52:       IAggregatorV3(MAINNET_WETH_ORACLE)
+  53:     );
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts address to ERC20
+	- ethVault = new Vault(vaultManager,ERC20(MAINNET_WETH),IAggregatorV3(MAINNET_WETH_ORACLE)) (script/deploy/Deploy.V2.s.sol#49-53) casts (address) to (ERC20).
+	- wstEth = new VaultWstEth(vaultManager,ERC20(MAINNET_WSTETH),IAggregatorV3(MAINNET_CHAINLINK_STETH)) (script/deploy/Deploy.V2.s.sol#56-60) casts (address) to (ERC20).
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#49-53,  L#56-60,  
+
+/// @audit ****************** Affected Code *******************
+  49:     Vault ethVault = new Vault(
+  50:       vaultManager,
+  51:       ERC20        (MAINNET_WETH),
+  52:       IAggregatorV3(MAINNET_WETH_ORACLE)
+  53:     );
+  56:     VaultWstEth wstEth = new VaultWstEth(
+  57:       vaultManager, 
+  58:       ERC20        (MAINNET_WSTETH), 
+  59:       IAggregatorV3(MAINNET_CHAINLINK_STETH)
+  60:     );
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
+
+### [L-07]<a name="l-07"></a> Dangerous strict equalities
 
 Use of strict equalities that can be easily manipulated by an attacker.  **Recom:** Don't use strict equality and try using `>=` or `<=` to cover broader edge cases.
 
@@ -362,7 +464,7 @@ VaultManagerV2.withdraw(uint256,address,uint256,address) (src/core/VaultManagerV
 
 *GitHub* : [134-153](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L134-L153)
 
-### [L-07]<a name="l-07"></a> Reentrancy vulnerabilities (events)
+### [L-08]<a name="l-08"></a> Reentrancy vulnerabilities (events)
 
 Possible Reentrancy vulnerabilities leading to out-of-order Events.  **Recom:**  Ensure that events follow the best practice of [check-effects-interaction](https://blockchain-academy.hs-mittweida.de/courses/solidity-coding-beginners-to-intermediate/lessons/solidity-11-coding-patterns/topic/checks-effects-interactions/), and are emitted before external calls.
 
@@ -515,7 +617,7 @@ Reentrancy (events) in VaultManagerV2.redeemDyad(uint256,address,uint256,address
 
 *GitHub* : [184-202](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L184-L202)
 
-### [L-08]<a name="l-08"></a> Uninitialized local variables
+### [L-09]<a name="l-09"></a> Uninitialized local variables
 
 Local variables without initialization may use default value and result in a wrong computation.  **Recom:** Initialize all the variables before use. If a variable is meant to be initialized to zero, explicitly set it to zero to improve code readability.
 
@@ -1213,7 +1315,20 @@ Parameter UnboundedKerosineVault.setDenominator(KerosineDenominator)._kerosineDe
 
 Unused state variable.  **Recom:** Remove unused state variables.
 
-*There are 1 instance(s) of this issue:*
+*There are 2 instance(s) of this issue:*
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2 (script/deploy/Deploy.V2.s.sol#35-114) has following non-used variables 
+	- Parameters.SEPOLIA_WETH_ORACLE (src/params/Parameters.sol#43)
+
+/// @audit ****************** Affected Code *******************
+
+```
+
+*GitHub* : [35-114](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L35-L114)
 
 ```solidity
 File: src/staking/KerosineDenominator.sol
