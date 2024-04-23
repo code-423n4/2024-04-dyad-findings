@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "  `Vault.kerosine.unbounded.sol` & `Vault.kerosine.bounded.sol` both integrate with a hardcoded `STALE_DATA_TIMEOUT` when querying price which would lead to protocol's ingestion of stale prices and frequent lengthy DOS for the lifetime of protocol",
+  "issueId": 524,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/524"
+}
