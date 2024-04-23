@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Aamir",
+  "risk": "2",
+  "title": "Incorrect Licensing check in `VaultManagerV2::addKerosene(...)` will cause denial of service.",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/411"
+}
