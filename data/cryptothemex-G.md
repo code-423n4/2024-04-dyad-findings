@@ -7,20 +7,22 @@
 | [[G-03](#g-03)] | Division which can not overflow | 4| 340|
 | [[G-04](#g-04)] | Use assembly to emit events | 11| 418|
 | [[G-05](#g-05)] | Emit event in setter function only if the state variable was changed | 2| 0|
-| [[G-06](#g-06)] | Using Storage Instead of Memory for structs/arrays Saves Gas | 1| 4200|
-| [[G-07](#g-07)] | Functions guaranteed to revert when called by normal users can be marked `payable` | 4| 0|
-| [[G-08](#g-08)] | if variable is casted more than once, consider caching the result to save gas | 1| 0|
-| [[G-09](#g-09)] | Inefficient Parameter Storage | 8| 400|
-| [[G-10](#g-10)] | Avoid updating storage when the value hasn't changed | 3| 2400|
-| [[G-11](#g-11)] | Solidity versions 0.8.19 and above are more gas efficient | 6| 0|
-| [[G-12](#g-12)] | Use assembly to write address storage values | 1| 77|
-| [[G-13](#g-13)] | State variable read in a loop | 3| 0|
-| [[G-14](#g-14)] | Unnecessary casting as variable is already of the same type | 1| 0|
-| [[G-15](#g-15)] | State variables that could be declared immutable | 1| 0|
-| [[G-16](#g-16)] | checks for zero uint should be done using assembly to save gas | 1| 30|
-| [[G-17](#g-17)] | `>=` costs less gas than `>` | 11| 33|
-| [[G-18](#g-18)] | Counting down in for statements is more gas efficient | 4| 120|
-| [[G-19](#g-19)] | Avoid transferring amounts of zero in order to save gas | 1| 100|
+| [[G-06](#g-06)] | Optimize Function Names to Save Gas | 2| 72|
+| [[G-07](#g-07)] | Using Storage Instead of Memory for structs/arrays Saves Gas | 1| 4200|
+| [[G-08](#g-08)] | Functions guaranteed to revert when called by normal users can be marked `payable` | 4| 0|
+| [[G-09](#g-09)] | if variable is casted more than once, consider caching the result to save gas | 6| 0|
+| [[G-10](#g-10)] | Inefficient Parameter Storage | 8| 400|
+| [[G-11](#g-11)] | Avoid updating storage when the value hasn't changed | 3| 2400|
+| [[G-12](#g-12)] | Solidity versions 0.8.19 and above are more gas efficient | 7| 0|
+| [[G-13](#g-13)] | Use assembly to write address storage values | 2| 154|
+| [[G-14](#g-14)] | State variable read in a loop | 3| 0|
+| [[G-15](#g-15)] | Unnecessary casting as variable is already of the same type | 1| 0|
+| [[G-16](#g-16)] | State variables that could be declared immutable | 1| 0|
+| [[G-17](#g-17)] | checks for zero uint should be done using assembly to save gas | 1| 30|
+| [[G-18](#g-18)] | `>=` costs less gas than `>` | 11| 33|
+| [[G-19](#g-19)] | Counting down in for statements is more gas efficient | 4| 120|
+| [[G-20](#g-20)] | Avoid transferring amounts of zero in order to save gas | 1| 100|
+| [[G-21](#g-21)] | Consider activating via-ir for deploying | 1| 0|
 
 ### Gas Risk Issues
 
@@ -829,7 +831,69 @@ VaultManagerV2.add(uint256,address) (src/core/VaultManagerV2.sol#67-78) should e
 
 *GitHub* : [67-78](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L67-L78)
 
-### [G-06]<a name="g-06"></a> Using Storage Instead of Memory for structs/arrays Saves Gas
+### [G-06]<a name="g-06"></a> Optimize Function Names to Save Gas
+
+Functions are more efficient in solidity when their function selector has mostly zeros so optimize public/external function names/ member variable names to save gas. Gas cost of a function name is 4 times the number of zero bytes, and 16 times the number of nonzero bytes. So in the worst case, the gas cost is 64 gas (4 non-zero bytes), and in the best case 28 gas (3 zero and 1 non-zero). [tool to find optimal function names](https://github.com/jeffreyscholz/solidity-zero-finder-rust).
+
+*There are 2 instance(s) of this issue:*
+
+```solidity
+File: src/core/KerosineManager.sol
+
+/// @audit ******************* Issue Detail *******************
+KerosineManager (src/core/KerosineManager.sol#7-52) may optimize following function name(s) :- 
+	- KerosineManager.add(address) (src/core/KerosineManager.sol#18-26)
+	- KerosineManager.remove(address) (src/core/KerosineManager.sol#28-35)
+	- KerosineManager.getVaults() (src/core/KerosineManager.sol#37-42)
+	- KerosineManager.isLicensed(address) (src/core/KerosineManager.sol#44-51)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#18-26,  L#28-35,  L#37-42,  L#44-51,  
+
+/// @audit ****************** Affected Code *******************
+  18:   function add(
+  28:   function remove(
+  37:   function getVaults() 
+  44:   function isLicensed(
+
+```
+
+*GitHub* : [7-52](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L52)
+
+```solidity
+File: src/core/VaultManagerV2.sol
+
+/// @audit ******************* Issue Detail *******************
+VaultManagerV2 (src/core/VaultManagerV2.sol#17-308) may optimize following function name(s) :- 
+	- VaultManagerV2.setKeroseneManager(KerosineManager) (src/core/VaultManagerV2.sol#59-64)
+	- VaultManagerV2.addKerosene(uint256,address) (src/core/VaultManagerV2.sol#80-91)
+	- VaultManagerV2.removeKerosene(uint256,address) (src/core/VaultManagerV2.sol#106-116)
+	- VaultManagerV2.collatRatio(uint256) (src/core/VaultManagerV2.sol#230-239)
+	- VaultManagerV2.getTotalUsdValue(uint256) (src/core/VaultManagerV2.sol#241-248)
+	- VaultManagerV2.getNonKeroseneValue(uint256) (src/core/VaultManagerV2.sol#250-267)
+	- VaultManagerV2.getKeroseneValue(uint256) (src/core/VaultManagerV2.sol#269-286)
+	- VaultManagerV2.getVaults(uint256) (src/core/VaultManagerV2.sol#290-297)
+	- VaultManagerV2.hasVault(uint256,address) (src/core/VaultManagerV2.sol#299-307)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#59-64,  L#80-91,  L#106-116,  L#230-239,  L#241-248,  L#250-267,  L#269-286,  L#290-297,  L#299-307,  
+
+/// @audit ****************** Affected Code *******************
+  59:   function setKeroseneManager(KerosineManager _keroseneManager) 
+  80:   function addKerosene(
+ 106:   function removeKerosene(
+ 230:   function collatRatio(
+ 241:   function getTotalUsdValue(
+ 250:   function getNonKeroseneValue(
+ 269:   function getKeroseneValue(
+ 290:   function getVaults(
+ 299:   function hasVault(
+
+```
+
+*GitHub* : [17-308](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L308)
+
+### [G-07]<a name="g-07"></a> Using Storage Instead of Memory for structs/arrays Saves Gas
 
 When fetching data from a storage location, assigning the data to a memory variable causes all fields of the struct / array to be read from storage. This incurs a Gcoldsload (2100 gas) for each field of the struct / array. If the fields are read from the new memory variable, they incur an additional MLOAD, which is more expensive than a simple stack read.
 
@@ -876,7 +940,7 @@ UnboundedKerosineVault.assetPrice() (src/core/Vault.kerosine.unbounded.sol#50-68
 
 *GitHub* : [50-68](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50-L68)
 
-### [G-07]<a name="g-07"></a> Functions guaranteed to revert when called by normal users can be marked `payable`
+### [G-08]<a name="g-08"></a> Functions guaranteed to revert when called by normal users can be marked `payable`
 
 If a function modifier such as `onlyOwner` is used, or a function checks `msg.sender` some other way, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are `CALLVALUE`(2),`DUP1`(3),`ISZERO`(3),`PUSH2`(3),`JUMPI`(10),`PUSH1`(3),`DUP1`(3),`REVERT`(0),`JUMPDEST`(1),`POP`(2), which costs an average of about **21 gas per call** to the function, in addition to the extra deployment cost
 
@@ -961,11 +1025,109 @@ UnboundedKerosineVault.setDenominator(KerosineDenominator) (src/core/Vault.keros
 
 *GitHub* : [43-48](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43-L48)
 
-### [G-08]<a name="g-08"></a> if variable is casted more than once, consider caching the result to save gas
+### [G-09]<a name="g-09"></a> if variable is casted more than once, consider caching the result to save gas
 
 Casting values multiple times in Solidity can be gas-inefficient. When a value undergoes repeated type conversions, the EVM must execute additional operations for each cast, consuming more gas than necessary. To optimize for gas efficiency, cache the result of the initial cast in a local variable and reuse it, rather than performing multiple casts. This not only conserves gas but also enhances code readability, reducing potential error points. For example, instead of repeatedly casting an `address` to `uint256`, cast once, store the result in a local variable, and reference that variable in subsequent operations.
 
-*There are 1 instance(s) of this issue:*
+*There are 6 instance(s) of this issue:*
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts (address MAINNET_DYAD) multiple time(s) :-
+	- vaultManager = new VaultManagerV2(DNft(MAINNET_DNFT),Dyad(MAINNET_DYAD),vaultLicenser) (script/deploy/Deploy.V2.s.sol#42-46)
+	- unboundedKerosineVault = new UnboundedKerosineVault(vaultManager,Kerosine(MAINNET_KEROSENE),Dyad(MAINNET_DYAD),kerosineManager) (script/deploy/Deploy.V2.s.sol#71-76)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#42-46,  L#71-76,  
+
+/// @audit ****************** Affected Code *******************
+  42:     VaultManagerV2 vaultManager = new VaultManagerV2(
+  43:       DNft(MAINNET_DNFT),
+  44:       Dyad(MAINNET_DYAD),
+  45:       vaultLicenser
+  46:     );
+  71:     UnboundedKerosineVault unboundedKerosineVault = new UnboundedKerosineVault(
+  72:       vaultManager,
+  73:       Kerosine(MAINNET_KEROSENE), 
+  74:       Dyad    (MAINNET_DYAD),
+  75:       kerosineManager
+  76:     );
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts (address MAINNET_KEROSENE) multiple time(s) :-
+	- unboundedKerosineVault = new UnboundedKerosineVault(vaultManager,Kerosine(MAINNET_KEROSENE),Dyad(MAINNET_DYAD),kerosineManager) (script/deploy/Deploy.V2.s.sol#71-76)
+	- boundedKerosineVault = new BoundedKerosineVault(vaultManager,Kerosine(MAINNET_KEROSENE),kerosineManager) (script/deploy/Deploy.V2.s.sol#78-82)
+	- kerosineDenominator = new KerosineDenominator(Kerosine(MAINNET_KEROSENE)) (script/deploy/Deploy.V2.s.sol#84-86)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#71-76,  L#78-82,  L#84-86,  
+
+/// @audit ****************** Affected Code *******************
+  71:     UnboundedKerosineVault unboundedKerosineVault = new UnboundedKerosineVault(
+  72:       vaultManager,
+  73:       Kerosine(MAINNET_KEROSENE), 
+  74:       Dyad    (MAINNET_DYAD),
+  75:       kerosineManager
+  76:     );
+  78:     BoundedKerosineVault boundedKerosineVault     = new BoundedKerosineVault(
+  79:       vaultManager,
+  80:       Kerosine(MAINNET_KEROSENE), 
+  81:       kerosineManager
+  82:     );
+  84:     KerosineDenominator kerosineDenominator       = new KerosineDenominator(
+  85:       Kerosine(MAINNET_KEROSENE)
+  86:     );
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts (VaultWstEth wstEth) multiple time(s) :-
+	- kerosineManager.add(address(wstEth)) (script/deploy/Deploy.V2.s.sol#65)
+	- vaultLicenser.add(address(wstEth)) (script/deploy/Deploy.V2.s.sol#94)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#65,  L#94,  
+
+/// @audit ****************** Affected Code *******************
+  65:     kerosineManager.add(address(wstEth));
+  94:     vaultLicenser.add(address(wstEth));
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
+
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.run() (script/deploy/Deploy.V2.s.sol#36-113) casts (Vault ethVault) multiple time(s) :-
+	- kerosineManager.add(address(ethVault)) (script/deploy/Deploy.V2.s.sol#64)
+	- vaultLicenser.add(address(ethVault)) (script/deploy/Deploy.V2.s.sol#93)
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#64,  L#93,  
+
+/// @audit ****************** Affected Code *******************
+  64:     kerosineManager.add(address(ethVault));
+  93:     vaultLicenser.add(address(ethVault));
+
+```
+
+*GitHub* : [36-113](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L36-L113)
 
 ```solidity
 File: src/core/VaultManagerV2.sol
@@ -997,7 +1159,21 @@ VaultManagerV2.deposit(uint256,address,uint256) (src/core/VaultManagerV2.sol#119
 
 *GitHub* : [119-131](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L119-L131)
 
-### [G-09]<a name="g-09"></a> Inefficient Parameter Storage
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.slitherConstructorConstantVariables() (script/deploy/Deploy.V2.s.sol#35-114) casts (address VM_ADDRESS) multiple time(s) :-
+	- vm = Vm(VM_ADDRESS) (lib/forge-std/src/Base.sol#20)
+	- vmSafe = VmSafe(VM_ADDRESS) (lib/forge-std/src/Base.sol#30)
+
+/// @audit ****************** Affected Code *******************
+
+```
+
+*GitHub* : [35-114](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L35-L114)
+
+### [G-10]<a name="g-10"></a> Inefficient Parameter Storage
 
 When passing function parameters, using the `calldata` area instead of `memory` can improve gas efficiency. `Calldata` is a read-only area where function arguments and external function calls' parameters are stored.
 
@@ -1198,7 +1374,7 @@ UnboundedKerosineVault.constructor(IVaultManager,ERC20,Dyad,KerosineManager) (sr
 
 *GitHub* : [21-28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L21-L28)
 
-### [G-10]<a name="g-10"></a> Avoid updating storage when the value hasn't changed
+### [G-11]<a name="g-11"></a> Avoid updating storage when the value hasn't changed
 
 If the old value is equal to the new value, not re-storing the value will avoid a Gsreset (**2900 gas**), potentially at the expense of a Gcoldsload (**2100 gas**) or a Gwarmaccess (**100 gas**)
 
@@ -1260,11 +1436,11 @@ BoundedKerosineVault.setUnboundedKerosineVault(UnboundedKerosineVault) (src/core
 
 *GitHub* : [23-30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L23-L30)
 
-### [G-11]<a name="g-11"></a> Solidity versions 0.8.19 and above are more gas efficient
+### [G-12]<a name="g-12"></a> Solidity versions 0.8.19 and above are more gas efficient
 
 Solidity version 0.8.19 introduced a array of gas optimizations which make contracts which use it more efficient. Provided compatability it may be beneficial to upgrade to this version
 
-*There are 6 instance(s) of this issue:*
+*There are 7 instance(s) of this issue:*
 
 ```solidity
 File: src/staking/KerosineDenominator.sol
@@ -1331,6 +1507,22 @@ File: src/core/Vault.kerosine.sol
 *GitHub* : [2-2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L2-L2)
 
 ```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+=0.8.17 (script/deploy/Deploy.V2.s.sol#2) version lesser than 0.8.19:
+
+/// @audit ************** Possible Issue Line(s) **************
+	L#2,  
+
+/// @audit ****************** Affected Code *******************
+   2: pragma solidity =0.8.17;
+
+```
+
+*GitHub* : [2-2](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L2-L2)
+
+```solidity
 File: src/core/Vault.kerosine.bounded.sol
 
 /// @audit ******************* Issue Detail *******************
@@ -1362,11 +1554,11 @@ File: src/core/VaultManagerV2.sol
 
 *GitHub* : [2-2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L2-L2)
 
-### [G-12]<a name="g-12"></a> Use assembly to write address storage values
+### [G-13]<a name="g-13"></a> Use assembly to write address storage values
 
 Using assembly to write address storage values can potentially save gas costs. This detector flags instances where address storage values are written without using assembly.
 
-*There are 1 instance(s) of this issue:*
+*There are 2 instance(s) of this issue:*
 
 ```solidity
 File: src/staking/KerosineDenominator.sol
@@ -1432,7 +1624,24 @@ KerosineDenominator.slitherConstructorVariables() (src/staking/KerosineDenominat
 
 *GitHub* : [7-23](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L23)
 
-### [G-13]<a name="g-13"></a> State variable read in a loop
+```solidity
+File: script/deploy/Deploy.V2.s.sol
+
+/// @audit ******************* Issue Detail *******************
+DeployV2.slitherConstructorConstantVariables() (script/deploy/Deploy.V2.s.sol#35-114) writes address state variable :- 
+	- VM_ADDRESS = address(uint160(uint256(keccak256(bytes)(hevm cheat code)))) (lib/forge-std/src/Base.sol#9)
+	- CONSOLE = 0x000000000000000000636F6e736F6c652e6c6f67 (lib/forge-std/src/Base.sol#11)
+	- DEFAULT_SENDER = address(uint160(uint256(keccak256(bytes)(foundry default caller)))) (lib/forge-std/src/Base.sol#13)
+	- DEFAULT_TEST_CONTRACT = 0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f (lib/forge-std/src/Base.sol#15)
+	- CREATE2_FACTORY = 0x4e59b44847b379578588920cA78FbF26c0B4956C (lib/forge-std/src/Base.sol#28)
+
+/// @audit ****************** Affected Code *******************
+
+```
+
+*GitHub* : [35-114](https://github.com/code-423n4/2024-04-dyad/blob/main/script/deploy/Deploy.V2.s.sol#L35-L114)
+
+### [G-14]<a name="g-14"></a> State variable read in a loop
 
 Reading a state variable inside a loop can unnecessarily increase gas consumption, as each read operation from the blockchain state is costly. This inefficiency becomes pronounced in loops with many iterations. To optimize gas usage, it's advisable to read the state variable once before the loop starts, store its value in a local (memory) variable, and then use this local variable within the loop. This approach minimizes the number of state read operations, thereby reducing the gas cost associated with executing the contract function, making the smart contract more efficient and cost-effective to run.
 
@@ -1548,7 +1757,7 @@ VaultManagerV2.getKeroseneValue(uint256) (src/core/VaultManagerV2.sol#269-286) r
 
 *GitHub* : [269-286](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269-L286)
 
-### [G-14]<a name="g-14"></a> Unnecessary casting as variable is already of the same type
+### [G-15]<a name="g-15"></a> Unnecessary casting as variable is already of the same type
 
 Unnecessary casting of a variable to the same type is redundant and can contribute to gas inefficiency and code clutter. This situation commonly arises when developers, perhaps due to oversight or misunderstanding, explicitly cast a variable to its existing type. For example, casting a `uint256` variable to `uint256` again does not change its type or value but adds unnecessary operations and gas.
 
@@ -1583,7 +1792,7 @@ VaultManagerV2.deposit(uint256,address,uint256) (src/core/VaultManagerV2.sol#119
 
 *GitHub* : [119-131](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L119-L131)
 
-### [G-15]<a name="g-15"></a> State variables that could be declared immutable
+### [G-16]<a name="g-16"></a> State variables that could be declared immutable
 
 State variables that are not updated following deployment should be declared immutable to save gas.  **Recom:** Add the `immutable` attribute to state variables that never change or are set only in the constructor.
 
@@ -1605,7 +1814,7 @@ KerosineDenominator.kerosine (src/staking/KerosineDenominator.sol#9) should be i
 
 *GitHub* : [9-9](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L9-L9)
 
-### [G-16]<a name="g-16"></a> checks for zero uint should be done using assembly to save gas
+### [G-17]<a name="g-17"></a> checks for zero uint should be done using assembly to save gas
 
 Using assembly for simple zero checks on unsigned integers can save gas due to lower-level, optimized operations.
 
@@ -1621,7 +1830,7 @@ File: src/core/VaultManagerV2.sol
 
 *GitHub* : [237](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L237-L237)
 
-### [G-17]<a name="g-17"></a> `>=` costs less gas than `>`
+### [G-18]<a name="g-18"></a> `>=` costs less gas than `>`
 
 The compiler uses opcodes `GT` and `ISZERO` for solidity code that uses `>`, but only requires `LT` for `>=`, [which saves **3 gas**](https://gist.github.com/IllIllI000/3dc79d25acccfa16dee4e83ffdc6ffde). If `<` is being used, the condition can be inverted. In cases where a for-loop is being used, one can count down rather than up, in order to use the optimal operator
 
@@ -1666,7 +1875,7 @@ File: src/core/VaultManagerV2.sol
 
 *GitHub* : [101](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L101-L101), [113](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L113-L113), [150](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L150-L150), [152](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L152-L152), [165](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L165-L165), [167](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L167-L167), [217](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L217-L217), [222](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L222-L222), [258](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L258-L258), [277](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L277-L277)
 
-### [G-18]<a name="g-18"></a> Counting down in for statements is more gas efficient
+### [G-19]<a name="g-19"></a> Counting down in for statements is more gas efficient
 
 Looping downwards in Solidity is more gas efficient due to how the EVM compares variables. In a 'for' loop that counts down, the end condition is usually to compare with zero, which is cheaper than comparing with another number. As such, restructure your loops to count downwards where possible.
 
@@ -1697,7 +1906,7 @@ File: src/core/VaultManagerV2.sol
 
 *GitHub* : [222](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L222-L222), [258](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L258-L258), [277](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L277-L277)
 
-### [G-19]<a name="g-19"></a> Avoid transferring amounts of zero in order to save gas
+### [G-20]<a name="g-20"></a> Avoid transferring amounts of zero in order to save gas
 
 Skipping the external call when nothing will be transferred, will save at least **100 gas**
 
@@ -1712,3 +1921,14 @@ File: src/core/VaultManagerV2.sol
 
 
 *GitHub* : [129](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L129-L129)
+
+### [G-21]<a name="g-21"></a> Consider activating via-ir for deploying
+
+The IR-based code generator was developed to make code generation more transparent and auditable, while also enabling powerful optimization passes that can be applied across functions.
+
+It is possible to activate the IR-based code generator through the command line by using the flag --via-ir or by including the option {'viaIR': true}.
+
+Keep in mind that compiling with this option may take longer. However, you can simply test it before deploying your code. If you find that it provides better performance, you can add the --via-ir flag to your deploy command.
+
+*There are 1 instance(s) of this issue:*
+
