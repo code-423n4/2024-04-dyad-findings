@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Daniel526",
+  "risk": "3",
+  "title": "An attacker can exploit the `VaultManagerV2` contract by using flash loans to manipulate market prices, leading to unwarranted liquidations and financial losses for legitimate users",
+  "issueId": 475,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/475"
+}
