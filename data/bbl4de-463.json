@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "bbl4de",
+  "risk": "3",
+  "title": "`VaultManagerV2::deposit()` function can be called for a vault that was not added to your Note NFT disrupting user liquidation, collateral value calculation and more",
+  "issueId": 463,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/463"
+}
