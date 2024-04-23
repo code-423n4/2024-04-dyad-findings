@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xDemon",
+  "risk": "2",
+  "title": "`withdraw()`, `mintDyad()`, `redeemDyad()` and `burnDyad()` in `VaultManagerV2` do not have slippage protection",
+  "issueId": 376,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/376"
+}
