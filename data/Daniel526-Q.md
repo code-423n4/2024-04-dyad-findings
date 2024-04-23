@@ -26,3 +26,31 @@ The reliance on a potentially hardcoded address could lead to a lack of flexibil
 
 ### Mitigation: 
 Replace the hardcoded address with a modifiable state variable that can be updated through a secure governance process. This could involve role-based access control or a multisignature mechanism that allows for address updates without requiring contract migration or redeployment.
+## C. Non-Compliance with Checks-Effects-Interactions Pattern in Withdraw Function
+[VaultManagerV2.sol#L134-L153](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L134-L153)
+[VaultManagerV2.sol#L156-L169](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L156-L169)
+The withdraw function in the VaultManagerV2 contract does not fully adhere to the Checks-Effects-Interactions (CEI) pattern. The pattern is a best practice in smart contract development to prevent reentrancy attacks. The function signature and relevant code snippet are as follows:
+```solidity
+function withdraw(
+  uint    id,
+  address vault,
+  uint    amount,
+  address to
+) 
+  public
+    isDNftOwner(id)
+{
+  if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
+  // ... (other checks)
+  Vault _vault = Vault(vault);
+  _vault.withdraw(id, to, amount); // Interaction before final state change
+  // ... (additional logic)
+  if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow(); 
+}
+```
+The function is intended to allow DNft owners to withdraw assets from their vault. It performs several checks, interacts with an external Vault contract to transfer assets, and then performs a final collateralization ratio check.
+### Impact: 
+The current ordering allows for a potential reentrancy attack, where an attacker could take advantage of the state changes that occur after the external call to the `_vault.withdraw` function.
+
+### Mitigation: 
+To mitigate this issue, the function should be refactored to ensure that all state changes, including the final collateralization ratio check, are completed before the external call to `_vault.withdraw`. 
