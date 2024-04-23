@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "petro_1912",
+  "risk": "3",
+  "title": "Malicious owner can move other owner's collateral to him by liquidating other owner's DNFT that has enough collateral. ",
+  "issueId": 513,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/513"
+}
