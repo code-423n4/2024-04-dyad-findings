@@ -23,13 +23,3 @@ insure that all founders are trusted and no 3/5 of people can harm protocol user
 # [6] in `Vault.kerosine.bounded.sol:UnboundedKerosineVault` should be immutable
 centraliztion risk connected to leaving this as normal storage variable since the  `UnboundedKerosineVault` contract have the `assetPrice()` function of Kerosene token that is used in `Vault.kerosine.bounded.sol` to get 2x the value since this is Permanently locked Kerosene, but since this address is very important its better transperancy to set it in the constructor and make it immutable to raise questions about the integrity of the protocl
 (suspected scenario) team reset the logic address of `UnboundedKerosineVault` to malicious one that returns very low `assetPrice()` affecting `VaultManagerV2.sol::getNonKerosineValue()` and the chain of functions that depends on it
-
-# [7] a logic that may lead to flashLoan attack
-in `VaultManagerV2.sol` the function `liquidate()` open up a knob for attacker that deposit and withdraw in the same txn
-example as follows
-https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L225
-in this line `liquidate()` calls `Vault.sol::move()` which doesn't update `idToBlockOfLastDeposit` mapping giving the ability for `to` id owner to withdraw from vault in the same txn and since he can own 2 dNFTs normally he can liquidate the position of one id and put `to` id of his second NFT and call `withdraw()` with his second id dNFT
-Try to implement a logic where:
-1- you can only own 1 NFT
-2- no self liquidation is allowed
-3- update `idToBlockOfLastDeposit` even in `liquidate()` calls before calling `Vault.move()`
