@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "In the deploy script weth and wsteth vaults are added and licensed in the Kerosine Manager as well which allows malicious users to double their collateral and exploit the protocol",
+  "issueId": 468,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/468"
+}
