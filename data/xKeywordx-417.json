@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "xKeywordx",
+  "risk": "3",
+  "title": "### [H-2] Arbitrary logic execution due to lack of input validation on `VaultManagerV2::withdraw` function.",
+  "issueId": 417,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/417"
+}
