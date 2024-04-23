@@ -22,3 +22,16 @@ In order to mitigate this issue set up a borrow limit of maybe 400 000 e18 DYAD 
 ## Details
 
 In the deployment script `setUnboundedKerosineVault()` is not called, which is crucial for the final setup of `BoundedKerosineVault`. However this can be done later and is not really an issue, it would just be more convenient to do it from the deployment script. 
+
+## Consider adding names to mappings
+
+## Links
+
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/Vault.kerosine.sol#L19
+
+## Mitigation route
+
+Instead of doing :
+    `mapping(uint => uint) public id2asset;`
+do
+    `mapping(uint id => uint amount) public id2asset;`
