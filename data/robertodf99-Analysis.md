@@ -264,7 +264,7 @@ Validate the license of the kerosine vaults always using the `Licenser.sol`, suc
 
 ### [H-3] `VaultManagerV2::withdraw` will revert if users try to withdraw kerosine
 #### Summary
-During the calculation of the claimed token amount based on the USD value, the function checks the decimals used by the oracle providing the price. However, as explained in finding `H-02`, kerosine's price is deterministically calculated within its own contract and does not rely on oracles.
+During the calculation of the claimed token amount based on the USD value, the function checks the decimals used by the oracle providing the price. However, as explained in finding `H-2`, kerosine's price is deterministically calculated within its own contract and does not rely on oracles.
 #### Impact
 Attempting to withdraw kerosine from the unbounded vault will result in a reversion. Refer to the PoC below. This assumes that kerosine vaults are licensed through the vault licenser.
 
