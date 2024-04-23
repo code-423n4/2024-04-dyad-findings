@@ -264,7 +264,7 @@ Validate the license of the kerosine vaults always using the `Licenser.sol`, suc
 
 ### [H-3] Kerosine's withdrawal should be executed separately
 #### Summary
-This finding relates to two issues in the withdrawal process of the kerosine. First, since the function `VaultManagerV2::withdraw` is reading the oracle decimals from the vault and the kerosine vaults do not implement it, the transaction will revert. And second, when substracting the value to be withdrawn to the USD value of the non kerosene collateral it may result in a revert if the user is holding less exogenous collateral than the value of the sum of the minted dyad and the kerosine being withdrawn.
+This finding relates to two issues in the withdrawal process of the kerosine. First, since the function `VaultManagerV2::withdraw` is reading the oracle decimals from the vault and the kerosine vaults do not implement it, the transaction will revert (same problem in `VaultManagerV2::redeemDyad`). And second, when substracting the value to be withdrawn to the USD value of the non kerosene collateral it may result in a revert if the user is holding less exogenous collateral than the value of the sum of the minted dyad and the kerosine being withdrawn. So even if the user's collateral is above the minimum requirements the transaction would still revert.
 
 ```javascript
   function withdraw(
@@ -445,7 +445,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_withdrawRevertsCollateral
 </details>
 
 #### Recommended mitigation
-A possible remediation could involve implementing a separate withdraw function specifically for the kerosine vault, utilizing the same number of decimals as employed by the vault to calculate the price and removing the check for the exogenous collateral since it will remain unchanged and the only factor that could compromise the user's position is the collateral ratio.
+A possible remediation could involve implementing a separate withdraw function specifically for the kerosine vault, utilizing the same number of decimals as employed by the vault to calculate the price and removing the check for the exogenous collateral since it will remain unchanged and the only factor that could compromise the user's position is the collateral ratio. Also adjust the function `VaultManagerV2::redeemDyad` accordingly.
 
 ```javascript
     function withdrawKerosine(
