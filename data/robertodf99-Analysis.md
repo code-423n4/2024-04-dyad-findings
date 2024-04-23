@@ -303,7 +303,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_withdrawReverts --fork-ur
         );
         vm.roll(block.number + 1);
         vm.expectRevert();
-        contracts.vaultManager.withdrawKerosine(
+        contracts.vaultManager.withdraw(
             id,
             address(contracts.unboundedKerosineVault),
             50 ether,
@@ -327,7 +327,7 @@ A possible remediation could involve implementing a separate withdraw function s
             revert DepositedInSameBlock();
         uint dyadMinted = dyad.mintedDyad(address(this), id);
         Vault _vault = Vault(vault);
-        uint kerosineVaultDecimals = 18;
+        uint kerosineVaultDecimals = 8;
         uint value = (amount * _vault.assetPrice() * 1e18) /
             10 ** kerosineVaultDecimals /
             10 ** _vault.asset().decimals();
