@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "MSaptarshi",
+  "risk": "2",
+  "title": "If a token price goes to zero, many user operation might become invalid",
+  "issueId": 379,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/379"
+}
