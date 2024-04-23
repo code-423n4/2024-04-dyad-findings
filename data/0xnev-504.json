@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xnev",
+  "risk": "3",
+  "title": "`UnboundedKerosineVault.assetPrice()`: Large liquidity providers can manipulate kerosene price to force liquidations",
+  "issueId": 504,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/504"
+}
