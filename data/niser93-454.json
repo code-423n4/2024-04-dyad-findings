@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "niser93",
+  "risk": "3",
+  "title": "DoS of VaultManagerV2.withdraw() method depositing a negligible amount of token on victim position",
+  "issueId": 454,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/454"
+}
