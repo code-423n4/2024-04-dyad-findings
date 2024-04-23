@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Abdessamed",
+  "risk": "3",
+  "title": "Dyad can be minted against kerosene collateral only and not being backed by at least $1 of exogenous collateral",
+  "issueId": 459,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/459"
+}
