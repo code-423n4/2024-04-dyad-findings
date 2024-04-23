@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "petro_1912",
+  "risk": "3",
+  "title": "`getTotalUsdValue` and `collatRatio` can be estimated more than real TVL due to duplicated vault in `vaults` and `vaultsKerosene`.",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/464"
+}
