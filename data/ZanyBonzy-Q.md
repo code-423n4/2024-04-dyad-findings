@@ -360,3 +360,13 @@ Depending on valuable the price of dyad becomes(incae of an upward depeg) , a us
 
 ### Recommended Mitigation Steps
 Disable transfer of NFTs when its undercollateralized.
+
+# 13. No incentives to liquidate undercollateralized positions
+
+Lines of code* 
+
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L217
+
+### Impact
+
+When liquidators liquidate a distressed NFT, they perform a expect to receive a significant profit for their efforts while factoring gas costs and cost of liquidation. However, if a position lacks sufficient collateral to cover the short amount being liquidated, liquidators receive the remaining collateral which, which could be minimal when compared to the price of dyad needed to be burned to liquidate position. This scenario causes protocol to accumulate bad debts as multiple distressed/liquidatable nfts won't be liquidated cause there are no incentives to do so (if there assets are relatively low in value), discouraging liquidators from participating in the protocol and impacting the protocol's liquidity and overall efficiency. 
