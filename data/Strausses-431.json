@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Strausses",
+  "risk": "2",
+  "title": "`boundedKerosineVault` will not be added to the licenced vaults list while deployment",
+  "issueId": 431,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/431"
+}
