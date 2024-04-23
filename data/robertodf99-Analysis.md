@@ -277,14 +277,26 @@ Place this in `v2.t.sol` and run `forge test --mt test_withdrawReverts --fork-ur
     function test_withdrawReverts() public {
         // For this it is assumed that kersoine vaults are licensed through the vault licenser and not the kerosine manager
         address bob = makeAddr("bob");
-        vm.deal(bob, 1 ether);
+        vm.deal(bob, 700_001 ether);
 
         vm.startPrank(bob);
 
         uint id = DNft(MAINNET_DNFT).mintNft{value: 1 ether}(address(bob));
-        vm.stopPrank();
 
-        vm.startPrank(bob);
+        IWETH(MAINNET_WETH).deposit{value: 700_000 ether}();
+
+        contracts.vaultManager.add(id, address(contracts.ethVault));
+
+        WETH(payable(MAINNET_WETH)).approve(
+            address(contracts.vaultManager),
+            700_000 ether
+        );
+        contracts.vaultManager.deposit(
+            id,
+            address(contracts.ethVault),
+            700_000 ether
+        );
+
         contracts.vaultManager.addKerosene(
             id,
             address(contracts.unboundedKerosineVault)
