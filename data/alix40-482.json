@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "alix40",
+  "risk": "3",
+  "title": "Withdrawing Kerosene tokens from `Vault.kerosine.unbounded` in `VaultManagerV2` will always revert",
+  "issueId": 482,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/482"
+}
