@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Daniel526",
+  "risk": "2",
+  "title": "Potential Liquidation Execution on Uninitialized or Empty Vaults",
+  "issueId": 474,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/474"
+}
