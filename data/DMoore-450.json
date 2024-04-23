@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "DMoore",
+  "risk": "2",
+  "title": "Front-running VaultManagerV2.withdraw call with zero amount deposit can cause withdraw failed",
+  "issueId": 450,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/450"
+}
