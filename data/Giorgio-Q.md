@@ -35,3 +35,20 @@ Instead of doing :
     `mapping(uint => uint) public id2asset;`
 do
     `mapping(uint id => uint amount) public id2asset;`
+
+
+
+## Change Kerosine to Kerosene
+
+## Details
+
+contracts involving Kerosene are typed Kerosine, which is a type across the whole contracts. 
+
+## Links
+
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/Vault.kerosine.unbounded.sol#L4
+
+## Mitigation
+
+There are many occurences of this typo, just the change all the contract names and imports, quite straightforward
+
