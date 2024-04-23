@@ -54,3 +54,20 @@ The current ordering allows for a potential reentrancy attack, where an attacker
 
 ### Mitigation: 
 To mitigate this issue, the function should be refactored to ensure that all state changes, including the final collateralization ratio check, are completed before the external call to `_vault.withdraw`. 
+## D. Lack of Two-Step Ownership Transfer in DeployV2 Contract
+[Deploy.V2.s.sol#L69](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L69)
+[Deploy.V2.s.sol#L90-L91](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L90-L91)
+[Deploy.V2.s.sol#L98](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L98)
+The `DeployV2` contract lacks a two-step ownership transfer mechanism when transferring ownership of certain contracts. Specifically, in the `run` function of the contract, ownership of the `unboundedKerosineVault`, `boundedKerosineVault`, and `vaultLicenser` contracts is transferred directly to the final owner (`MAINNET_OWNER`) without an intermediate step.
+```SOLIDITY
+// Transfer ownership to the final owner directly
+unboundedKerosineVault.transferOwnership(MAINNET_OWNER);
+boundedKerosineVault.transferOwnership(MAINNET_OWNER);
+vaultLicenser.transferOwnership(MAINNET_OWNER);
+```
+This direct transfer of ownership can pose a security risk as it leaves these contracts vulnerable to potential attacks during the ownership transfer process. Without an intermediate step, malicious actors could potentially interfere with the ownership transfer, leading to unintended consequences or loss of control over the contracts.
+### Impact:
+The lack of a two-step ownership transfer mechanism exposes the contracts to potential attacks during the ownership transfer process. Malicious actors could exploit this vulnerability to gain unauthorized access or control over the contracts, leading to potential loss of funds or disruption of the system's functionality.
+
+### Mitigation:
+Implement a two-step ownership transfer mechanism to enhance the security of the contract deployment process.
