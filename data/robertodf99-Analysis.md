@@ -6,7 +6,7 @@ Prepared by: Roberto Delgado Ferrezuelo
 - [Findings](#findings)
   - [High](#high)
     - [\[H-1\] Liquidators are not receiving the full 20% bonus due to oversight in collateral calculation](#h-1-liquidators-are-not-receiving-the-full-20-bonus-due-to-oversight-in-collateral-calculation)
-    - [\[H-2\] Incorrect license check in `VaultManagerV2::addKerosene`](#h-2-incorrect-license-check-in-vaultmanagerv2addkerosene)
+    - [\[H-2\] Incorrect license check in `VaultManagerV2::addKerosene` and `VaultManagerV2::getKeroseneValue`](#h-2-incorrect-license-check-in-vaultmanagerv2addkerosene-and-vaultmanagerv2getkerosenevalue)
     - [\[H-3\] `VaultManagerV2::withdraw` will revert if users try to withdraw kerosine](#h-3-vaultmanagerv2withdraw-will-revert-if-users-try-to-withdraw-kerosine)
   - [Medium](#medium)
     - [\[M-1\] Incorrect logic in keeping track of users' deposits allows attackers to prevent users withdrawals by frontrunning their transactions](#m-1-incorrect-logic-in-keeping-track-of-users-deposits-allows-attackers-to-prevent-users-withdrawals-by-frontrunning-their-transactions)
@@ -182,7 +182,7 @@ function liquidate(
     }
 ```
 
-### [H-2] Incorrect license check in `VaultManagerV2::addKerosene`
+### [H-2] Incorrect license check in `VaultManagerV2::addKerosene` and `VaultManagerV2::getKeroseneValue`
 #### Summary
 According to the [explanatory introductory video](https://www.youtube.com/watch?v=ok4CBaqEajM), `KerosineManager.sol` governs the TVL calculation for determining the kerosine price. Consequently, the TVL calculation should exclude kerosine vaults. However, if the vault's license is checked against `KerosineManager.sol`, it necessitates inclusion in the calculation to enable users to deposit kerosine into the vaults.
 #### Impact
@@ -248,7 +248,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_revertKerosenePriceCalcul
 </details>
 
 #### Recommended mitigation
-Validate the license of the kerosine vaults always using the `VaultLicenser.sol`, such as in the function `VaultManagerV2::addKerosene`:
+Validate the license of the kerosine vaults always using the `Licenser.sol`, such as in the function `VaultManagerV2::addKerosene`:
 
 ```diff
     function addKerosene(uint id, address vault) external isDNftOwner(id) {
