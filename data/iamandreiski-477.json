@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Kerosine Denominator doesn't account for bounded Kerosene's 2X value, thus inflating the token price and under-collateralizing DYAD",
+  "issueId": 477,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/477"
+}
