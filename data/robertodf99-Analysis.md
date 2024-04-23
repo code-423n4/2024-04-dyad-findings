@@ -7,7 +7,7 @@ Prepared by: Roberto Delgado Ferrezuelo
   - [High](#high)
     - [\[H-1\] Liquidators are not receiving the full 20% bonus due to oversight in collateral calculation](#h-1-liquidators-are-not-receiving-the-full-20-bonus-due-to-oversight-in-collateral-calculation)
     - [\[H-2\] Incorrect license check in `VaultManagerV2::addKerosene` and `VaultManagerV2::getKeroseneValue`](#h-2-incorrect-license-check-in-vaultmanagerv2addkerosene-and-vaultmanagerv2getkerosenevalue)
-    - [\[H-3\] `VaultManagerV2::withdraw` will revert if users try to withdraw kerosine](#h-3-vaultmanagerv2withdraw-will-revert-if-users-try-to-withdraw-kerosine)
+    - [\[H-3\] Kerosine's withdrawal should be executed separately](#h-3-kerosines-withdrawal-should-be-executed-separately)
   - [Medium](#medium)
     - [\[M-1\] Incorrect logic in keeping track of users' deposits allows attackers to prevent users withdrawals by frontrunning their transactions](#m-1-incorrect-logic-in-keeping-track-of-users-deposits-allows-attackers-to-prevent-users-withdrawals-by-frontrunning-their-transactions)
 
@@ -123,8 +123,8 @@ Place this in `v2.t.sol`.
         // Collateral value: Exo: 2000, Endo~1420, Dyad: 2000
 
         // ETH price tanks, the user becomes undercollaterized and the liquidator just receives the exogenous collateral
-        // Collateral value: Exo: 1000, Endo~1420, Dyad: 2000
-        contracts.oracleMock.setPrice(1_000 ether);
+        // Collateral value: Exo: 1500, Endo~1000, Dyad: 2000
+        contracts.oracleMock.setPrice(1_500 ether);
         uint256 bobPrivateKey = 0xB0B;
         address bob = vm.addr(bobPrivateKey);
         vm.startPrank(bob);
@@ -262,11 +262,35 @@ Validate the license of the kerosine vaults always using the `Licenser.sol`, suc
 
 ```
 
-### [H-3] `VaultManagerV2::withdraw` will revert if users try to withdraw kerosine
+### [H-3] Kerosine's withdrawal should be executed separately
 #### Summary
-During the calculation of the claimed token amount based on the USD value, the function checks the decimals used by the oracle providing the price. However, as explained in finding `H-2`, kerosine's price is deterministically calculated within its own contract and does not rely on oracles.
+This finding relates to two issues in the withdrawal process of the kerosine. First, since the function `VaultManagerV2::withdraw` is reading the oracle decimals from the vault and the kerosine vaults do not implement it, the transaction will revert. And second, when substracting the value to be withdrawn to the USD value of the non kerosene collateral it may result in a revert if the user is holding less exogenous collateral than the value of the sum of the minted dyad and the kerosine being withdrawn.
+
+```javascript
+  function withdraw(
+    uint    id,
+    address vault,
+    uint    amount,
+    address to
+  ) 
+    public
+      isDNftOwner(id)
+  {
+    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
+    uint dyadMinted = dyad.mintedDyad(address(this), id);
+    Vault _vault = Vault(vault);
+    uint value = amount * _vault.assetPrice() 
+                  * 1e18 
+@>                / 10**_vault.oracle().decimals() 
+                  / 10**_vault.asset().decimals();
+@>  if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
+    _vault.withdraw(id, to, amount);
+    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow(); 
+  }
+```
+
 #### Impact
-Attempting to withdraw kerosine from the unbounded vault will result in a reversion. Refer to the PoC below. This assumes that kerosine vaults are licensed through the vault licenser.
+Attempting to withdraw kerosine from the unbounded vault will result in a reversion in both cases. Refer to the PoC below for the first case explained. This assumes that kerosine vaults are licensed through the vault licenser.
 
 <details>
 <summary>Code</summary>
@@ -325,8 +349,103 @@ Place this in `v2.t.sol` and run `forge test --mt test_withdrawReverts --fork-ur
 ```
 </details>
 
+Furthermore, if it is desired to verify that the withdrawal will revert in the second scenario, the oracle decimals can be hardcoded to match those utilized by the kerosene vault. Then, execute the following code:
+
+<details>
+
+<summary>Code</summary>
+
+Place this in `v2.t.sol` and run `forge test --mt test_withdrawRevertsCollateral --fork-url $MAINNET_RPC_URL`.
+
+```javascript
+    function test_withdrawRevertsCollateral() public {
+        // For this it is assumed that kersoine vaults are licensed through the vault licenser and not the kerosine manager
+        address bob = makeAddr("bob");
+        vm.deal(bob, 700_001 ether);
+
+        vm.startPrank(bob);
+
+        IWETH(MAINNET_WETH).deposit{value: 700_000 ether}();
+
+        uint idbob = DNft(MAINNET_DNFT).mintNft{value: 1 ether}(address(bob));
+
+        contracts.vaultManager.add(idbob, address(contracts.ethVault));
+
+        WETH(payable(MAINNET_WETH)).approve(
+            address(contracts.vaultManager),
+            700_000 ether
+        );
+        contracts.vaultManager.deposit(
+            idbob,
+            address(contracts.ethVault),
+            700_000 ether
+        );
+        vm.stopPrank();
+
+        address alice = makeAddr("alice");
+
+        vm.deal(alice, 2 ether);
+
+        vm.startPrank(alice);
+
+        IWETH(MAINNET_WETH).deposit{value: 1 ether}();
+
+        uint id = DNft(MAINNET_DNFT).mintNft{value: 1 ether}(address(alice));
+
+        contracts.vaultManager.add(id, address(contracts.ethVault));
+
+        WETH(payable(MAINNET_WETH)).approve(
+            address(contracts.vaultManager),
+            1 ether
+        );
+        contracts.vaultManager.deposit(
+            id,
+            address(contracts.ethVault),
+            1 ether
+        );
+
+        contracts.vaultManager.addKerosene(
+            id,
+            address(contracts.unboundedKerosineVault)
+        );
+        vm.stopPrank();
+
+        vm.prank(MAINNET_OWNER);
+        Kerosine(MAINNET_KEROSENE).transfer(alice, 50 ether);
+
+        vm.startPrank(alice);
+        contracts.kerosene.approve(address(contracts.vaultManager), 50 ether);
+        contracts.vaultManager.deposit(
+            id,
+            address(contracts.unboundedKerosineVault),
+            50 ether
+        );
+        vm.stopPrank();
+
+        vm.prank(MAINNET_OWNER);
+        Licenser(MAINNET_VAULT_MANAGER_LICENSER).add(
+            address(contracts.vaultManager)
+        );
+
+        vm.startPrank(alice);
+        contracts.vaultManager.mintDyad(id, 1_000 ether, alice);
+
+        console.log(contracts.unboundedKerosineVault.getUsdValue(id)); //1423$ kerosine + 1000$ dyad > 2000$ wETH; 2000$wETH>1.5*1000$ dyad
+        vm.roll(block.number + 1);
+        vm.expectRevert(IVaultManager.NotEnoughExoCollat.selector);
+        contracts.vaultManager.withdrawKerosine(
+            id,
+            address(contracts.unboundedKerosineVault),
+            50 ether,
+            alice
+        );
+    }
+```
+
+</details>
+
 #### Recommended mitigation
-A possible remediation could involve implementing a separate withdraw function specifically for the kerosine vault, utilizing the same number of decimals as employed by the vault to calculate the price.
+A possible remediation could involve implementing a separate withdraw function specifically for the kerosine vault, utilizing the same number of decimals as employed by the vault to calculate the price and removing the check for the exogenous collateral since it will remain unchanged and the only factor that could compromise the user's position is the collateral ratio.
 
 ```javascript
     function withdrawKerosine(
@@ -343,8 +462,6 @@ A possible remediation could involve implementing a separate withdraw function s
         uint value = (amount * _vault.assetPrice() * 1e18) /
             10 ** kerosineVaultDecimals /
             10 ** _vault.asset().decimals();
-        if (getNonKeroseneValue(id) - value < dyadMinted)
-            revert NotEnoughExoCollat();
         _vault.withdraw(id, to, amount);
         if (collatRatio(id) < MIN_COLLATERIZATION_RATIO) revert CrTooLow();
     }
