@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Strausses",
+  "risk": "2",
+  "title": "Admin's vault remove call can be post runned to liquidate positions - OFS",
+  "issueId": 522,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/522"
+}
