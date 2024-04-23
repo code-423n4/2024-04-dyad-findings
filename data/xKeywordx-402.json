@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "xKeywordx",
+  "risk": "2",
+  "title": "### [M-1] `VaultManagerV2` contract is not set as a `licensed` entity inside the `Deploy.V2.s.sol` deploy script.",
+  "issueId": 402,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/402"
+}
