@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "c0pp3rscr3w3r",
+  "risk": "2",
+  "title": "deposit when called with amount zero in VaultManagerV2.sol can set idToBlockOfLastDeposit to current block number and front-run withdraw attempts for id",
+  "issueId": 467,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/467"
+}
