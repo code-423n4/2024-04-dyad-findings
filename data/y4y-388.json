@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "y4y",
+  "risk": "2",
+  "title": "It's possible to have infinite recursive call in `assetPrice` and lead to DoS",
+  "issueId": 388,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/388"
+}
