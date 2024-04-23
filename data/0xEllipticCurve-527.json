@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xEllipticCurve",
+  "risk": "3",
+  "title": "A malicious user can gain control over the vault manager for DNfts.",
+  "issueId": 527,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/527"
+}
