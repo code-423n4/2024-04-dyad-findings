@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "petro_1912",
+  "risk": "3",
+  "title": "`withdraw` function doesn't check if to address is vault itself, malicious owner can remove a vault with assets. ",
+  "issueId": 478,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/478"
+}
