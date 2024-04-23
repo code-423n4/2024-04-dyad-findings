@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Due to the requirement for exogenous collateral being only 100%, if its value falls below it, asset price calculation will always revert",
+  "issueId": 415,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/415"
+}
