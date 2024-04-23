@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shaflow2",
+  "risk": "2",
+  "title": "Usage of previously deployed Dyad contract during migration from V1 to V2 may lead to system DoS.",
+  "issueId": 434,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/434"
+}
