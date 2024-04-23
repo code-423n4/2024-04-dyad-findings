@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xnev",
+  "risk": "3",
+  "title": "`VaultManagerV2.liquidate()`: Liquidation mechanism may not be incentivized for kerosene backed CDP",
+  "issueId": 507,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/507"
+}
