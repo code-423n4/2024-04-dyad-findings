@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "xKeywordx",
+  "risk": "3",
+  "title": "### [H-1] `VaultManagerV2` is incompatible with current `v1Dyad` token contract because the new `VaultManagerV2` contract is not added as a `licensedVaultManager` in the already existing `Licenser` contract.",
+  "issueId": 401,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/401"
+}
