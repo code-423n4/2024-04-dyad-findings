@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "petro_1912",
+  "risk": "2",
+  "title": "missing access control to `burnDyad` function, so any account with dyad can burn from DNFT owner.  ",
+  "issueId": 485,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/485"
+}
