@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "lian886",
+  "risk": "3",
+  "title": "Incorrect License check for adding keroseneVault   in `VaultManagerV2::addKerosene()` cause DoS",
+  "issueId": 372,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/372"
+}
