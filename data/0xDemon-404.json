@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xDemon",
+  "risk": "3",
+  "title": "Liquidateable DNFT owner can avoid being liquidated by burning the DYAD token they own",
+  "issueId": 404,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/404"
+}
