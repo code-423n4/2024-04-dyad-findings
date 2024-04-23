@@ -343,7 +343,7 @@ https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06
 
 ### Impact
 
-Depending on valuable the price of dyad becomes, a user can use a `dNFT` to mint dyad worth lots of usd value, while racking up a poor collateral ratio. Considering that collateral ratio is calculated by comparing usd value of the vaults held by the nft against the amount of dyad minted not its usd value. It can become more profitable for a user to , rather than burn dyad to retrieve his collateral, sell it on the market place to an unsuspecting victim. The victim pays possibly a substantial amount for the nft and receives an nft with a poor collateral ratio opening him up to liquidations, or having to pay extra to put the vault in a stable state.
+Depending on valuable the price of dyad becomes(incae of an upward depeg) , a user can use a `dNFT` to mint dyad worth lots of usd value, while racking up a poor collateral ratio. Considering that collateral ratio is calculated by comparing usd value of the vaults held by the nft against the amount of dyad minted not its usd value. It can become more profitable for a user to , rather than burn dyad to retrieve his collateral, sell it on the market place to an unsuspecting victim. The victim pays possibly a substantial amount for the nft and receives an nft with a poor collateral ratio opening him up to liquidations, or having to pay extra to put the vault in a stable state.
 
 ```solidity
   function collatRatio(
