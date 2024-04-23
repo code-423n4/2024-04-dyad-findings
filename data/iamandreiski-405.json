@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "3",
+  "title": "Kerosene is never transferred during liquidations while it's accounted for in the collateral ratio",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/405"
+}
