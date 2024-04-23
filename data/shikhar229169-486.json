@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "shikhar229169",
+  "risk": "3",
+  "title": "`VaultManagerV2::liquidate` using only `vaults` for repayment to liquidator and not `vaultsKerosene` leads to liquidator getting disincentivized ",
+  "issueId": 486,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/486"
+}
