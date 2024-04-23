@@ -327,7 +327,7 @@ A possible remediation could involve implementing a separate withdraw function s
             revert DepositedInSameBlock();
         uint dyadMinted = dyad.mintedDyad(address(this), id);
         Vault _vault = Vault(vault);
-        uint kerosineVaultDecimals = 18;
+        uint kerosineVaultDecimals = 8;
         uint value = (amount * _vault.assetPrice() * 1e18) /
             10 ** kerosineVaultDecimals /
             10 ** _vault.asset().decimals();
