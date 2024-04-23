@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xSecuri",
+  "risk": "2",
+  "title": "Risk of DoS Due to Unsafe Approach for Querying Asset Prices.",
+  "issueId": 443,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/443"
+}
