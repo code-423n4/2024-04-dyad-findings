@@ -471,7 +471,7 @@ A possible remediation could involve implementing a separate withdraw function s
 ### [M-1] Incorrect logic in keeping track of users' deposits allows attackers to prevent users withdrawals by frontrunning their transactions
 
 #### Summary
-In the latest version of the vault manager, users cannot deposit and withdraw within the same block. However, the current implementation of handling this restriction is flawed. The mapping `VaultManagerV2::idToBlockOfLastDeposit` tracks the block number of the last deposit for a given vault ID, but it does not keep track of the identity of the depositor. This oversight allows attackers to repeatedly frontrun transactions of the actual vault owner by calling `VaultManagerV2::deposit`, resetting the mapping `VaultManagerV2::idToBlockOfLastDeposit` and preventing the owner's withdrawal.
+In the latest version of the vault manager, users cannot deposit and withdraw within the same block. However, the current implementation of handling this restriction is flawed. The mapping `VaultManagerV2::idToBlockOfLastDeposit` tracks the block number of the last deposit for a given DNft ID, but it does not keep track of the identity of the depositor. This oversight allows attackers to repeatedly frontrun transactions of the actual DNft owner by calling `VaultManagerV2::deposit`, resetting the mapping `VaultManagerV2::idToBlockOfLastDeposit` and preventing the owner's withdrawal.
 
 ```javascript
     function deposit(
@@ -498,7 +498,7 @@ In the latest version of the vault manager, users cannot deposit and withdraw wi
 ```
 
 #### Proof of Concept
-The following code illustrates a scenario where Bob (the victim) deposits WETH into the vault and attempts to withdraw it the next block. However, Alice detects Bob's transaction in the mempool and frontruns it by calling `VaultManagerV2::deposit`, setting Bob's vault address and paying a higher fee, enticing miners to prioritize her transaction. 
+The following code illustrates a scenario where Bob (the victim) deposits wETH into the vault and attempts to withdraw it the next block. However, Alice detects Bob's transaction in the mempool and frontruns it by calling `VaultManagerV2::deposit`, setting Bob's ID and paying a higher fee, enticing miners to prioritize her transaction. 
 
 <details>
 <summary>Code</summary>
@@ -511,7 +511,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_attackerFrontrunsWithdraw
         address bob = makeAddr("bob");
         // Alice (attacker)
         address alice = makeAddr("alice");
-        // Give some ether to create the vault to Bob
+        // Give some ether to create the DNft to Bob
         vm.deal(bob, 2 ether);
         vm.deal(alice, 1 ether);
         vm.prank(bob);
@@ -519,7 +519,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_attackerFrontrunsWithdraw
         IWETH(MAINNET_WETH).deposit{value: 1 ether}();
         vm.prank(alice);
         IWETH(MAINNET_WETH).deposit{value: 1 ether}();
-        // Bob creates the vault and deposits some WETH on it
+        // Bob creates the DNft and deposits some WETH on it
         vm.startPrank(bob);
         uint id = DNft(MAINNET_DNFT).mintNft{value: 1 ether}(address(bob));
         contracts.vaultManager.add(id, address(contracts.ethVault));
@@ -533,7 +533,7 @@ Place this in `v2.t.sol` and run `forge test --mt test_attackerFrontrunsWithdraw
             1 ether
         );
         vm.stopPrank();
-        // Next block, Bob wants to withdraw the collateral, however Alice sees the tx on the mempool, pays a little extra fee and frontruns Bob's tx depositing just 1 wei into his vault
+        // Next block, Bob wants to withdraw the collateral, however Alice sees the tx on the mempool, pays a little extra fee and frontruns Bob's tx depositing just 1 wei into his DNft
         vm.roll(block.number + 1);
         vm.startPrank(alice);
         WETH(payable(MAINNET_WETH)).approve(
@@ -561,9 +561,6 @@ Place this in `v2.t.sol` and run `forge test --mt test_attackerFrontrunsWithdraw
 
 It's noteworthy that the cost associated with the attack can be as low as 9818 units of gas and 1 wei of the ERC-20 token, primarily comprising the transaction fee.
 
-#### Tools Used
-Foundry and manual review.
-
 #### Recommended Mitigation Steps
 Implement access control in `VaultManagerV2::deposit`, such as the modifier `isDNftOwner(id)`:
 
@@ -581,7 +578,7 @@ function deposit(
     }
 ```
 
-Alternatively, if allowing different users to deposit into vaults they don't own is desired, slightly adjust the mapping `VaultManagerV2::idToBlockOfLastDeposit` to assign a block stamp per vault ID per address:
+Alternatively, if allowing different users to deposit into Notes they don't own is desired, slightly adjust the mapping `VaultManagerV2::idToBlockOfLastDeposit` to assign a block stamp per DNft ID per address:
 
 ```diff
 ...
