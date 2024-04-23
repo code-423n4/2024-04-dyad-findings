@@ -11,8 +11,8 @@ modifier isLicensed(address vault) {
 ```
 was never used, consider removing it from the code or use it as intended
 
-# [3] Hard-coded price feed addresses can be problematic, especially if they become deprecated
-  `IAggregatorV3 public immutable oracle;` in `Vault.sol` uses immutable hardcoded Chainlink PriceFeed
+# [3] Hard-coded price feed addresses
+  `IAggregatorV3 public immutable oracle;` in `Vault.sol` uses immutable hardcoded Chainlink PriceFeed that can be problematic, especially if they become deprecated
 
 # [4] no event emitted for important operation
 in `VaultManagerV2.sol` both functions `withdraw()` and `deposit()` don't have a special event emitted after executed which is not recommended 
