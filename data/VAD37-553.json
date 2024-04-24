@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "VAD37",
+  "risk": "3",
+  "title": "Double collateral counting. Vault Manager depend on `KerosineManager.isLicensed()` is a mistake. Causing wrong TVL calculation and preventing liquidation of bad loan",
+  "issueId": 553,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/553"
+}
