@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Tigerfrake",
+  "risk": "3",
+  "title": "`Liquidatee` can't withdraw the remainder of their collateral after liquidation",
+  "issueId": 598,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/598"
+}
