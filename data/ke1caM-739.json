@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ke1caM",
+  "risk": "3",
+  "title": "Current design of `deposit` function allows attacker to block user's withdrawls.",
+  "issueId": 739,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/739"
+}
