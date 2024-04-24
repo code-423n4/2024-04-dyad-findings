@@ -8,6 +8,7 @@
 | [L-04] | Not emitting events for critical functions |
 | [L-05] |  Missing fallbacks for price feed oracle   |
 | [L-06] |  Reentrancy   |
+| [L-07] |  function missing input validation   |
 
 ## [L-01] Relience on `decimals()` function
 
@@ -106,7 +107,21 @@ function deposit(
 
 ```
 
-consider adding a reentrancy guard in the function to prevent this vulnerability
+consider adding a reentrancy guard in the functions and contracts to prevent this vulnerability
+
+[L-07] function missing input validation
+some functions in the contract are missing sufficient input validation, this could cause some vulnerabilities and unexpected behavior in the protocol
+
+```javascript
+ function add(address vault) external onlyOwner {
+        if (vaults.length() >= MAX_VAULTS) revert TooManyVaults(); 
+        if (!vaults.add(vault)) revert VaultAlreadyAdded();
+    }
+
+    function remove(address vault) external onlyOwner {
+        if (!vaults.remove(vault)) revert VaultNotFound();
+    }
+```
 
 ## Non-Critical Issues
 
