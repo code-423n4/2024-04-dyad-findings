@@ -21,6 +21,10 @@ If the pseudocode is right, user with collateral value being exactly equal to ne
 
 As explained in my high severity vulnerability with the title: "Attempt to withdraw from unbounded kerosene vault will always fail due to wrong implementation" there is an issue with licensing causing unusability of the kerosene vaults. This issue could be also solved by filling a gap as suggested in this finding, which is creating a getter function to view the internal `vaultsKerosene` mapping. This together with mitigation of the high could potentially make the `KerosineManager` completely redundant as both licensing and id => vault tracking for kerosene vaults is done either way in `VaultManagerV2`. This finding however is submitted seperately from the high, because the underlying bug may be solved without adding additional getter or removing `KerosineManager`.
 
+### [L-3] An unused bounded kerosene vault may become unremovable after another user deposits a small amount of funds into it
+
+Due to the `VaultManagerV2::deposit()` function being callable by anyone for any Note NFT, a user may deposit kerosene to bounded kerosene vaults for other people's NFTs. This makes it impossible for them to remove these bounded vaults in the future. Note that the deposited amount could be extremely small, meaning the cost for an attacker would be very small and the gained collateral value minimal.
+
 ### [I-1] `Kerosine` used instead of `Kerosene`
 
 In the entire codebase "Kerosine" is used extensively even though it should always be "Kerosene".
@@ -35,6 +39,8 @@ function hasVaultKerosene(uint id, address vault) external view returns (bool) {
         return vaultsKerosene[id].contains(vault);
     }
 ```
+
+
 
 
 ### Time spent:
