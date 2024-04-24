@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "bhilare_",
+  "risk": "3",
+  "title": "Liquidators liquidating positions, would be at the end be in loss of funds because of not updating `mintedDyad` of liquidator's DNft id.",
+  "issueId": 676,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/676"
+}
