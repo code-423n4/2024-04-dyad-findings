@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ljj",
+  "risk": "2",
+  "title": "redeemDyad function is susceptible to frontrunning attack",
+  "issueId": 736,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/736"
+}
