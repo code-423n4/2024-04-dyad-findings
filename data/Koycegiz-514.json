@@ -1,8 +1,0 @@
-{
-  "contest": 367,
-  "handle": "Koycegiz",
-  "risk": "2",
-  "title": "VaultManagerV2.sol::withdraw() function is susceptible to DoS attacks.",
-  "issueId": 514,
-  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/514"
-}
