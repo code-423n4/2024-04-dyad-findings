@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ke1caM",
+  "risk": "2",
+  "title": "Kerosene vaults will cause DoS when added to `vaultsKerosene`.",
+  "issueId": 752,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/752"
+}
