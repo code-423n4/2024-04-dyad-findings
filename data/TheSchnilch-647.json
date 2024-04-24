@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "TheSchnilch",
+  "risk": "3",
+  "title": "The asset price calculation of kerosene is being reverted because it's not taken into account that dyad has already been minted in v1",
+  "issueId": 647,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/647"
+}
