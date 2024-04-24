@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "fandonov",
+  "risk": "2",
+  "title": "Using safeTransfer and safeTransferFrom from the solmate's SafeTransferLib can lead to funding loss, because they don't check for the code size of the token address.",
+  "issueId": 729,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/729"
+}
