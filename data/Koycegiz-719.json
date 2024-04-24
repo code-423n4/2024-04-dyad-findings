@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Koycegiz",
+  "risk": "3",
+  "title": "Lack of access control enables frontrunning attack that leads to hijacking of KerosineManager",
+  "issueId": 719,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/719"
+}
