@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "theFirstElder",
+  "risk": "3",
+  "title": "Users can mint more dyad value than collateral value due to Incorrect calculation of collateral ratio.",
+  "issueId": 623,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/623"
+}
