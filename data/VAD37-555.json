@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "`VaultmanagerV2` can deposit asset into vault without being included as collateral. Possible liquidation when have enough collateral",
+  "issueId": 555,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/555"
+}
