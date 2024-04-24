@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "iamandreiski",
+  "risk": "2",
+  "title": "Vault Manager doesn't have any slippage protection when redeeming/withdrawing assets",
+  "issueId": 641,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/641"
+}
