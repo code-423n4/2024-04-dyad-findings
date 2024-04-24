@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "steadyman",
+  "risk": "3",
+  "title": "Logic error in addKerosene function in VaultManagerV2",
+  "issueId": 600,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/600"
+}
