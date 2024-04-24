@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "poslednaya",
+  "risk": "3",
+  "title": "User have knob to manipulate protocol state via passing arbitary address to deposit/withdraw/redeem functions",
+  "issueId": 760,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/760"
+}
