@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "air_0x",
+  "risk": "2",
+  "title": "keroseneManager.isLicensed()  return value not handled in VaultManagerV2.sol",
+  "issueId": 550,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/550"
+}
