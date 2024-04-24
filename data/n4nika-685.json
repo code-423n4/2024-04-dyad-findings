@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "n4nika",
+  "risk": "3",
+  "title": "Adding a vault to both `vaults` and `vaultsKerosene` inflates the holder's total value of assets bypassing the CR check",
+  "issueId": 685,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/685"
+}
