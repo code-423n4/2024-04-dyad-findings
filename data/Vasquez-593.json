@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Vasquez",
+  "risk": "3",
+  "title": "The DYAD burned by the liquidator is not reflected in the `mintedDyad` mapping.",
+  "issueId": 593,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/593"
+}
