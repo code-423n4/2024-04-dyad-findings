@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xSecuri",
+  "risk": "3",
+  "title": "Kerosene USD Value Calculation Flaw Causes Misrepresentation of Kerosene Value and Collateral Ratios",
+  "issueId": 589,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/589"
+}
