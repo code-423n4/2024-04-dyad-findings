@@ -71,3 +71,38 @@ The lack of a two-step ownership transfer mechanism exposes the contracts to pot
 
 ### Mitigation:
 Implement a two-step ownership transfer mechanism to enhance the security of the contract deployment process.
+
+## E. Inconsistent Function Modifier in BoundedKerosineVault's withdraw Function
+[Vault.kerosine.bounded.sol#L32-L42](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/Vault.kerosine.bounded.sol#L32-L42)
+The `withdraw` function in the `BoundedKerosineVault` contract is marked with the `view` modifier, indicating that it's a read-only function that won't modify the contract's state. However, within this function, a `revert` statement is used to revert the transaction with an error message, `NotWithdrawable(id, to, amount`). Reverting transactions is a state-changing operation, contradicting the `view` modifier and potentially leading to unexpected behavior or exploitation.
+```solidity
+function withdraw(
+    uint    id,
+    address to,
+    uint    amount
+) 
+    external 
+    view
+    onlyVaultManager
+{
+    revert NotWithdrawable(id, to, amount);
+}
+```
+### Impact:
+The inconsistency in the function modifier could lead to confusion for developers and potentially enable attackers to exploit unexpected behavior, such as bypassing intended access controls or manipulating contract state.
+
+### Mitigation:
+Remove the view modifier from the withdraw function to accurately reflect its behavior and ensure consistency with its implementation. Here's the corrected version:
+
+```solidity
+function withdraw(
+    uint    id,
+    address to,
+    uint    amount
+) 
+    external 
+    onlyVaultManager
+{
+    revert NotWithdrawable(id, to, amount);
+}
+```
