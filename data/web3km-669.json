@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "web3km",
+  "risk": "3",
+  "title": "Liquidators will not be able to withdraw all of their collateral, because of wrong burning in `VaultManagerV2::liquidate`",
+  "issueId": 669,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/669"
+}
