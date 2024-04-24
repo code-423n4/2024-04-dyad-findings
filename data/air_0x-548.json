@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "air_0x",
+  "risk": "2",
+  "title": "keroseneManager.isLicensed() boolean return value not handled in  addKerosene() function of  VaultManagerV2.sol",
+  "issueId": 548,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/548"
+}
