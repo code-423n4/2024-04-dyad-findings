@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "air_0x",
+  "risk": "2",
+  "title": "Dos: cause a DoS attack on VautManagerV2.withdraw() by creating a excessive number of receipts with 1 wei ",
+  "issueId": 648,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/648"
+}
