@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "n4nika",
+  "risk": "3",
+  "title": "unboundedKerosineVault gets licensed by the vaultLicenser and not kerosineManager causing DYAD to be able to minted against Kerosene",
+  "issueId": 698,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/698"
+}
