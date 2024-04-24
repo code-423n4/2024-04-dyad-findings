@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "dvrkzy",
+  "risk": "3",
+  "title": "Incorrect assumption that oracle will return 8 decimals",
+  "issueId": 626,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/626"
+}
