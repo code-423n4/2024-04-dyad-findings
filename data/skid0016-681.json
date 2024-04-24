@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "skid0016",
+  "risk": "2",
+  "title": "### [M-01] Uninitialized Local Variable (Risk of Unintended Behavior)  **Description:** In the `VaultManagerV2::getNonKeroseneValue` function, the local variable `usdValue` is declared but not initialized with a default value before use. This can lead to unintended behavior or incorrect calculations. If the condition `vaultLicenser.isLicensed(address(vault))` evaluates to `false`, the `usdValue` variable remains uninitialized, causing it to hold an unpredictable value or be incorrectly added to `totalUsdValue`.",
+  "issueId": 681,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/681"
+}
