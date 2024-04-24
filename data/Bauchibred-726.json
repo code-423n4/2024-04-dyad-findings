@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": " Current implementation of `cappedCr` when `cr < 1e18` is flawed as it faults multiple logic",
+  "issueId": 726,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/726"
+}
