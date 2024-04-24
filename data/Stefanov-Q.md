@@ -1,4 +1,4 @@
-[L-1] `IsLicensed` modifier missing  in `VaultManagerV2:deposit` 
+## [L-1] `IsLicensed` modifier missing  in `VaultManagerV2:deposit` 
 
 `VaultManagerV2` is using only licensed vaults. Depositing in vaults that are not licensed is in no use.
 
