@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "btk",
+  "risk": "2",
+  "title": "Protocol assumes 1 Dyad = 1 USD which will cause too many issues",
+  "issueId": 737,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/737"
+}
