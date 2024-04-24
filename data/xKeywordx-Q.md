@@ -1,4 +1,4 @@
-### [L-1] A user can deposit users on behalf of a DNft that they don't own
+### [L-1] A user can deposit assets on behalf of a DNft that they don't own
 
 **Github Code:** https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L119
 
