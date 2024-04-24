@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Dudex_2004",
+  "risk": "2",
+  "title": "User are unable to `withdraw` collateral tokens if it is kerosene token",
+  "issueId": 655,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/655"
+}
