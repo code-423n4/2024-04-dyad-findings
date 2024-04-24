@@ -18,3 +18,21 @@ function deposit(
     _vault.deposit(id, amount);
   }
 ```
+
+## [L-2] Only the owner of DNft should be able to burn their dyad
+
+
+```diff
+function burnDyad(
+    uint id,
+    uint amount
+  ) 
+    external 
++     isDNftOwner(id)
+      isValidDNft(id)
+  {
+    dyad.burn(id, msg.sender, amount);
+    emit BurnDyad(id, amount, msg.sender);
+  }
+
+```
