@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "vizay315",
+  "risk": "3",
+  "title": "Attacker prevents the liquidator to liquidate his undercollaterlised vault.",
+  "issueId": 718,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/718"
+}
