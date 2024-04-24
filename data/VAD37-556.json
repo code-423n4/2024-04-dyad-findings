@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "VAD37",
+  "risk": "2",
+  "title": "It cost ~4000 gas to DOS `VaultManagerV2` withdrawal. Anyone can use `deposit()`",
+  "issueId": 556,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/556"
+}
