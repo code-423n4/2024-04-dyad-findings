@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xSecuri",
+  "risk": "3",
+  "title": "Incorrect Asset Price Calculations for wstETH",
+  "issueId": 561,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/561"
+}
