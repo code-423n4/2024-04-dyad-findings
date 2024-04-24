@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "VaultMangerV2 is vulnerable to DOS due to vulnerable underflow risk in Vault.kerosine.unbounded::assetPrice ",
+  "issueId": 722,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/722"
+}
