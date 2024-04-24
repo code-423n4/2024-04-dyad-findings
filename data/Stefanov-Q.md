@@ -36,3 +36,30 @@ function burnDyad(
   }
 
 ```
+
+## [L-3] If amount in `VaultManagerV2:redeemDyad` is more than the dyad minted, function is going to revert
+
+```diff
+function redeemDyad(
+    uint    id,
+    address vault,
+    uint    amount,
+    address to
+  )
+    external 
+      isDNftOwner(id)
+    returns (uint) {
++     if(dyad.mintedDyad(address(this), id) < amount) {
++     amount = dyad.mintedDyad(address(this), id);
++     }
+      dyad.burn(id, msg.sender, amount);
+      Vault _vault = Vault(vault);
+      uint asset = amount 
+                    * (10**(_vault.oracle().decimals() + _vault.asset().decimals())) 
+                    / _vault.assetPrice() 
+                    / 1e18;
+      withdraw(id, vault, asset, to);
+      emit RedeemDyad(id, vault, amount, to);
+      return asset;
+  }
+```
