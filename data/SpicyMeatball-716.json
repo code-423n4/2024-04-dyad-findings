@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SpicyMeatball",
+  "risk": "3",
+  "title": "New kerosene vaults will always revert on assetPrice calls making protocol inoperable  ",
+  "issueId": 716,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/716"
+}
