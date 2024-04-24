@@ -370,3 +370,52 @@ https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06
 ### Impact
 
 When liquidators liquidate a distressed NFT, they perform a expect to receive a significant profit for their efforts while factoring gas costs and cost of liquidation. However, if a position lacks sufficient collateral to cover the short amount being liquidated, liquidators receive the remaining collateral which, which could be minimal when compared to the price of dyad needed to be burned to liquidate position. This scenario causes protocol to accumulate bad debts as multiple distressed/liquidatable nfts won't be liquidated cause there are no incentives to do so (if there assets are relatively low in value), discouraging liquidators from participating in the protocol and impacting the protocol's liquidity and overall efficiency. 
+
+
+
+# 14. Potential devaluation of asset price of kerosine vaults due to large denominator by zero when calculating asset prices
+
+Lines of code* 
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/staking/KerosineDenominator.sol#L21
+https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/Vault.kerosine.unbounded.sol#L66
+
+### Impact
+
+The denominator is calculated as totalSupply - mainnetowner's balance. 
+
+```solidity
+  function denominator() external view returns (uint) {
+    // @dev: We subtract all the Kerosene in the multi-sig.
+    //       We are aware that this is not a great solution. That is
+    //       why we can switch out Denominator contracts.
+    return kerosine.totalSupply() - kerosine.balanceOf(MAINNET_OWNER);
+  } 
+```
+And upon, kerosene minting in the constructor, the total supply (and max supply) of 1 billion, and the entire supply is minted to the deployer of the kerosene contract which can potentially be the mainnet owner. 
+```solidity
+  constructor() {
+      _mint(msg.sender, 1_000_000_000 * 10**18); // 1 billion
+  }
+```
+The mainnet owner will then continously transfer the tokens to the staking contract, causing their balance to decrease and consiquently, denominator to get bigger. Eventually, a point might be reached in which the numerator becomes potentially smaller, or close to the denominator causing the asset price to get much lesser. This will negatively affect users holding the bounded and unbounded kerosene tokens in their vaults and might put them at risk of unfair liquidations.
+```solidity
+  function assetPrice() 
+    public 
+    view 
+    override
+    returns (uint) {
+      uint tvl;
+      address[] memory vaults = kerosineManager.getVaults();
+      uint numberOfVaults = vaults.length;
+      for (uint i = 0; i < numberOfVaults; i++) {
+        Vault vault = Vault(vaults[i]);
+        tvl += vault.asset().balanceOf(address(vault)) 
+                * vault.assetPrice() * 1e18
+                / (10**vault.asset().decimals()) 
+                / (10**vault.oracle().decimals());
+      }
+      uint numerator   = tvl - dyad.totalSupply();
+      uint denominator = kerosineDenominator.denominator();
+      return numerator * 1e8 / denominator;
+  }
+```
