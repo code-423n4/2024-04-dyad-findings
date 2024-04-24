@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xfox",
+  "risk": "2",
+  "title": "Liquidate function doesn't allow to liquidate user's that have exogenous collateral value lower than minted DYAD.",
+  "issueId": 714,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/714"
+}
