@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xlucky",
+  "risk": "3",
+  "title": "assetPrice() in kerosine.unbounded.sol will always revert when new vault would be deployed",
+  "issueId": 1271,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1271"
+}
