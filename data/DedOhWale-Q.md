@@ -1,0 +1,3 @@
+1)  INCONSISTENT MAX_VAULTS
+
+The contracts `KerosineManager` and `VaultManager` have inconsistent definitions of the constant `MAX_VAULTS`, which could lead to confusion and potential misuse in vault management. In `KerosineManager`, `MAX_VAULTS` is set to 10, whereas in `VaultManager`, `MAX_VAULTS` is defined as 5. This discrepancy might not only confuse administrators and users but can also allow for a divergent behavior in handling vaults between the two systems, especially since both systems appear to interact or rely on similar functionalities for managing vaults.
