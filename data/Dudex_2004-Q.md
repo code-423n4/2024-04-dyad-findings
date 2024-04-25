@@ -7,7 +7,7 @@ function burnDyad(
   ) 
     external 
 +     isDNftOwner(id)      
-      isValidDNft(id)
+-     isValidDNft(id)
   {
     dyad.burn(id, msg.sender, amount);
     emit BurnDyad(id, amount, msg.sender);
