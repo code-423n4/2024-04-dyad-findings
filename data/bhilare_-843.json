@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "bhilare_",
+  "risk": "3",
+  "title": "Kerosene's price would never be able to calculated, once unbounded & bounded kerosene vaults are added in Kerosene Manager, since the function call `assetPrice` would always run out of gas because of calling itself repeatedly.",
+  "issueId": 843,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/843"
+}
