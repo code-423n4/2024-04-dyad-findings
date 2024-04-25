@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "Contracts that rely on the collatRatio function may make incorrect decisions or perform unintended actions when receiving `type(uint).max` as the collateralization ratio.",
+  "issueId": 1024,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1024"
+}
