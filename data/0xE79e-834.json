@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xE79e",
+  "risk": "2",
+  "title": "Chainlink's `latestRoundData` might return stale or incorrect results",
+  "issueId": 834,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/834"
+}
