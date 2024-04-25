@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "2",
+  "title": "No slippage protection on `liquidate()` and `withdraw()`",
+  "issueId": 1021,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1021"
+}
