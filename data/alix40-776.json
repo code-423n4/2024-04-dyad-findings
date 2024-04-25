@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "alix40",
+  "risk": "3",
+  "title": "Protocol wrongly uses `KerosineManager.isLicensed()` to check if a vault is a kerosene vault, leading to wrong implementation of key functions.",
+  "issueId": 776,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/776"
+}
