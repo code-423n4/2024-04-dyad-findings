@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "KupiaSec",
+  "risk": "2",
+  "title": "DOS attack to withdrawing and vault removing in `VaultManagerV2`.",
+  "issueId": 861,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/861"
+}
