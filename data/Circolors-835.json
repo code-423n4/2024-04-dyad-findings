@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "3",
+  "title": "Lack of vault type check enables user to bypass MIN_COLLATERIZATION_RATIO when minting new DYAD",
+  "issueId": 835,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/835"
+}
