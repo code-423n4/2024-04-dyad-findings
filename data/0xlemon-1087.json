@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xlemon",
+  "risk": "3",
+  "title": "Kerosine tokens cannot be withdrawn because they don't have an oracle",
+  "issueId": 1087,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1087"
+}
