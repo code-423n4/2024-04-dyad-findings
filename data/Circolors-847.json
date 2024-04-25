@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "3",
+  "title": "Liquidation functionality broken, leading to liquidator receiving a negative return when liquidating DNft who's overcollateralisation is made up of mostly kerosene",
+  "issueId": 847,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/847"
+}
