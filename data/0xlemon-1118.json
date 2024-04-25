@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xlemon",
+  "risk": "3",
+  "title": "Liquidate function will always revert because a wrong number of arguments is inputed to the burn function",
+  "issueId": 1118,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1118"
+}
