@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "Liquidations never deduct from the kerosene vaults. Hence, users depositing into a kerosene vault can cause liquidators to be disincentivized, which could potentially lead to accrual of baddebt",
+  "issueId": 1163,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1163"
+}
