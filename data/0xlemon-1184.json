@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xlemon",
+  "risk": "3",
+  "title": "KerosineManager should only hold Kerosine vaults instead of non-Kerosine",
+  "issueId": 1184,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1184"
+}
