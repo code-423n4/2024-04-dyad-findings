@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "LeoGold",
+  "risk": "3",
+  "title": "User can mint Dyad up to 100% of their collateral without facing liquidation even after their collateral drops",
+  "issueId": 889,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/889"
+}
