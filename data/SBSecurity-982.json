@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "3",
+  "title": "Liquidation bonus logic is wrong",
+  "issueId": 982,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/982"
+}
