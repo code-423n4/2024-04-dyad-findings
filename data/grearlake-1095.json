@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Malicious usser can honeypot dNFT buyer by minting all dyad token that able to mint before sale",
+  "issueId": 1095,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1095"
+}
