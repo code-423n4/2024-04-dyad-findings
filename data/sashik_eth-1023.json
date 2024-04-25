@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "sashik_eth",
+  "risk": "3",
+  "title": "Users would not be able to withdraw Kerosene from the `UnboundedKerosineVault`",
+  "issueId": 1023,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1023"
+}
