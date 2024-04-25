@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xleadwizard",
+  "risk": "3",
+  "title": "The current Implementation allows adding exogenous vault as Kerosene Vault, allowing minting at rate of $1",
+  "issueId": 1228,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1228"
+}
