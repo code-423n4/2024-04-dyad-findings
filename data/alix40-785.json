@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "alix40",
+  "risk": "2",
+  "title": "Wrongly implemented invariant check in `withdraw()` function of the VaultManagerV2 contract",
+  "issueId": 785,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/785"
+}
