@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "3",
+  "title": "`VaultManagerV2::liquidate` will not decrease liquidator's `mintedDyad`",
+  "issueId": 975,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/975"
+}
