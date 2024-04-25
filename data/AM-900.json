@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AM",
+  "risk": "2",
+  "title": "Redeem function is failing if nft Note have not minted any tokens but DYAD have been bought/received fact that is stopping arbitrage opportunity when depegging is happening",
+  "issueId": 900,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/900"
+}
