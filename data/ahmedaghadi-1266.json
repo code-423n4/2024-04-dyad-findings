@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ahmedaghadi",
+  "risk": "2",
+  "title": "Attacker can restricts the availability of `VaultManagerV2::withdraw` function for a particular `DNft` token.",
+  "issueId": 1266,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1266"
+}
