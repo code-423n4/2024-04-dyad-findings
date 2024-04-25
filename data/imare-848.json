@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "imare",
+  "risk": "3",
+  "title": "kerosene bounded and unbounded assetPrice call will revert until enough asset is migrated to the new Vaults",
+  "issueId": 848,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/848"
+}
