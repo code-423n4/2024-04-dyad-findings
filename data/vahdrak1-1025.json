@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "vahdrak1",
+  "risk": "3",
+  "title": "When the mortgage rate is less than or equal to 100%, since the liquidation reward is 0, no liquidator will liquidate the non-performing asset.",
+  "issueId": 1025,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1025"
+}
