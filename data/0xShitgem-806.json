@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xShitgem",
+  "risk": "3",
+  "title": "User can bypass checks inside `VaultManagerV2::mintDyad` and `VaultManagerV2::liquidate` by manipulating `getNonKeroseneValue()` and `getKeroseneValue()`.",
+  "issueId": 806,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/806"
+}
