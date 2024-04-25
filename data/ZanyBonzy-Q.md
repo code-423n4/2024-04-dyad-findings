@@ -373,7 +373,7 @@ When liquidators liquidate a distressed NFT, they perform a expect to receive a 
 
 
 
-# 14. Potential devaluation of asset price of kerosine vaults due to large denominator by zero when calculating asset prices
+# 14. Potential devaluation of asset price of kerosine vaults due to large denominator when calculating asset prices
 
 Lines of code* 
 https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/staking/KerosineDenominator.sol#L21
