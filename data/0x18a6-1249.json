@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x18a6",
+  "risk": "2",
+  "title": "`VaultManagerV2::withdraw()` might revert due to underflow",
+  "issueId": 1249,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1249"
+}
