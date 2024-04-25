@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Infect3d",
+  "risk": "2",
+  "title": "Iser cannot deposit in vault A then withdraw in vault B in same block",
+  "issueId": 974,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/974"
+}
