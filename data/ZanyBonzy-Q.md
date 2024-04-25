@@ -419,3 +419,16 @@ The mainnet owner will then continously transfer the tokens to the staking contr
       return numerator * 1e8 / denominator;
   }
 ```
+
+# Protection against kerosine price manipulation can potentially be bypassed
+
+Links to affected code *
+https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L119
+https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L205
+
+## Impact
+
+The vault manager implements a flashloan protection to prevent users from depositing and withdrawing in the same block. This is done to prevent kerosene price manipulation.This protection can be bypassed by users depositing and liquidating (possibly to self) in one block to manipulate kerosine prices. The process only involves making sure their NFT is at a state at which it can be liquidated, depositing just enough to still put the NFT at a liquidatable state, but not enough to take it out and in the same block liquidating the NFT, to another NFT they own or are in cohorts with. At its core, the liquidate function acts like the a withdraw and deposit function due to move which reduces amoount from one nft and moves it to another. So by aggregating a multicall involving deposiing to an nft A in a liquitable state (depositing enough to keep it in that state), liquidating nft A to another nft B and withdrawing from nft B, all in one block, a user can successfully manipulate kerosene token prices.  
+
+## Recommended Mitigation Steps
+Include the same check against withdrawal in the same block in the liquidate function.
