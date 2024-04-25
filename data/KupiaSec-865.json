@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "A malicious attacker can control the liquidation process of the `Notes` with `KeroseneVaults` by manipulating the price of `Kerosene`",
+  "issueId": 865,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/865"
+}
