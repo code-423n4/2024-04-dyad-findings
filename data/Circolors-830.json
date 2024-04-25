@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "3",
+  "title": "Unable to withdraw Kerosene from `vaultmanagerv2::withdraw` as it expects a `vault.oracle()` method which is missing in Kerosene vaults",
+  "issueId": 830,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/830"
+}
