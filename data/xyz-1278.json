@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "xyz",
+  "risk": "2",
+  "title": "Malicious user can block other's withdrawals",
+  "issueId": 1278,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1278"
+}
