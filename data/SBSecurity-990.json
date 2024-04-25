@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "3",
+  "title": "add() allows adding of kerosine vaults",
+  "issueId": 990,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/990"
+}
