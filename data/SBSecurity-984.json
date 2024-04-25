@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "3",
+  "title": "Liquidator cannot recover 100% of his initial collateral after liquidate someone",
+  "issueId": 984,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/984"
+}
