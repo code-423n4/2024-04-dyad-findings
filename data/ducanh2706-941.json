@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ducanh2706",
+  "risk": "2",
+  "title": "[M-2] User can not withdraw their deposited kerosene due to `VaultManager::withdraw()` function is designed only for deposited exogenous collateral",
+  "issueId": 941,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/941"
+}
