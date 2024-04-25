@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Myrault",
+  "risk": "3",
+  "title": "When collatRatio is less than 100%, the liquidator will not liquidate the non-performing asset because of the lack of liquidation rewards.",
+  "issueId": 1044,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1044"
+}
