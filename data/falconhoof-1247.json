@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "falconhoof",
+  "risk": "3",
+  "title": "Checks using an incorrect mapping to verify Kerosene vaults leads to the DOSing of core functionality",
+  "issueId": 1247,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1247"
+}
