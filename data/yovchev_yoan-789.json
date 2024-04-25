@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "yovchev_yoan",
+  "risk": "2",
+  "title": "[M-1] `VaultManagerV2::deposit` allows users to deposit to a vault not included in their `vaults` mapping",
+  "issueId": 789,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/789"
+}
