@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "LeoGold",
+  "risk": "3",
+  "title": "`VaultManagerV2::burnDyad` with differntUser ID will lead to DOS when price goes up or theft of DYAD when price goes down below Credit Ratio",
+  "issueId": 808,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/808"
+}
