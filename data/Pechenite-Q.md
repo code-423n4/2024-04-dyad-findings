@@ -1,0 +1,3438 @@
+# 4naly3er's issues have been removed from this report
+
+### Low
+
+|Number|Issue|Instances|
+|-|:-|:-:|
+| [L&#x2011;1](#L1-constant-decimal-values) | Constant decimal values | 8 |
+| [L&#x2011;2](#L2-constructor/initialize-function-lacks-parameter-validation) | `constructor`/`initialize` function lacks parameter validation | 4 |
+| [L&#x2011;3](#L3-critical-functions-should-be-controlled-by-time-locks) | Critical functions should be controlled by time locks | 2 |
+| [L&#x2011;4](#L4-external-calls-in-an-un-bounded-for-loop-may-result-in-a-dos) | External calls in an un-bounded `for`-loop may result in a DOS | 4 |
+| [L&#x2011;5](#L5-missing-_disableinitializer-in-upgradeable-constructor-body) | Missing `_disableInitializer()` in upgradeable constructor body | 1 |
+| [L&#x2011;6](#L6-missing-zero-address-check-in-functions-with-address-parameters) | Missing zero address check in functions with address parameters | 14 |
+| [L&#x2011;7](#L7-some-tokens-may-revert-when-zero-value-transfers-are-made) | Some tokens may revert when zero value transfers are made | 2 |
+| [L&#x2011;8](#L8-upgradable-contracts-should-have-an-initialization-function) | Upgradable contracts should have an initialization function | 1 |
+
+### NonCritical
+
+|Number|Issue|Instances|
+|-|:-|:-:|
+| [NC&#x2011;1](#NC1-avoid-external-calls-in-modifiers) | Avoid external calls in modifiers | 3 |
+| [NC&#x2011;2](#NC2-codebase-should-implement-formal-verification-testing) | Codebase should implement formal verification testing | 1 |
+| [NC&#x2011;3](#NC3-consider-adding-a-block/deny-list) | Consider adding a block/deny-list | 5 |
+| [NC&#x2011;4](#NC4-consider-disallowing-transfers-to-addressthis) | Consider disallowing transfers to `address(this)` | 4 |
+| [NC&#x2011;5](#NC5-consider-making-contracts-upgradeable) | Consider making contracts `Upgradeable` | 6 |
+| [NC&#x2011;6](#NC6-consider-using-named-function-arguments) | Consider using named function arguments | 6 |
+| [NC&#x2011;7](#NC7-constants-in-comparisons-should-appear-on-the-left-side) | Constants in comparisons should appear on the left side | 2 |
+| [NC&#x2011;8](#NC8-constructor-should-emit-an-event) | `constructor` should emit an event | 4 |
+| [NC&#x2011;9](#NC9-contract-implements-interface-without-extending-the-interface) | Contract implements interface without extending the interface | 1 |
+| [NC&#x2011;10](#NC10-contracts-should-have-all-public/external-functions-exposed-by-interfaces) | Contracts should have all `public`/`external` functions exposed by `interface`s | 6 |
+| [NC&#x2011;11](#NC11-contracts-should-have-full-test-coverage) | Contracts should have full test coverage | 1 |
+| [NC&#x2011;12](#NC12-empty-function-body) | Empty function body | 1 |
+| [NC&#x2011;13](#NC13-events-are-missing-sender-information) | Events are missing sender information | 6 |
+| [NC&#x2011;14](#NC14-events-may-be-emitted-out-of-order-due-to-reentrancy) | Events may be emitted out of order due to reentrancy | 1 |
+| [NC&#x2011;15](#NC15-events-should-be-emitted-before-external-calls) | Events should be emitted before external calls | 9 |
+| [NC&#x2011;16](#NC16-extraneous-whitespace) | Extraneous whitespace | 3 |
+| [NC&#x2011;17](#NC17-file-names-should-match-the-contract-name) | File names should match the contract name | 3 |
+| [NC&#x2011;18](#NC18-for-loops-in-public-or-external-functions-should-be-avoided-due-to-high-gas-costs-and-possible-dos) | For loops in `public` or `external` functions should be avoided due to high gas costs and possible DOS | 4 |
+| [NC&#x2011;19](#NC19-imports-could-be-organized-more-systematically) | Imports could be organized more systematically | 5 |
+| [NC&#x2011;20](#NC20-incorrect-withdraw-declaration) | Incorrect withdraw declaration | 3 |
+| [NC&#x2011;21](#NC21-invalid-natspec-comment-style) | Invalid NatSpec comment style | 1 |
+| [NC&#x2011;22](#NC22-large-or-complicated-code-bases-should-implement-invariant-tests) | Large or complicated code bases should implement invariant tests | 1 |
+| [NC&#x2011;23](#NC23-minting-to-the-zero-address-should-be-avoided) | Minting to the zero address should be avoided | 1 |
+| [NC&#x2011;24](#NC24-missing-checks-for-uint-state-variable-assignments) | Missing checks for uint state variable assignments | 4 |
+| [NC&#x2011;25](#NC25-natspec-contract-declarations-should-have-@author-tags) | NatSpec: Contract declarations should have `@author` tags | 6 |
+| [NC&#x2011;26](#NC26-natspec-contract-declarations-should-have-@dev-tags) | NatSpec: Contract declarations should have `@dev` tags | 6 |
+| [NC&#x2011;27](#NC27-natspec-contract-declarations-should-have-@notice-tags) | NatSpec: Contract declarations should have `@notice` tags | 6 |
+| [NC&#x2011;28](#NC28-natspec-contract-declarations-should-have-@title-tags) | NatSpec: Contract declarations should have `@title` tags | 6 |
+| [NC&#x2011;29](#NC29-natspec-contract-declarations-should-have-natspec-descriptions) | NatSpec: Contract declarations should have NatSpec descriptions | 6 |
+| [NC&#x2011;30](#NC30-natspec-error-declarations-should-have-@notice-tags) | NatSpec: Error declarations should have `@notice` tags | 4 |
+| [NC&#x2011;31](#NC31-natspec-error-declarations-should-have-natspec-descriptions) | NatSpec: Error declarations should have NatSpec descriptions | 4 |
+| [NC&#x2011;32](#NC32-natspec-error-missing-natspec-@dev-tag) | NatSpec: Error missing NatSpec `@dev` tag | 4 |
+| [NC&#x2011;33](#NC33-natspec-error-missing-natspec-@param-tag) | NatSpec: Error missing NatSpec `@param` tag | 1 |
+| [NC&#x2011;34](#NC34-natspec-file-is-missing-natspec-documentation) | NatSpec: File is missing NatSpec Documentation | 6 |
+| [NC&#x2011;35](#NC35-natspec-function-declarations-should-have-@notice-tags) | NatSpec: Function declarations should have `@notice` tags | 24 |
+| [NC&#x2011;36](#NC36-natspec-function-declarations-should-have-natspec-descriptions) | NatSpec: Function declarations should have NatSpec descriptions | 24 |
+| [NC&#x2011;37](#NC37-natspec-functions-missing-natspec-@dev-tag) | NatSpec: Functions missing NatSpec `@dev` tag | 37 |
+| [NC&#x2011;38](#NC38-natspec-functions-missing-natspec-@param-tag) | NatSpec: Functions missing NatSpec `@param` tag | 24 |
+| [NC&#x2011;39](#NC39-natspec-functions-missing-natspec-@return-tag) | NatSpec: Functions missing NatSpec `@return` tag | 14 |
+| [NC&#x2011;40](#NC40-natspec-modifier-declarations-should-have-natspec-descriptions) | NatSpec: Modifier declarations should have NatSpec descriptions | 4 |
+| [NC&#x2011;41](#NC41-natspec-modifier-missing-natspec-@dev-tag) | NatSpec: Modifier missing NatSpec `@dev` tag | 4 |
+| [NC&#x2011;42](#NC42-natspec-modifier-missing-natspec-@param-tag) | NatSpec: Modifier missing NatSpec `@param` tag | 3 |
+| [NC&#x2011;43](#NC43-not-using-the-latest-versions-of-project-dependencies) | Not using the latest versions of project dependencies | 1 |
+| [NC&#x2011;44](#NC44-outdated-solidity-version) | Outdated Solidity version | 6 |
+| [NC&#x2011;45](#NC45-overly-complicated-arithmetic) | Overly complicated arithmetic | 3 |
+| [NC&#x2011;46](#NC46-state-variables-should-include-comments) | State variables should include comments | 19 |
+| [NC&#x2011;47](#NC47-style-guide-mapping-definitions-do-not-follow-the-solidity-style-guide) | Style guide: `mapping` definitions do not follow the Solidity Style Guide | 3 |
+| [NC&#x2011;48](#NC48-top-level-declarations-should-be-separated-by-at-least-two-lines) | Top-level declarations should be separated by at least two lines | 33 |
+| [NC&#x2011;49](#NC49-unnecessary-cast) | Unnecessary cast | 1 |
+| [NC&#x2011;50](#NC50-use-@inheritdoc-for-overridden-functions) | Use `@inheritdoc` for overridden functions | 2 |
+| [NC&#x2011;51](#NC51-use-upper_case-for-immutable) | Use UPPER_CASE for `immutable` | 7 |
+| [NC&#x2011;52](#NC52-variables-should-be-named-in-mixedcase-style) | Variables should be named in mixedCase style | 17 |
+
+
+## Low
+
+
+---
+### [L&#x2011;1] Constant decimal values
+The use of fixed decimal values such as 1e18 or 1e8 in Solidity contracts can lead to inaccuracies, bugs, and vulnerabilities, particularly when interacting with tokens having different decimal configurations. Not all ERC20 tokens follow the standard 18 decimal places, and assumptions about decimal places can lead to miscalculations.
+
+<details>
+<summary><i>There are 8 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+66:       return id2asset[id] * assetPrice() / 1e8; 
+```
+[66](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L66)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+60:         tvl += vault.asset().balanceOf(address(vault))  
+61:                 * vault.assetPrice() * 1e18
+
+67:       return numerator * 1e8 / denominator; 
+```
+[60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L60-L61), [67](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L67)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+146:     uint value = amount * _vault.assetPrice()  
+147:                   * 1e18 
+
+195:       uint asset = amount  
+196:                     * (10**(_vault.oracle().decimals() + _vault.asset().decimals())) 
+197:                     / _vault.assetPrice() 
+198:                     / 1e18;
+
+217:       uint cappedCr               = cr < 1e18 ? 1e18 : cr; 
+218:       uint liquidationEquityShare = (cappedCr - 1e18).mulWadDown(LIQUIDATION_REWARD);
+219:       uint liquidationAssetShare  = (liquidationEquityShare + 1e18).divWadDown(cappedCr);
+```
+[146](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L146-L147), [195](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L195-L198), [217](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L217-L219)
+
+</details>
+
+
+---
+### [L&#x2011;2] `constructor`/`initialize` function lacks parameter validation
+Constructors and initialization functions play a critical role in contracts by setting important initial states when the contract is first deployed before the system starts. The parameters passed to the constructor and initialization functions directly affect the behavior of the contract / protocol. If incorrect parameters are provided, the system may fail to run, behave abnormally, be unstable, or lack security. Therefore, it's crucial to carefully check each parameter in the constructor and initialization functions. If an exception is found, the transaction should be rolled back.
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit _vaultManager , _asset , _kerosineManager 
+26:   constructor( 
+27:     IVaultManager   _vaultManager,
+28:     ERC20           _asset, 
+29:     KerosineManager _kerosineManager 
+30:   ) {
+```
+[26](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L26-L30)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit _dyad 
+21:   constructor( 
+22:       IVaultManager   _vaultManager,
+23:       ERC20           _asset, 
+24:       Dyad            _dyad, 
+25:       KerosineManager _kerosineManager
+26:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {
+```
+[21](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L21-L26)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit _dNft , _dyad , _licenser 
+49:   constructor( 
+50:     DNft          _dNft,
+51:     Dyad          _dyad,
+52:     Licenser      _licenser
+53:   ) {
+```
+[49](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L49-L53)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit _kerosine 
+11:   constructor( 
+12:     Kerosine _kerosine
+13:   ) {
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L11-L13)
+
+</details>
+
+
+---
+### [L&#x2011;3] Critical functions should be controlled by time locks
+It is a good practice to give time for users to react and adjust to critical changes. A timelock provides more guarantees and reduces the level of trust required, thus decreasing risk for users. It also indicates that the project is legitimate (less risk of a malicious owner making a sandwich attack on a user).
+
+
+<i>There are 2 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+18:   function add( 
+19:     address vault
+20:   ) 
+21:     external 
+22:       onlyOwner
+23:   {
+24:     if (vaults.length() >= MAX_VAULTS) revert TooManyVaults();
+25:     if (!vaults.add(vault))            revert VaultAlreadyAdded();
+26:   }
+
+28:   function remove( 
+29:     address vault
+30:   ) 
+31:     external 
+32:       onlyOwner
+33:   {
+34:     if (!vaults.remove(vault)) revert VaultNotFound();
+35:   }
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L18-L26), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L28-L35)
+
+
+---
+### [L&#x2011;4] External calls in an un-bounded `for`-loop may result in a DOS
+Consider limiting the number of iterations in `for`-loops that make external calls
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit line 63
+/// @audit line 60
+/// @audit line 61
+/// @audit line 62
+/// @audit line 63
+/// @audit line 60
+/// @audit line 62
+58:       for (uint i = 0; i < numberOfVaults; i++) { 
+59:         Vault vault = Vault(vaults[i]);
+60:         tvl += vault.asset().balanceOf(address(vault)) 
+61:                 * vault.assetPrice() * 1e18
+62:                 / (10**vault.asset().decimals()) 
+63:                 / (10**vault.oracle().decimals());
+64:       }
+```
+[58](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L58-L64)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit line 225
+/// @audit line 224
+222:       for (uint i = 0; i < numberOfVaults; i++) { 
+223:           Vault vault      = Vault(vaults[id].at(i));
+224:           uint  collateral = vault.id2asset(id).mulWadUp(liquidationAssetShare);
+225:           vault.move(id, to, collateral);
+226:       }
+
+/// @audit line 261
+/// @audit line 262
+258:       for (uint i = 0; i < numberOfVaults; i++) { 
+259:         Vault vault = Vault(vaults[id].at(i));
+260:         uint usdValue;
+261:         if (vaultLicenser.isLicensed(address(vault))) {
+262:           usdValue = vault.getUsdValue(id);        
+263:         }
+264:         totalUsdValue += usdValue;
+265:       }
+
+/// @audit line 280
+/// @audit line 281
+277:       for (uint i = 0; i < numberOfVaults; i++) { 
+278:         Vault vault = Vault(vaultsKerosene[id].at(i));
+279:         uint usdValue;
+280:         if (keroseneManager.isLicensed(address(vault))) {
+281:           usdValue = vault.getUsdValue(id);        
+282:         }
+283:         totalUsdValue += usdValue;
+284:       }
+```
+[222](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L222-L226), [258](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L258-L265), [277](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L277-L284)
+
+</details>
+
+
+---
+### [L&#x2011;5] Missing `_disableInitializer()` in upgradeable constructor body
+Avoid leaving a contract uninitialized.
+An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke the `_disableInitializers()` function in the constructor to automatically lock it when it is deployed.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+49:   constructor( 
+50:     DNft          _dNft,
+51:     Dyad          _dyad,
+52:     Licenser      _licenser
+53:   ) {
+54:     dNft          = _dNft;
+55:     dyad          = _dyad;
+56:     vaultLicenser = _licenser;
+57:   }
+```
+[49](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L49-L57)
+
+
+---
+### [L&#x2011;6] Missing zero address check in functions with address parameters
+Adding a zero address check for each address type parameter can prevent errors.
+
+<details>
+<summary><i>There are 14 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+/// @audit vault
+18:   function add( 
+19:     address vault
+20:   ) 
+21:     external 
+22:       onlyOwner
+23:   {
+
+/// @audit vault
+28:   function remove( 
+29:     address vault
+30:   ) 
+31:     external 
+32:       onlyOwner
+33:   {
+
+/// @audit vault
+44:   function isLicensed( 
+45:     address vault
+46:   ) 
+47:     external 
+48:     view 
+49:     returns (bool) {
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L18-L23), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L28-L33), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L44-L49)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit to
+32:   function withdraw( 
+33:     uint    id,
+34:     address to,
+35:     uint    amount
+36:   ) 
+37:     external 
+38:     view
+39:       onlyVaultManager
+40:   {
+```
+[32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32-L40)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit to
+30:   function withdraw( 
+31:     uint    id,
+32:     address to,
+33:     uint    amount
+34:   ) 
+35:     external 
+36:       onlyVaultManager
+37:   {
+```
+[30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30-L37)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit vault
+67:   function add( 
+68:       uint    id,
+69:       address vault
+70:   ) 
+71:     external
+72:       isDNftOwner(id)
+73:   {
+
+/// @audit vault
+80:   function addKerosene( 
+81:       uint    id,
+82:       address vault
+83:   ) 
+84:     external
+85:       isDNftOwner(id)
+86:   {
+
+/// @audit vault
+94:   function remove( 
+95:       uint    id,
+96:       address vault
+97:   ) 
+98:     external
+99:       isDNftOwner(id)
+100:   {
+
+/// @audit vault
+106:   function removeKerosene( 
+107:       uint    id,
+108:       address vault
+109:   ) 
+110:     external
+111:       isDNftOwner(id)
+112:   {
+
+/// @audit vault
+119:   function deposit( 
+120:     uint    id,
+121:     address vault,
+122:     uint    amount
+123:   ) 
+124:     external 
+125:       isValidDNft(id)
+126:   {
+
+/// @audit vault, to
+134:   function withdraw( 
+135:     uint    id,
+136:     address vault,
+137:     uint    amount,
+138:     address to
+139:   ) 
+140:     public
+141:       isDNftOwner(id)
+142:   {
+
+/// @audit to
+156:   function mintDyad( 
+157:     uint    id,
+158:     uint    amount,
+159:     address to
+160:   )
+161:     external 
+162:       isDNftOwner(id)
+163:   {
+
+/// @audit vault, to
+184:   function redeemDyad( 
+185:     uint    id,
+186:     address vault,
+187:     uint    amount,
+188:     address to
+189:   )
+190:     external 
+191:       isDNftOwner(id)
+192:     returns (uint) { 
+
+/// @audit vault
+299:   function hasVault( 
+300:     uint    id,
+301:     address vault
+302:   ) 
+303:     external 
+304:     view 
+305:     returns (bool) {
+```
+[67](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L67-L73), [80](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L80-L86), [94](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L94-L100), [106](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L106-L112), [119](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L119-L126), [134](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L134-L142), [156](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L156-L163), [184](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L184-L192), [299](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L299-L305)
+
+</details>
+
+
+---
+### [L&#x2011;7] Some tokens may revert when zero value transfers are made
+In spite of the fact that EIP-20 [states](https://github.com/ethereum/EIPs/blob/46b9b698815abbfa628cd1097311deee77dd45c5/EIPS/eip-20.md?plain=1#L116) that zero-valued transfers must be accepted, some tokens, such as `LEND` will revert if this is attempted, which may cause transactions that involve other tokens (such as batch operations) to fully revert. Consider skipping the transfer if the amount is zero, which will also save **gas**.
+
+<details>
+<summary><i>There are 2 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+39:     asset.safeTransfer(to, amount);  
+```
+[39](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L39)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+129:     _vault.asset().safeTransferFrom(msg.sender, address(vault), amount); 
+```
+[129](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L129)
+
+</details>
+
+
+---
+### [L&#x2011;8] Upgradable contracts should have an initialization function
+Upgradable Solidity contracts utilize a proxy pattern to separate logic from data storage, allowing smooth logic updates without affecting data. To ensure consistency and security, an initialization function is crucial during deployment. This safeguards against vulnerabilities and maintains a proper contract setup.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit Initializable on line 17
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+19:   using FixedPointMathLib for uint;
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L19)
+
+
+## NonCritical
+
+
+---
+### [NC&#x2011;1] Avoid external calls in modifiers
+It is unusual to have external calls in modifiers, and doing so will make reviewers more likely to miss important external interactions. Consider moving the external call to an internal function, and calling that function from the modifier.
+
+
+<i>There are 3 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit dNft.ownerOf()
+39:   modifier isDNftOwner(uint id) { 
+40:     if (dNft.ownerOf(id) != msg.sender)   revert NotOwner();    _;
+41:   }
+/// @audit dNft.ownerOf()
+42:   modifier isValidDNft(uint id) {
+43:     if (dNft.ownerOf(id) == address(0))   revert InvalidDNft(); _;
+44:   }
+/// @audit vaultLicenser.isLicensed()
+45:   modifier isLicensed(address vault) {
+46:     if (!vaultLicenser.isLicensed(vault)) revert NotLicensed(); _;
+47:   }
+```
+[39](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L39-L47)
+
+
+---
+### [NC&#x2011;2] Codebase should implement formal verification testing
+Formal verification is the act of proving or disproving the correctness of intended algorithms underlying a system with respect to a certain formal specification/property/invariant, using formal methods of mathematics.
+
+Some tools that are currently available to perform these tests on smart contracts are [SMTChecker](https://docs.soliditylang.org/en/latest/smtchecker.html) and [Certora Prover](https://www.certora.com/).
+
+
+---
+### [NC&#x2011;3] Consider adding a block/deny-list
+Doing so will significantly increase centralization, but will help to prevent hackers from using stolen tokens
+
+<details>
+<summary><i>There are 5 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+11: 
+12:   using EnumerableSet for EnumerableSet.AddressSet;
+13: 
+14:   uint public constant MAX_VAULTS = 10;
+15: 
+16:   EnumerableSet.AddressSet private vaults;
+17: 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L17)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+14: 
+15:   UnboundedKerosineVault public unboundedKerosineVault;
+16: 
+17:   constructor(
+18:     IVaultManager   _vaultManager,
+19:     ERC20           _asset, 
+20:     KerosineManager _kerosineManager
+21:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {}
+22: 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L22)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+15: contract UnboundedKerosineVault is KerosineVault { 
+16:   using SafeTransferLib for ERC20;
+17: 
+18:   Dyad                 public immutable dyad;
+19:   KerosineDenominator  public kerosineDenominator;
+20: 
+21:   constructor(
+22:       IVaultManager   _vaultManager,
+23:       ERC20           _asset, 
+24:       Dyad            _dyad, 
+25:       KerosineManager _kerosineManager
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15-L25)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+19:   using FixedPointMathLib for uint;
+20:   using SafeTransferLib   for ERC20;
+21: 
+22:   uint public constant MAX_VAULTS          = 5;
+23:   uint public constant MAX_VAULTS_KEROSENE = 5;
+24: 
+25:   uint public constant MIN_COLLATERIZATION_RATIO = 1.5e18; // 150%
+26:   uint public constant LIQUIDATION_REWARD        = 0.2e18; //  20%
+27: 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L27)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+7: contract KerosineDenominator is Parameters { 
+8: 
+9:   Kerosine public kerosine;
+10: 
+11:   constructor(
+12:     Kerosine _kerosine
+13:   ) {
+14:     kerosine = _kerosine;
+15:   }
+16: 
+17:   function denominator() external view returns (uint) {
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L17)
+
+</details>
+
+
+---
+### [NC&#x2011;4] Consider disallowing transfers to `address(this)`
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+32:   function withdraw( 
+33:     uint    id,
+34:     address to,
+35:     uint    amount
+36:   ) 
+37:     external 
+38:     view
+39:       onlyVaultManager
+40:   {
+```
+[32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32-L40)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+30:   function withdraw( 
+31:     uint    id,
+32:     address to,
+33:     uint    amount
+34:   ) 
+35:     external 
+36:       onlyVaultManager
+37:   {
+```
+[30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30-L37)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+134:   function withdraw( 
+135:     uint    id,
+136:     address vault,
+137:     uint    amount,
+138:     address to
+139:   ) 
+140:     public
+141:       isDNftOwner(id)
+142:   {
+
+184:   function redeemDyad( 
+185:     uint    id,
+186:     address vault,
+187:     uint    amount,
+188:     address to
+189:   )
+190:     external 
+191:       isDNftOwner(id)
+192:     returns (uint) { 
+```
+[134](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L134-L142), [184](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L184-L192)
+
+</details>
+
+
+---
+### [NC&#x2011;5] Consider making contracts `Upgradeable`
+This allows for bugs to be fixed in production, at the expense of *significantly* increasing centralization.
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+/// @audit contract KerosineManager is not upgradeable
+7: contract KerosineManager is Owned(msg.sender) { 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit contract BoundedKerosineVault is not upgradeable
+12: contract BoundedKerosineVault is KerosineVault { 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit contract KerosineVault is not upgradeable
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit contract UnboundedKerosineVault is not upgradeable
+15: contract UnboundedKerosineVault is KerosineVault { 
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit contract VaultManagerV2 is not upgradeable
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit contract KerosineDenominator is not upgradeable
+7: contract KerosineDenominator is Parameters { 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7)
+
+</details>
+
+
+---
+### [NC&#x2011;6] Consider using named function arguments
+When calling functions in external contracts with multiple arguments, consider using [named](https://docs.soliditylang.org/en/latest/control-structures.html#function-calls-with-named-parameters) function parameters, rather than positional ones.
+
+
+<i>There are 6 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+151:     _vault.withdraw(id, to, amount); 
+
+166:     dyad.mint(id, to, amount); 
+
+179:     dyad.burn(id, msg.sender, amount); 
+
+193:       dyad.burn(id, msg.sender, amount); 
+
+215:       dyad.burn(id, msg.sender, dyad.mintedDyad(address(this), id)); 
+
+225:           vault.move(id, to, collateral); 
+```
+[151](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L151), [166](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L166), [179](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L179), [193](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L193), [215](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L215), [225](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L225)
+
+
+---
+### [NC&#x2011;7] Constants in comparisons should appear on the left side
+Putting constants on the left side of comparison statements is a best practice known as [Yoda conditions](https://en.wikipedia.org/wiki/Yoda_conditions). Although solidity's static typing system prevents accidental assignments within conditionals, adopting this practice can improve code readability and consistency, especially when working across multiple languages.
+
+
+<i>There are 2 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit move block.number to the left
+143:     if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock(); 
+
+/// @audit move 0 to the left
+237:       if (_dyad == 0) return type(uint).max; 
+```
+[143](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L143), [237](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L237)
+
+
+---
+### [NC&#x2011;8] `constructor` should emit an event
+Use events to signal significant changes to off-chain monitoring tools.
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+26:   constructor( 
+27:     IVaultManager   _vaultManager,
+28:     ERC20           _asset, 
+29:     KerosineManager _kerosineManager 
+30:   ) {
+```
+[26](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L26-L30)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+21:   constructor( 
+22:       IVaultManager   _vaultManager,
+23:       ERC20           _asset, 
+24:       Dyad            _dyad, 
+25:       KerosineManager _kerosineManager
+26:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {
+```
+[21](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L21-L26)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+49:   constructor( 
+50:     DNft          _dNft,
+51:     Dyad          _dyad,
+52:     Licenser      _licenser
+53:   ) {
+```
+[49](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L49-L53)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+11:   constructor( 
+12:     Kerosine _kerosine
+13:   ) {
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L11-L13)
+
+</details>
+
+
+---
+### [NC&#x2011;9] Contract implements interface without extending the interface
+Not extending the interface may lead to the wrong function signature being used, leading to unexpected behavior. If the interface is in fact being implemented, use the `override` keyword to indicate that fact.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit IVault.withdraw()
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12)
+
+
+---
+### [NC&#x2011;10] Contracts should have all `public`/`external` functions exposed by `interface`s
+The `contract`s should expose an `interface` so that other projects can more easily integrate with it, without having to develop their own non-standard variants.
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+/// @audit add, remove, getVaults, isLicensed
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L8)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit setUnboundedKerosineVault, withdraw, assetPrice
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit deposit, move, getUsdValue
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+13:   using SafeTransferLib for ERC20;
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit withdraw, setDenominator, assetPrice
+15: contract UnboundedKerosineVault is KerosineVault { 
+16:   using SafeTransferLib for ERC20;
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15-L16)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit setKeroseneManager, add, addKerosene, remove, removeKerosene, deposit, withdraw, mintDyad, burnDyad, redeemDyad, liquidate, collatRatio, getTotalUsdValue, getNonKeroseneValue, getKeroseneValue, getVaults, hasVault
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L18)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit denominator
+7: contract KerosineDenominator is Parameters { 
+8: 
+9:   Kerosine public kerosine;
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L9)
+
+</details>
+
+
+---
+### [NC&#x2011;11] Contracts should have full test coverage
+A 100% test coverage is not foolproof, but it helps immensely in reducing the amount of bugs that may occur.
+
+
+---
+### [NC&#x2011;12] Empty function body
+Empty function body in solidity is not recommended, consider adding some comments to the body.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+17:   constructor( 
+18:     IVaultManager   _vaultManager,
+19:     ERC20           _asset, 
+20:     KerosineManager _kerosineManager
+21:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {}
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L17-L21)
+
+
+---
+### [NC&#x2011;13] Events are missing sender information
+When an action is triggered based on a user's action, not being able to filter based on who triggered the action makes event processing a lot more cumbersome. Including the msg.sender the events of these types of action will make events much more useful to end users, especially when `msg.sender` is not `tx.origin`.
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+40:     emit Withdraw(id, to, amount); 
+```
+[40](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L40)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+77:     emit Added(id, vault); 
+
+90:     emit Added(id, vault); 
+
+103:     emit Removed(id, vault); 
+
+115:     emit Removed(id, vault); 
+
+168:     emit MintDyad(id, amount, to); 
+```
+[77](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L77), [90](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L90), [103](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L103), [115](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L115), [168](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L168)
+
+</details>
+
+
+---
+### [NC&#x2011;14] Events may be emitted out of order due to reentrancy
+If a reentrancy occurs, some events may be emitted in an unexpected order, and this may be a problem if a third party expects a specific order for these events. Ensure that events follow the best practice of CEI.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+200:       emit RedeemDyad(id, vault, amount, to); 
+```
+[200](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L200)
+
+
+---
+### [NC&#x2011;15] Events should be emitted before external calls
+Ensure that events follow the best practice of check-effects-interaction, and are emitted before external calls.
+
+<details>
+<summary><i>There are 9 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit safeTransfer() on line 39
+40:     emit Withdraw(id, to, amount); 
+```
+[40](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L40)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit add() on line 76
+77:     emit Added(id, vault); 
+
+/// @audit add() on line 89
+90:     emit Added(id, vault); 
+
+/// @audit remove() on line 102
+103:     emit Removed(id, vault); 
+
+/// @audit remove() on line 114
+115:     emit Removed(id, vault); 
+
+/// @audit mint() on line 166
+168:     emit MintDyad(id, amount, to); 
+
+/// @audit burn() on line 179
+180:     emit BurnDyad(id, amount, msg.sender); 
+
+/// @audit assetPrice() on line 197
+200:       emit RedeemDyad(id, vault, amount, to); 
+
+/// @audit move() on line 225
+227:       emit Liquidate(id, msg.sender, to); 
+```
+[77](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L77), [90](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L90), [103](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L103), [115](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L115), [168](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L168), [180](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L180), [200](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L200), [227](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L227)
+
+</details>
+
+
+---
+### [NC&#x2011;16] Extraneous whitespace
+See the [whitespace](https://docs.soliditylang.org/en/v0.8.16/style-guide.html#whitespace-in-expressions) section of the Solidity Style Guide
+
+<details>
+<summary><i>There are 3 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+31:     vaultManager    = _vaultManager; 
+
+56:     id2asset[to]   += amount; 
+```
+[31](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L31), [56](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L56)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+54:     dNft          = _dNft; 
+```
+[54](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L54)
+
+</details>
+
+
+---
+### [NC&#x2011;17] File names should match the contract name
+According to the Solidity [style guide](https://docs.soliditylang.org/en/latest/style-guide.html#contract-and-library-names) contract and library names should match their filenames.
+
+<details>
+<summary><i>There are 3 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit file name should be BoundedKerosineVault.sol
+12: contract BoundedKerosineVault is KerosineVault { 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit file name should be KerosineVault.sol
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit file name should be UnboundedKerosineVault.sol
+15: contract UnboundedKerosineVault is KerosineVault { 
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15)
+
+</details>
+
+
+---
+### [NC&#x2011;18] For loops in `public` or `external` functions should be avoided due to high gas costs and possible DOS
+In Solidity, for loops can potentially cause Denial of Service (DoS) attacks if not handled carefully. DoS attacks can occur when an attacker intentionally exploits the gas cost of a function, causing it to run out of gas or making it too expensive for other users to call. Below are some scenarios where for loops can lead to DoS attacks: Nested for loops can become exceptionally gas expensive and should be used sparingly.
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit line 58
+50:   function assetPrice()  
+51:     public 
+52:     view 
+53:     override
+54:     returns (uint) {
+55:       uint tvl;
+56:       address[] memory vaults = kerosineManager.getVaults();
+57:       uint numberOfVaults = vaults.length;
+58:       for (uint i = 0; i < numberOfVaults; i++) {
+59:         Vault vault = Vault(vaults[i]);
+60:         tvl += vault.asset().balanceOf(address(vault)) 
+61:                 * vault.assetPrice() * 1e18
+62:                 / (10**vault.asset().decimals()) 
+63:                 / (10**vault.oracle().decimals());
+64:       }
+65:       uint numerator   = tvl - dyad.totalSupply();
+66:       uint denominator = kerosineDenominator.denominator();
+67:       return numerator * 1e8 / denominator;
+68:   }
+```
+[50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50-L68)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit line 222
+205:   function liquidate( 
+206:     uint id,
+207:     uint to
+208:   ) 
+209:     external 
+210:       isValidDNft(id)
+211:       isValidDNft(to)
+212:     {
+213:       uint cr = collatRatio(id);
+214:       if (cr >= MIN_COLLATERIZATION_RATIO) revert CrTooHigh();
+215:       dyad.burn(id, msg.sender, dyad.mintedDyad(address(this), id));
+216: 
+217:       uint cappedCr               = cr < 1e18 ? 1e18 : cr;
+218:       uint liquidationEquityShare = (cappedCr - 1e18).mulWadDown(LIQUIDATION_REWARD);
+219:       uint liquidationAssetShare  = (liquidationEquityShare + 1e18).divWadDown(cappedCr);
+220: 
+221:       uint numberOfVaults = vaults[id].length();
+222:       for (uint i = 0; i < numberOfVaults; i++) {
+223:           Vault vault      = Vault(vaults[id].at(i));
+224:           uint  collateral = vault.id2asset(id).mulWadUp(liquidationAssetShare);
+225:           vault.move(id, to, collateral);
+226:       }
+227:       emit Liquidate(id, msg.sender, to);
+228:   }
+
+/// @audit line 258
+250:   function getNonKeroseneValue( 
+251:     uint id
+252:   ) 
+253:     public 
+254:     view
+255:     returns (uint) {
+256:       uint totalUsdValue;
+257:       uint numberOfVaults = vaults[id].length(); 
+258:       for (uint i = 0; i < numberOfVaults; i++) {
+259:         Vault vault = Vault(vaults[id].at(i));
+260:         uint usdValue;
+261:         if (vaultLicenser.isLicensed(address(vault))) {
+262:           usdValue = vault.getUsdValue(id);        
+263:         }
+264:         totalUsdValue += usdValue;
+265:       }
+266:       return totalUsdValue;
+267:   }
+
+/// @audit line 277
+269:   function getKeroseneValue( 
+270:     uint id
+271:   ) 
+272:     public 
+273:     view
+274:     returns (uint) {
+275:       uint totalUsdValue;
+276:       uint numberOfVaults = vaultsKerosene[id].length(); 
+277:       for (uint i = 0; i < numberOfVaults; i++) {
+278:         Vault vault = Vault(vaultsKerosene[id].at(i));
+279:         uint usdValue;
+280:         if (keroseneManager.isLicensed(address(vault))) {
+281:           usdValue = vault.getUsdValue(id);        
+282:         }
+283:         totalUsdValue += usdValue;
+284:       }
+285:       return totalUsdValue;
+286:   }
+```
+[205](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L205-L228), [250](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L250-L267), [269](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269-L286)
+
+</details>
+
+
+---
+### [NC&#x2011;19] Imports could be organized more systematically
+The contract's interface should be imported first, followed by each of the interfaces it uses, followed by all other files. The examples below do not follow this layout.
+
+<details>
+<summary><i>There are 5 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+2: pragma solidity =0.8.17; 
+3: 
+4: import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+5: import {Owned}         from "@solmate/src/auth/Owned.sol";
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L2-L5)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+2: pragma solidity =0.8.17; 
+3: 
+4: import {KerosineVault}          from "./Vault.kerosine.sol";
+5: import {IVaultManager}          from "../interfaces/IVaultManager.sol";
+6: import {Dyad}                   from "./Dyad.sol";
+7: import {KerosineManager}        from "./KerosineManager.sol";
+8: import {UnboundedKerosineVault} from "./Vault.kerosine.unbounded.sol";
+9: 
+10: import {ERC20} from "@solmate/src/tokens/ERC20.sol";
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L2-L10)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+2: pragma solidity =0.8.17; 
+3: 
+4: import {IVaultManager}   from "../interfaces/IVaultManager.sol";
+5: import {KerosineManager} from "./KerosineManager.sol";
+6: import {IVault}          from "../interfaces/IVault.sol";
+7: 
+8: import {SafeTransferLib} from "@solmate/src/utils/SafeTransferLib.sol";
+9: import {ERC20}           from "@solmate/src/tokens/ERC20.sol";
+10: import {Owned}           from "@solmate/src/auth/Owned.sol";
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L2-L10)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+2: pragma solidity =0.8.17; 
+3: 
+4: import {KerosineVault}        from "./Vault.kerosine.sol";
+5: import {IVaultManager}        from "../interfaces/IVaultManager.sol";
+6: import {Vault}                from "./Vault.sol";
+7: import {Dyad}                 from "./Dyad.sol";
+8: import {KerosineManager}      from "./KerosineManager.sol";
+9: import {BoundedKerosineVault} from "./Vault.kerosine.bounded.sol";
+10: import {KerosineDenominator}  from "../staking/KerosineDenominator.sol";
+11: 
+12: import {ERC20}           from "@solmate/src/tokens/ERC20.sol";
+13: import {SafeTransferLib} from "@solmate/src/utils/SafeTransferLib.sol";
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L2-L13)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+2: pragma solidity =0.8.17; 
+3: 
+4: import {DNft}            from "./DNft.sol";
+5: import {Dyad}            from "./Dyad.sol";
+6: import {Licenser}        from "./Licenser.sol";
+7: import {Vault}           from "./Vault.sol";
+8: import {IVaultManager}   from "../interfaces/IVaultManager.sol";
+9: import {KerosineManager} from "../../src/core/KerosineManager.sol";
+10: 
+11: import {FixedPointMathLib} from "@solmate/src/utils/FixedPointMathLib.sol";
+12: import {ERC20}             from "@solmate/src/tokens/ERC20.sol";
+13: import {SafeTransferLib}   from "@solmate/src/utils/SafeTransferLib.sol";
+14: import {EnumerableSet}     from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+15: import {Initializable}     from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L2-L15)
+
+</details>
+
+
+---
+### [NC&#x2011;20] Incorrect withdraw declaration
+Consider adding a return value to the `withdraw` function to indicate success or failure.
+
+<details>
+<summary><i>There are 3 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+32:   function withdraw( 
+33:     uint    id,
+34:     address to,
+35:     uint    amount
+36:   ) 
+37:     external 
+38:     view
+39:       onlyVaultManager
+40:   {
+```
+[32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32-L40)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+30:   function withdraw( 
+31:     uint    id,
+32:     address to,
+33:     uint    amount
+34:   ) 
+35:     external 
+36:       onlyVaultManager
+37:   {
+```
+[30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30-L37)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+134:   function withdraw( 
+135:     uint    id,
+136:     address vault,
+137:     uint    amount,
+138:     address to
+139:   ) 
+140:     public
+141:       isDNftOwner(id)
+142:   {
+```
+[134](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L134-L142)
+
+</details>
+
+
+---
+### [NC&#x2011;21] Invalid NatSpec comment style
+NatSpec [must](https://docs.soliditylang.org/en/latest/natspec-format.html#documentation-example) begin with `///`, or use the `/* ... */` syntax.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+18:     // @dev: We subtract all the Kerosene in the multi-sig. 
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L18)
+
+
+---
+### [NC&#x2011;22] Large or complicated code bases should implement invariant tests
+Large code bases, or code with lots of inline-assembly, complicated math, or complicated interactions between multiple contracts, should implement [invariant fuzzing tests](https://medium.com/coinmonks/smart-contract-fuzzing-d9b88e0b0a05). Invariant fuzzers such as Echidna require the test writer to come up with invariants which should not be violated under any circumstances, and the fuzzer tests various inputs and function calls to ensure that the invariants always hold. Even code with 100% code coverage can still have bugs due to the order of the operations a user performs, and invariant fuzzers, with properly and extensively-written invariants, can close this testing gap significantly.
+
+
+---
+### [NC&#x2011;23] Minting to the zero address should be avoided
+Minting tokens to the zero address in Solidity is a potential pitfall. The zero address (0x0) is commonly used as a default value and sending tokens there effectively burns them, leading to unintended token loss. To prevent this, include a check in the minting function to ensure the target address is not zero. Using OpenZeppelin's Address library with the requireNonZero function simplifies this check and enhances security.
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+156:   function mintDyad( 
+157:     uint    id,
+158:     uint    amount,
+159:     address to
+160:   )
+161:     external 
+162:       isDNftOwner(id)
+163:   {
+164:     uint newDyadMinted = dyad.mintedDyad(address(this), id) + amount;
+165:     if (getNonKeroseneValue(id) < newDyadMinted)     revert NotEnoughExoCollat();
+166:     dyad.mint(id, to, amount);
+167:     if (collatRatio(id) < MIN_COLLATERIZATION_RATIO) revert CrTooLow(); 
+168:     emit MintDyad(id, amount, to);
+169:   }
+```
+[156](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L156-L169)
+
+
+---
+### [NC&#x2011;24] Missing checks for uint state variable assignments
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+43:     id2asset[id] += amount; 
+
+55:     id2asset[from] -= amount; 
+56:     id2asset[to]   += amount;
+```
+[43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L43), [55](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L55-L56)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+38:     id2asset[id] -= amount; 
+```
+[38](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L38)
+
+</details>
+
+
+---
+### [NC&#x2011;25] NatSpec: Contract declarations should have `@author` tags
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+6:  
+7: contract KerosineManager is Owned(msg.sender) {
+8:   error TooManyVaults();
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L6-L8)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+11:  
+12: contract BoundedKerosineVault is KerosineVault {
+13:   error NotWithdrawable(uint id, address to, uint amount);
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+11:  
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) {
+13:   using SafeTransferLib for ERC20;
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+14:  
+15: contract UnboundedKerosineVault is KerosineVault {
+16:   using SafeTransferLib for ERC20;
+```
+[14](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L14-L16)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+16:  
+17: contract VaultManagerV2 is IVaultManager, Initializable {
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+```
+[16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L16-L18)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+6:  
+7: contract KerosineDenominator is Parameters {
+8: 
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L6-L8)
+
+</details>
+
+
+---
+### [NC&#x2011;26] NatSpec: Contract declarations should have `@dev` tags
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+6:  
+7: contract KerosineManager is Owned(msg.sender) {
+8:   error TooManyVaults();
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L6-L8)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+11:  
+12: contract BoundedKerosineVault is KerosineVault {
+13:   error NotWithdrawable(uint id, address to, uint amount);
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+11:  
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) {
+13:   using SafeTransferLib for ERC20;
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+14:  
+15: contract UnboundedKerosineVault is KerosineVault {
+16:   using SafeTransferLib for ERC20;
+```
+[14](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L14-L16)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+16:  
+17: contract VaultManagerV2 is IVaultManager, Initializable {
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+```
+[16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L16-L18)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+6:  
+7: contract KerosineDenominator is Parameters {
+8: 
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L6-L8)
+
+</details>
+
+
+---
+### [NC&#x2011;27] NatSpec: Contract declarations should have `@notice` tags
+`@notice` is used to explain to end users what the contract does, and the compiler interprets `///` or `/**` comments as this tag if one was't explicitly provided
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+11: 
+12:   using EnumerableSet for EnumerableSet.AddressSet;
+13: 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+14: 
+15:   UnboundedKerosineVault public unboundedKerosineVault;
+16: 
+17:   constructor(
+18:     IVaultManager   _vaultManager,
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L18)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+13:   using SafeTransferLib for ERC20;
+14: 
+15:   IVaultManager   public immutable vaultManager;
+16:   ERC20           public immutable asset;
+17:   KerosineManager public immutable kerosineManager;
+18: 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12-L18)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+15: contract UnboundedKerosineVault is KerosineVault { 
+16:   using SafeTransferLib for ERC20;
+17: 
+18:   Dyad                 public immutable dyad;
+19:   KerosineDenominator  public kerosineDenominator;
+20: 
+21:   constructor(
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15-L21)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+19:   using FixedPointMathLib for uint;
+20:   using SafeTransferLib   for ERC20;
+21: 
+22:   uint public constant MAX_VAULTS          = 5;
+23:   uint public constant MAX_VAULTS_KEROSENE = 5;
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L23)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+7: contract KerosineDenominator is Parameters { 
+8: 
+9:   Kerosine public kerosine;
+10: 
+11:   constructor(
+12:     Kerosine _kerosine
+13:   ) {
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L13)
+
+</details>
+
+
+---
+### [NC&#x2011;28] NatSpec: Contract declarations should have `@title` tags
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+6:  
+7: contract KerosineManager is Owned(msg.sender) {
+8:   error TooManyVaults();
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L6-L8)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+11:  
+12: contract BoundedKerosineVault is KerosineVault {
+13:   error NotWithdrawable(uint id, address to, uint amount);
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+11:  
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) {
+13:   using SafeTransferLib for ERC20;
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L11-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+14:  
+15: contract UnboundedKerosineVault is KerosineVault {
+16:   using SafeTransferLib for ERC20;
+```
+[14](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L14-L16)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+16:  
+17: contract VaultManagerV2 is IVaultManager, Initializable {
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+```
+[16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L16-L18)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+6:  
+7: contract KerosineDenominator is Parameters {
+8: 
+```
+[6](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L6-L8)
+
+</details>
+
+
+---
+### [NC&#x2011;29] NatSpec: Contract declarations should have NatSpec descriptions
+It is recommended that Solidity libraries and contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+11: 
+12:   using EnumerableSet for EnumerableSet.AddressSet;
+13: 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L13)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+14: 
+15:   UnboundedKerosineVault public unboundedKerosineVault;
+16: 
+17:   constructor(
+18:     IVaultManager   _vaultManager,
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L18)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+13:   using SafeTransferLib for ERC20;
+14: 
+15:   IVaultManager   public immutable vaultManager;
+16:   ERC20           public immutable asset;
+17:   KerosineManager public immutable kerosineManager;
+18: 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12-L18)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+15: contract UnboundedKerosineVault is KerosineVault { 
+16:   using SafeTransferLib for ERC20;
+17: 
+18:   Dyad                 public immutable dyad;
+19:   KerosineDenominator  public kerosineDenominator;
+20: 
+21:   constructor(
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15-L21)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+19:   using FixedPointMathLib for uint;
+20:   using SafeTransferLib   for ERC20;
+21: 
+22:   uint public constant MAX_VAULTS          = 5;
+23:   uint public constant MAX_VAULTS_KEROSENE = 5;
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L23)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+7: contract KerosineDenominator is Parameters { 
+8: 
+9:   Kerosine public kerosine;
+10: 
+11:   constructor(
+12:     Kerosine _kerosine
+13:   ) {
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L13)
+
+</details>
+
+
+---
+### [NC&#x2011;30] NatSpec: Error declarations should have `@notice` tags
+`@notice` is used to explain to end users what the error does, and the compiler interprets `///` or `/**` comments as this tag if one was't explicitly provided
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+8:   error TooManyVaults(); 
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+```
+[8](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L8-L10)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+13:   error NotWithdrawable(uint id, address to, uint amount); 
+```
+[13](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L13)
+
+</details>
+
+
+---
+### [NC&#x2011;31] NatSpec: Error declarations should have NatSpec descriptions
+It is recommended that errors are fully annotated using NatSpec. It is clearly stated in the Solidity official documentation.
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+8:   error TooManyVaults(); 
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+```
+[8](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L8-L10)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+13:   error NotWithdrawable(uint id, address to, uint amount); 
+```
+[13](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L13)
+
+</details>
+
+
+---
+### [NC&#x2011;32] NatSpec: Error missing NatSpec `@dev` tag
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+9:   error VaultAlreadyAdded();
+10:   error VaultNotFound();
+11: 
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L11)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+14: 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L14)
+
+</details>
+
+
+---
+### [NC&#x2011;33] NatSpec: Error missing NatSpec `@param` tag
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit Missing @param for all error parameters
+13:   error NotWithdrawable(uint id, address to, uint amount); 
+```
+[13](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L13)
+
+
+---
+### [NC&#x2011;34] NatSpec: File is missing NatSpec Documentation
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L1)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L1)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L1)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L1)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L1)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L1)
+
+</details>
+
+
+---
+### [NC&#x2011;35] NatSpec: Function declarations should have `@notice` tags
+`@notice` is used to explain to end users what the function does, and the compiler interprets `///` or `/**` comments as this tag if one was't explicitly provided
+
+<details>
+<summary><i>There are 24 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+18:   function add( 
+19:     address vault
+20:   ) 
+21:     external 
+22:       onlyOwner
+23:   {
+
+28:   function remove( 
+29:     address vault
+30:   ) 
+31:     external 
+32:       onlyOwner
+33:   {
+
+37:   function getVaults()  
+38:     external 
+39:     view 
+40:     returns (address[] memory) {
+
+44:   function isLicensed( 
+45:     address vault
+46:   ) 
+47:     external 
+48:     view 
+49:     returns (bool) {
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L18-L23), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L28-L33), [37](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L37-L40), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L44-L49)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+23:   function setUnboundedKerosineVault( 
+24:     UnboundedKerosineVault _unboundedKerosineVault
+25:   )
+26:     external
+27:     onlyOwner
+28:   {
+
+32:   function withdraw( 
+33:     uint    id,
+34:     address to,
+35:     uint    amount
+36:   ) 
+37:     external 
+38:     view
+39:       onlyVaultManager
+40:   {
+
+44:   function assetPrice()  
+45:     public 
+46:     view 
+47:     override
+48:     returns (uint) {
+```
+[23](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L23-L28), [32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32-L40), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L44-L48)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+36:   function deposit( 
+37:     uint id,
+38:     uint amount
+39:   )
+40:     public 
+41:       onlyVaultManager
+42:   {
+
+47:   function move( 
+48:     uint from,
+49:     uint to,
+50:     uint amount
+51:   )
+52:     external
+53:       onlyVaultManager
+54:   {
+
+60:   function getUsdValue( 
+61:     uint id
+62:   )
+63:     public
+64:     view 
+65:     returns (uint) {
+
+69:   function assetPrice()  
+```
+[36](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L36-L42), [47](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L47-L54), [60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L60-L65), [69](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L69)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+30:   function withdraw( 
+31:     uint    id,
+32:     address to,
+33:     uint    amount
+34:   ) 
+35:     external 
+36:       onlyVaultManager
+37:   {
+
+43:   function setDenominator(KerosineDenominator _kerosineDenominator)  
+44:     external 
+45:       onlyOwner
+46:   {
+
+50:   function assetPrice()  
+51:     public 
+52:     view 
+53:     override
+54:     returns (uint) {
+```
+[30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30-L37), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43-L46), [50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50-L54)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+59:   function setKeroseneManager(KerosineManager _keroseneManager)  
+60:     external
+61:       initializer 
+62:     {
+
+80:   function addKerosene( 
+81:       uint    id,
+82:       address vault
+83:   ) 
+84:     external
+85:       isDNftOwner(id)
+86:   {
+
+106:   function removeKerosene( 
+107:       uint    id,
+108:       address vault
+109:   ) 
+110:     external
+111:       isDNftOwner(id)
+112:   {
+
+230:   function collatRatio( 
+231:     uint id
+232:   )
+233:     public 
+234:     view
+235:     returns (uint) {
+
+241:   function getTotalUsdValue( 
+242:     uint id
+243:   ) 
+244:     public 
+245:     view
+246:     returns (uint) {
+
+250:   function getNonKeroseneValue( 
+251:     uint id
+252:   ) 
+253:     public 
+254:     view
+255:     returns (uint) {
+
+269:   function getKeroseneValue( 
+270:     uint id
+271:   ) 
+272:     public 
+273:     view
+274:     returns (uint) {
+
+290:   function getVaults( 
+291:     uint id
+292:   ) 
+293:     external 
+294:     view 
+295:     returns (address[] memory) {
+
+299:   function hasVault( 
+300:     uint    id,
+301:     address vault
+302:   ) 
+303:     external 
+304:     view 
+305:     returns (bool) {
+```
+[59](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L59-L62), [80](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L80-L86), [106](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L106-L112), [230](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L230-L235), [241](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L241-L246), [250](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L250-L255), [269](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269-L274), [290](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L290-L295), [299](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L299-L305)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+17:   function denominator() external view returns (uint) { 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L17)
+
+</details>
+
+
+---
+### [NC&#x2011;36] NatSpec: Function declarations should have NatSpec descriptions
+It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+<details>
+<summary><i>There are 24 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+18:   function add( 
+
+28:   function remove( 
+
+37:   function getVaults()  
+
+44:   function isLicensed( 
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L18), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L28), [37](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L37), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L44)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+23:   function setUnboundedKerosineVault( 
+
+32:   function withdraw( 
+
+44:   function assetPrice()  
+```
+[23](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L23), [32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L44)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+36:   function deposit( 
+
+47:   function move( 
+
+60:   function getUsdValue( 
+
+69:   function assetPrice()  
+```
+[36](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L36), [47](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L47), [60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L60), [69](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L69)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+30:   function withdraw( 
+
+43:   function setDenominator(KerosineDenominator _kerosineDenominator)  
+
+50:   function assetPrice()  
+```
+[30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43), [50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+59:   function setKeroseneManager(KerosineManager _keroseneManager)  
+
+80:   function addKerosene( 
+
+106:   function removeKerosene( 
+
+230:   function collatRatio( 
+
+241:   function getTotalUsdValue( 
+
+250:   function getNonKeroseneValue( 
+
+269:   function getKeroseneValue( 
+
+290:   function getVaults( 
+
+299:   function hasVault( 
+```
+[59](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L59), [80](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L80), [106](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L106), [230](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L230), [241](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L241), [250](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L250), [269](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269), [290](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L290), [299](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L299)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+17:   function denominator() external view returns (uint) { 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L17)
+
+</details>
+
+
+---
+### [NC&#x2011;37] NatSpec: Functions missing NatSpec `@dev` tag
+<details>
+<summary><i>There are 37 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+17:  
+18:   function add(
+19:     address vault
+
+27:  
+28:   function remove(
+29:     address vault
+
+36:  
+37:   function getVaults() 
+38:     external 
+
+43:  
+44:   function isLicensed(
+45:     address vault
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L17-L19), [27](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L27-L29), [36](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L36-L38), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L43-L45)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+16:  
+17:   constructor(
+18:     IVaultManager   _vaultManager,
+
+22:  
+23:   function setUnboundedKerosineVault(
+24:     UnboundedKerosineVault _unboundedKerosineVault
+
+31:  
+32:   function withdraw(
+33:     uint    id,
+
+43:  
+44:   function assetPrice() 
+45:     public 
+```
+[16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L16-L18), [22](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L22-L24), [31](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L31-L33), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L43-L45)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+25:  
+26:   constructor(
+27:     IVaultManager   _vaultManager,
+
+35:  
+36:   function deposit(
+37:     uint id,
+
+46:  
+47:   function move(
+48:     uint from,
+
+59:  
+60:   function getUsdValue(
+61:     uint id
+
+68:  
+69:   function assetPrice() 
+70:     public 
+```
+[25](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L25-L27), [35](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L35-L37), [46](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L46-L48), [59](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L59-L61), [68](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L68-L70)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+20:  
+21:   constructor(
+22:       IVaultManager   _vaultManager,
+
+29:  
+30:   function withdraw(
+31:     uint    id,
+
+42:  
+43:   function setDenominator(KerosineDenominator _kerosineDenominator) 
+44:     external 
+
+49:  
+50:   function assetPrice() 
+51:     public 
+```
+[20](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L20-L22), [29](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L29-L31), [42](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L42-L44), [49](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L49-L51)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+48:  
+49:   constructor(
+50:     DNft          _dNft,
+
+58:  
+59:   function setKeroseneManager(KerosineManager _keroseneManager) 
+60:     external
+
+66:   /// @inheritdoc IVaultManager 
+67:   function add(
+68:       uint    id,
+
+79:  
+80:   function addKerosene(
+81:       uint    id,
+
+93:   /// @inheritdoc IVaultManager 
+94:   function remove(
+95:       uint    id,
+
+105:  
+106:   function removeKerosene(
+107:       uint    id,
+
+118:   /// @inheritdoc IVaultManager 
+119:   function deposit(
+120:     uint    id,
+
+133:   /// @inheritdoc IVaultManager 
+134:   function withdraw(
+135:     uint    id,
+
+155:   /// @inheritdoc IVaultManager 
+156:   function mintDyad(
+157:     uint    id,
+
+171:   /// @inheritdoc IVaultManager 
+172:   function burnDyad(
+173:     uint id,
+
+183:   /// @inheritdoc IVaultManager 
+184:   function redeemDyad(
+185:     uint    id,
+
+204:   /// @inheritdoc IVaultManager 
+205:   function liquidate(
+206:     uint id,
+
+229:  
+230:   function collatRatio(
+231:     uint id
+
+240:  
+241:   function getTotalUsdValue(
+242:     uint id
+
+249:  
+250:   function getNonKeroseneValue(
+251:     uint id
+
+268:  
+269:   function getKeroseneValue(
+270:     uint id
+
+289:  
+290:   function getVaults(
+291:     uint id
+
+298:  
+299:   function hasVault(
+300:     uint    id,
+```
+[48](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L48-L50), [58](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L58-L60), [66](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L66-L68), [79](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L79-L81), [93](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L93-L95), [105](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L105-L107), [118](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L118-L120), [133](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L133-L135), [155](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L155-L157), [171](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L171-L173), [183](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L183-L185), [204](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L204-L206), [229](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L229-L231), [240](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L240-L242), [249](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L249-L251), [268](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L268-L270), [289](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L289-L291), [298](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L298-L300)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+10:  
+11:   constructor(
+12:     Kerosine _kerosine
+
+16:  
+17:   function denominator() external view returns (uint) {
+18:     // @dev: We subtract all the Kerosene in the multi-sig.
+```
+[10](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L10-L12), [16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L16-L18)
+
+</details>
+
+
+---
+### [NC&#x2011;38] NatSpec: Functions missing NatSpec `@param` tag
+It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+<details>
+<summary><i>There are 24 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+/// @audit Missing @param for all function parameters
+18:   function add( 
+19:     address vault
+20:   ) 
+21:     external 
+22:       onlyOwner
+23:   {
+
+/// @audit Missing @param for all function parameters
+28:   function remove( 
+29:     address vault
+30:   ) 
+31:     external 
+32:       onlyOwner
+33:   {
+
+/// @audit Missing @param for all function parameters
+44:   function isLicensed( 
+45:     address vault
+46:   ) 
+47:     external 
+48:     view 
+49:     returns (bool) {
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L18-L23), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L28-L33), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L44-L49)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit Missing @param for all function parameters
+17:   constructor( 
+18:     IVaultManager   _vaultManager,
+19:     ERC20           _asset, 
+20:     KerosineManager _kerosineManager
+21:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {}
+
+/// @audit Missing @param for all function parameters
+23:   function setUnboundedKerosineVault( 
+24:     UnboundedKerosineVault _unboundedKerosineVault
+25:   )
+26:     external
+27:     onlyOwner
+28:   {
+
+/// @audit Missing @param for all function parameters
+32:   function withdraw( 
+33:     uint    id,
+34:     address to,
+35:     uint    amount
+36:   ) 
+37:     external 
+38:     view
+39:       onlyVaultManager
+40:   {
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L17-L21), [23](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L23-L28), [32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L32-L40)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit Missing @param for all function parameters
+26:   constructor( 
+27:     IVaultManager   _vaultManager,
+28:     ERC20           _asset, 
+29:     KerosineManager _kerosineManager 
+30:   ) {
+
+/// @audit Missing @param for all function parameters
+36:   function deposit( 
+37:     uint id,
+38:     uint amount
+39:   )
+40:     public 
+41:       onlyVaultManager
+42:   {
+
+/// @audit Missing @param for all function parameters
+47:   function move( 
+48:     uint from,
+49:     uint to,
+50:     uint amount
+51:   )
+52:     external
+53:       onlyVaultManager
+54:   {
+
+/// @audit Missing @param for all function parameters
+60:   function getUsdValue( 
+61:     uint id
+62:   )
+63:     public
+64:     view 
+65:     returns (uint) {
+```
+[26](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L26-L30), [36](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L36-L42), [47](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L47-L54), [60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L60-L65)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit Missing @param for all function parameters
+21:   constructor( 
+22:       IVaultManager   _vaultManager,
+23:       ERC20           _asset, 
+24:       Dyad            _dyad, 
+25:       KerosineManager _kerosineManager
+26:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {
+
+/// @audit Missing @param for all function parameters
+30:   function withdraw( 
+31:     uint    id,
+32:     address to,
+33:     uint    amount
+34:   ) 
+35:     external 
+36:       onlyVaultManager
+37:   {
+
+/// @audit Missing @param for all function parameters
+43:   function setDenominator(KerosineDenominator _kerosineDenominator)  
+44:     external 
+45:       onlyOwner
+46:   {
+```
+[21](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L21-L26), [30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L30-L37), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43-L46)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit Missing @param for all function parameters
+49:   constructor( 
+50:     DNft          _dNft,
+51:     Dyad          _dyad,
+52:     Licenser      _licenser
+53:   ) {
+
+/// @audit Missing @param for all function parameters
+59:   function setKeroseneManager(KerosineManager _keroseneManager)  
+60:     external
+61:       initializer 
+62:     {
+
+/// @audit Missing @param for all function parameters
+80:   function addKerosene( 
+81:       uint    id,
+82:       address vault
+83:   ) 
+84:     external
+85:       isDNftOwner(id)
+86:   {
+
+/// @audit Missing @param for all function parameters
+106:   function removeKerosene( 
+107:       uint    id,
+108:       address vault
+109:   ) 
+110:     external
+111:       isDNftOwner(id)
+112:   {
+
+/// @audit Missing @param for all function parameters
+230:   function collatRatio( 
+231:     uint id
+232:   )
+233:     public 
+234:     view
+235:     returns (uint) {
+
+/// @audit Missing @param for all function parameters
+241:   function getTotalUsdValue( 
+242:     uint id
+243:   ) 
+244:     public 
+245:     view
+246:     returns (uint) {
+
+/// @audit Missing @param for all function parameters
+250:   function getNonKeroseneValue( 
+251:     uint id
+252:   ) 
+253:     public 
+254:     view
+255:     returns (uint) {
+
+/// @audit Missing @param for all function parameters
+269:   function getKeroseneValue( 
+270:     uint id
+271:   ) 
+272:     public 
+273:     view
+274:     returns (uint) {
+
+/// @audit Missing @param for all function parameters
+290:   function getVaults( 
+291:     uint id
+292:   ) 
+293:     external 
+294:     view 
+295:     returns (address[] memory) {
+
+/// @audit Missing @param for all function parameters
+299:   function hasVault( 
+300:     uint    id,
+301:     address vault
+302:   ) 
+303:     external 
+304:     view 
+305:     returns (bool) {
+```
+[49](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L49-L53), [59](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L59-L62), [80](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L80-L86), [106](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L106-L112), [230](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L230-L235), [241](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L241-L246), [250](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L250-L255), [269](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269-L274), [290](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L290-L295), [299](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L299-L305)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit Missing @param for all function parameters
+11:   constructor( 
+12:     Kerosine _kerosine
+13:   ) {
+```
+[11](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L11-L13)
+
+</details>
+
+
+---
+### [NC&#x2011;39] NatSpec: Functions missing NatSpec `@return` tag
+It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+<details>
+<summary><i>There are 14 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+/// @audit Missing @return for all function parameters
+37:   function getVaults()  
+38:     external 
+39:     view 
+40:     returns (address[] memory) {
+
+/// @audit Missing @return for all function parameters
+44:   function isLicensed( 
+45:     address vault
+46:   ) 
+47:     external 
+48:     view 
+49:     returns (bool) {
+```
+[37](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L37-L40), [44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L44-L49)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit Missing @return for all function parameters
+44:   function assetPrice()  
+45:     public 
+46:     view 
+47:     override
+48:     returns (uint) {
+```
+[44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L44-L48)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit Missing @return for all function parameters
+60:   function getUsdValue( 
+61:     uint id
+62:   )
+63:     public
+64:     view 
+65:     returns (uint) {
+
+/// @audit Missing @return for all function parameters
+69:   function assetPrice()  
+```
+[60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L60-L65), [69](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L69)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit Missing @return for all function parameters
+50:   function assetPrice()  
+51:     public 
+52:     view 
+53:     override
+54:     returns (uint) {
+```
+[50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50-L54)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit Missing @return for all function parameters
+184:   function redeemDyad( 
+185:     uint    id,
+186:     address vault,
+187:     uint    amount,
+188:     address to
+189:   )
+190:     external 
+191:       isDNftOwner(id)
+192:     returns (uint) { 
+
+/// @audit Missing @return for all function parameters
+230:   function collatRatio( 
+231:     uint id
+232:   )
+233:     public 
+234:     view
+235:     returns (uint) {
+
+/// @audit Missing @return for all function parameters
+241:   function getTotalUsdValue( 
+242:     uint id
+243:   ) 
+244:     public 
+245:     view
+246:     returns (uint) {
+
+/// @audit Missing @return for all function parameters
+250:   function getNonKeroseneValue( 
+251:     uint id
+252:   ) 
+253:     public 
+254:     view
+255:     returns (uint) {
+
+/// @audit Missing @return for all function parameters
+269:   function getKeroseneValue( 
+270:     uint id
+271:   ) 
+272:     public 
+273:     view
+274:     returns (uint) {
+
+/// @audit Missing @return for all function parameters
+290:   function getVaults( 
+291:     uint id
+292:   ) 
+293:     external 
+294:     view 
+295:     returns (address[] memory) {
+
+/// @audit Missing @return for all function parameters
+299:   function hasVault( 
+300:     uint    id,
+301:     address vault
+302:   ) 
+303:     external 
+304:     view 
+305:     returns (bool) {
+```
+[184](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L184-L192), [230](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L230-L235), [241](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L241-L246), [250](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L250-L255), [269](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L269-L274), [290](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L290-L295), [299](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L299-L305)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit Missing @return for all function parameters
+17:   function denominator() external view returns (uint) { 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L17)
+
+</details>
+
+
+---
+### [NC&#x2011;40] NatSpec: Modifier declarations should have NatSpec descriptions
+It is recommended that modifiers are fully annotated using NatSpec.
+
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+21:   modifier onlyVaultManager() { 
+```
+[21](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L21)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+39:   modifier isDNftOwner(uint id) { 
+
+42:   modifier isValidDNft(uint id) { 
+
+45:   modifier isLicensed(address vault) { 
+```
+[39](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L39), [42](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L42), [45](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L45)
+
+</details>
+
+
+---
+### [NC&#x2011;41] NatSpec: Modifier missing NatSpec `@dev` tag
+<details>
+<summary><i>There are 4 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+20:  
+21:   modifier onlyVaultManager() {
+22:     if (msg.sender != address(vaultManager)) revert NotVaultManager();
+```
+[20](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L20-L22)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+38:  
+39:   modifier isDNftOwner(uint id) {
+40:     if (dNft.ownerOf(id) != msg.sender)   revert NotOwner();    _;
+41:   }
+42:   modifier isValidDNft(uint id) {
+43:     if (dNft.ownerOf(id) == address(0))   revert InvalidDNft(); _;
+44:   }
+45:   modifier isLicensed(address vault) {
+46:     if (!vaultLicenser.isLicensed(vault)) revert NotLicensed(); _;
+```
+[38](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L38-L46)
+
+</details>
+
+
+---
+### [NC&#x2011;42] NatSpec: Modifier missing NatSpec `@param` tag
+It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI). It is clearly stated in the Solidity official documentation. In complex projects such as DeFi, the interpretation of all functions and their arguments and returns is important for code readability and auditability.
+
+
+<i>There are 3 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit Missing @param for all modifier parameters
+39:   modifier isDNftOwner(uint id) { 
+
+/// @audit Missing @param for all modifier parameters
+42:   modifier isValidDNft(uint id) { 
+
+/// @audit Missing @param for all modifier parameters
+45:   modifier isLicensed(address vault) { 
+```
+[39](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L39), [42](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L42), [45](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L45)
+
+
+---
+### [NC&#x2011;43] Not using the latest versions of project dependencies
+Update the project dependencies to their latest versions wherever possible.
+
+Use tools such as `retire.js`, `npm audit`, and `yarn audit` to confirm that no vulnerable dependencies remain.
+
+|Dependency|Current Version|Latest Version|
+|:-:|:-:|:-:|
+|`forge-std`|1.2.0|1.8.1|
+|`openzeppelin-contracts`|4.8.0|5.0.2|
+
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+1: // SPDX-License-Identifier: MIT 
+```
+[1](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L1)
+
+
+---
+### [NC&#x2011;44] Outdated Solidity version
+Upgrade to the latest solidity version.
+
+<a href="https://blog.soliditylang.org/2021/04/21/solidity-0.8.4-release-announcement/">0.8.4</a>: bytes.concat() instead of abi.encodePacked(<bytes>,<bytes>) 
+<a href="https://blog.soliditylang.org/2022/02/16/solidity-0.8.12-release-announcement/">0.8.12</a>: string.concat() instead of abi.encodePacked(<str>,<str>) 
+<a href="https://blog.soliditylang.org/2022/03/16/solidity-0.8.13-release-announcement/">0.8.13</a>:
+- Ability to use using for with a list of free functions
+
+<a href="https://blog.soliditylang.org/2022/05/18/solidity-0.8.14-release-announcement/">0.8.14</a>:
+- ABI Encoder: When ABI-encoding values from calldata that contain nested arrays, correctly validate the nested array length against calldatasize() in all cases.
+- Override Checker: Allow changing data location for parameters only when overriding external functions.
+
+<a href="https://blog.soliditylang.org/2022/06/15/solidity-0.8.15-release-announcement/">0.8.15</a>:
+- Code Generation: Avoid writing dirty bytes to storage when copying bytes arrays.
+- Yul Optimizer: Keep all memory side-effects of inline assembly blocks.
+
+<a href="https://blog.soliditylang.org/2022/08/08/solidity-0.8.16-release-announcement/">0.8.16</a>:
+ - Code Generation: Fix data corruption that affected ABI-encoding of calldata values represented by tuples: structs at any nesting level; argument lists of external functions, events and errors; return value lists of external functions. The 32 leading bytes of the first dynamically-encoded value in the tuple would get zeroed when the last component contained a statically-encoded array.
+
+<a href="https://blog.soliditylang.org/2022/09/08/solidity-0.8.17-release-announcement/">0.8.17</a>:
+ - Yul Optimizer: Prevent the incorrect removal of storage writes before calls to Yul functions that conditionally terminate the external EVM call.
+
+<a href="https://blog.soliditylang.org/2023/02/22/solidity-0.8.19-release-announcement/">0.8.19</a>:
+- SMTChecker: New trusted mode that assumes that any compile-time available code is the actual used code, even in external calls.
+
+Bug Fixes:
+- Assembler: Avoid duplicating subassembly bytecode where possible.
+- Code Generator: Avoid including references to the deployed label of referenced functions if they are called right away.
+- ContractLevelChecker: Properly distinguish the case of missing base constructor arguments from having an unimplemented base function.
+- SMTChecker: Fix internal error caused by unhandled z3 expressions that come from the solver when bitwise operators are used.
+- SMTChecker: Fix internal error when using the custom NatSpec annotation to abstract free functions.
+- TypeChecker: Also allow external library functions in using for.
+
+<a href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/">0.8.20</a>:
+- Assembler: Use push0 for placing 0 on the stack for EVM versions starting from “Shanghai”. This decreases the deployment and runtime costs.
+- Optimizer: Re-implement simplified version of UnusedAssignEliminator and UnusedStoreEliminator. It can correctly remove some unused assignments in deeply nested loops that were ignored by the old version.
+- Parser: Unary plus is no longer recognized as a unary operator in the AST and triggers an error at the parsing stage (rather than later during the analysis).
+- SMTChecker: Group all messages about unsupported language features in a single warning. The CLI option --model-checker-show-unsupported and the JSON option settings.modelChecker.showUnsupported can be enabled to show the full list.
+- SMTChecker: Properties that are proved safe are now reported explicitly at the end of analysis. By default, only the number of safe properties is shown. The CLI option --model-checker-show-proved-safe and the JSON option settings.modelChecker.showProvedSafe can be enabled to show the full list of safe properties.
+- Standard JSON Interface: Add experimental support for importing ASTs via Standard JSON.
+- Yul EVM Code Transform: If available, use push0 instead of codesize to produce an arbitrary value on stack in order to create equal stack heights between branches.
+
+<a href="https://soliditylang.org/blog/2023/07/19/solidity-0.8.21-release-announcement">0.8.21</a>:
+- Code Generator: Always generate code for the expression in `<expression>.selector` in the legacy code generation pipeline.
+- Yul Optimizer: Fix FullInliner step (i) not preserving the evaluation order of arguments passed into inlined functions in code that is not in expression-split form.
+- Allow qualified access to events from other contracts.
+- Relax restrictions on initialization of immutable variables. Reads and writes may now happen at any point at construction time outside of functions and modifiers. Explicit initialization is no longer mandatory.
+
+
+<details>
+<summary><i>There are 6 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L2)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L2)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L2)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L2)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L2)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+2: pragma solidity =0.8.17; 
+```
+[2](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L2)
+
+</details>
+
+
+---
+### [NC&#x2011;45] Overly complicated arithmetic
+To maintain readability in code, particularly in Solidity which can involve complex mathematical operations, it is often recommended to limit the number of arithmetic operations to a maximum of 2-3 per line. Too many operations in a single line can make the code difficult to read and understand, increase the likelihood of mistakes, and complicate the process of debugging and reviewing the code.
+
+<details>
+<summary><i>There are 3 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+60:         tvl += vault.asset().balanceOf(address(vault))  
+61:                 * vault.assetPrice() * 1e18
+62:                 / (10**vault.asset().decimals()) 
+63:                 / (10**vault.oracle().decimals());
+```
+[60](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L60-L63)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+146:     uint value = amount * _vault.assetPrice()  
+147:                   * 1e18 
+148:                   / 10**_vault.oracle().decimals() 
+149:                   / 10**_vault.asset().decimals();
+
+195:       uint asset = amount  
+196:                     * (10**(_vault.oracle().decimals() + _vault.asset().decimals())) 
+197:                     / _vault.assetPrice() 
+198:                     / 1e18;
+```
+[146](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L146-L149), [195](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L195-L198)
+
+</details>
+
+
+---
+### [NC&#x2011;46] State variables should include comments
+Consider adding some comments on critical state variables to explain what they are supposed to do: this will help for future code reviews.
+
+<details>
+<summary><i>There are 19 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+14:   uint public constant MAX_VAULTS = 10; 
+
+16:   EnumerableSet.AddressSet private vaults; 
+```
+[14](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L14), [16](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L16)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+15:   UnboundedKerosineVault public unboundedKerosineVault; 
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L15)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+15:   IVaultManager   public immutable vaultManager; 
+16:   ERC20           public immutable asset;
+17:   KerosineManager public immutable kerosineManager;
+
+19:   mapping(uint => uint) public id2asset; 
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L15-L17), [19](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L19)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+18:   Dyad                 public immutable dyad; 
+19:   KerosineDenominator  public kerosineDenominator;
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L18-L19)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+22:   uint public constant MAX_VAULTS          = 5; 
+23:   uint public constant MAX_VAULTS_KEROSENE = 5;
+
+28:   DNft     public immutable dNft; 
+29:   Dyad     public immutable dyad;
+30:   Licenser public immutable vaultLicenser;
+
+32:   KerosineManager public keroseneManager; 
+
+34:   mapping (uint => EnumerableSet.AddressSet) internal vaults;  
+35:   mapping (uint => EnumerableSet.AddressSet) internal vaultsKerosene; 
+
+37:   mapping (uint => uint) public idToBlockOfLastDeposit; 
+```
+[22](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L22-L23), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L28-L30), [32](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L32), [34](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L34-L35), [37](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L37)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+9:   Kerosine public kerosine; 
+```
+[9](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L9)
+
+</details>
+
+
+---
+### [NC&#x2011;47] Style guide: `mapping` definitions do not follow the Solidity Style Guide
+See the [mappings](https://docs.soliditylang.org/en/latest/style-guide.html#mappings) section of the Solidity Style Guide
+
+
+<i>There are 3 instaces of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+34:   mapping (uint => EnumerableSet.AddressSet) internal vaults;  
+35:   mapping (uint => EnumerableSet.AddressSet) internal vaultsKerosene; 
+
+37:   mapping (uint => uint) public idToBlockOfLastDeposit; 
+```
+[34](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L34-L35), [37](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L37)
+
+
+---
+### [NC&#x2011;48] Top-level declarations should be separated by at least two lines
+<details>
+<summary><i>There are 33 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/KerosineManager.sol
+
+7: contract KerosineManager is Owned(msg.sender) { 
+8:   error TooManyVaults();
+
+26:   } 
+27: 
+28:   function remove(
+
+35:   } 
+36: 
+37:   function getVaults() 
+
+42:   } 
+43: 
+44:   function isLicensed(
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L7-L8), [26](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L26-L28), [35](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L35-L37), [42](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/KerosineManager.sol#L42-L44)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+12: contract BoundedKerosineVault is KerosineVault { 
+13:   error NotWithdrawable(uint id, address to, uint amount);
+14: 
+15:   UnboundedKerosineVault public unboundedKerosineVault;
+16: 
+17:   constructor(
+
+21:   ) KerosineVault(_vaultManager, _asset, _kerosineManager) {} 
+22: 
+23:   function setUnboundedKerosineVault(
+
+30:   } 
+31: 
+32:   function withdraw(
+
+42:   } 
+43: 
+44:   function assetPrice() 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L12-L17), [21](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L21-L23), [30](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L30-L32), [42](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L42-L44)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+12: abstract contract KerosineVault is IVault, Owned(msg.sender) { 
+13:   using SafeTransferLib for ERC20;
+14: 
+15:   IVaultManager   public immutable vaultManager;
+
+24:   } 
+25: 
+26:   constructor(
+
+34:   } 
+35: 
+36:   function deposit(
+
+45:   } 
+46: 
+47:   function move(
+
+58:   } 
+59: 
+60:   function getUsdValue(
+
+67:   } 
+68: 
+69:   function assetPrice() 
+
+73:     returns (uint);  
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L12-L15), [24](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L24-L26), [34](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L34-L36), [45](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L45-L47), [58](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L58-L60), [67](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L67-L69), [73](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L73-L19)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+15: contract UnboundedKerosineVault is KerosineVault { 
+16:   using SafeTransferLib for ERC20;
+17: 
+18:   Dyad                 public immutable dyad;
+
+28:   } 
+29: 
+30:   function withdraw(
+
+41:   } 
+42: 
+43:   function setDenominator(KerosineDenominator _kerosineDenominator) 
+
+48:   } 
+49: 
+50:   function assetPrice() 
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L15-L18), [28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L28-L30), [41](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L41-L43), [48](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L48-L50)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+17: contract VaultManagerV2 is IVaultManager, Initializable { 
+18:   using EnumerableSet     for EnumerableSet.AddressSet;
+19:   using FixedPointMathLib for uint;
+20:   using SafeTransferLib   for ERC20;
+21: 
+22:   uint public constant MAX_VAULTS          = 5;
+
+57:   } 
+58: 
+59:   function setKeroseneManager(KerosineManager _keroseneManager) 
+
+78:   } 
+79: 
+80:   function addKerosene(
+
+104:   } 
+105: 
+106:   function removeKerosene(
+
+228:   } 
+229: 
+230:   function collatRatio(
+
+239:   } 
+240: 
+241:   function getTotalUsdValue(
+
+248:   } 
+249: 
+250:   function getNonKeroseneValue(
+
+267:   } 
+268: 
+269:   function getKeroseneValue(
+
+297:   } 
+298: 
+299:   function hasVault(
+
+307:   } 
+```
+[17](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L17-L22), [57](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L57-L59), [78](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L78-L80), [104](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L104-L106), [228](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L228-L230), [239](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L239-L241), [248](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L248-L250), [267](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L267-L269), [297](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L297-L299), [307](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L307-L34)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+7: contract KerosineDenominator is Parameters { 
+8: 
+9:   Kerosine public kerosine;
+10: 
+11:   constructor(
+```
+[7](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L7-L11)
+
+</details>
+
+
+---
+### [NC&#x2011;49] Unnecessary cast
+The variable is being cast to its own type
+
+
+<i>There is one instance of this issue:</i>
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit vault
+129:     _vault.asset().safeTransferFrom(msg.sender, address(vault), amount); 
+```
+[129](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L129)
+
+
+---
+### [NC&#x2011;50] Use `@inheritdoc` for overridden functions
+<details>
+<summary><i>There are 2 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+44:   function assetPrice()  
+45:     public 
+46:     view 
+47:     override
+48:     returns (uint) {
+```
+[44](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L44-L48)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+50:   function assetPrice()  
+51:     public 
+52:     view 
+53:     override
+54:     returns (uint) {
+```
+[50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L50-L54)
+
+</details>
+
+
+---
+### [NC&#x2011;51] Use UPPER_CASE for `immutable`
+Immutables should be in uppercase as stated [Solidity style guide](https://docs.soliditylang.org/en/latest/style-guide.html#constants).
+
+<details>
+<summary><i>There are 7 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+15:   IVaultManager   public immutable vaultManager; 
+16:   ERC20           public immutable asset;
+17:   KerosineManager public immutable kerosineManager;
+```
+[15](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L15-L17)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+18:   Dyad                 public immutable dyad; 
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L18)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+28:   DNft     public immutable dNft; 
+29:   Dyad     public immutable dyad;
+30:   Licenser public immutable vaultLicenser;
+```
+[28](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L28-L30)
+
+</details>
+
+
+---
+### [NC&#x2011;52] Variables should be named in mixedCase style
+As the [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html#naming-styles) suggests: arguments, local variables and mutable state variables should be named in mixedCase style.
+
+Rule exceptions
+- Allow constant variable name/symbol/decimals to be lowercase (ERC20).
+- Allow `_` at the beginning of the mixedCase match for `private variables` and `unused parameters`.
+
+<details>
+<summary><i>There are 17 instances of this issue:</i></summary>
+
+```solidity
+📁 File: /src/core/Vault.kerosine.bounded.sol
+
+/// @audit _vaultManager
+18:     IVaultManager   _vaultManager, 
+/// @audit _asset
+19:     ERC20           _asset, 
+/// @audit _kerosineManager
+20:     KerosineManager _kerosineManager
+
+/// @audit _unboundedKerosineVault
+24:     UnboundedKerosineVault _unboundedKerosineVault 
+```
+[18](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L18-L20), [24](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.bounded.sol#L24)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.sol
+
+/// @audit _vaultManager
+27:     IVaultManager   _vaultManager, 
+/// @audit _asset
+28:     ERC20           _asset, 
+/// @audit _kerosineManager
+29:     KerosineManager _kerosineManager 
+```
+[27](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.sol#L27-L29)
+
+```solidity
+📁 File: /src/core/Vault.kerosine.unbounded.sol
+
+/// @audit _vaultManager
+22:       IVaultManager   _vaultManager, 
+/// @audit _asset
+23:       ERC20           _asset, 
+/// @audit _dyad
+24:       Dyad            _dyad, 
+/// @audit _kerosineManager
+25:       KerosineManager _kerosineManager
+
+/// @audit _kerosineDenominator
+43:   function setDenominator(KerosineDenominator _kerosineDenominator)  
+```
+[22](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L22-L25), [43](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/Vault.kerosine.unbounded.sol#L43)
+
+```solidity
+📁 File: /src/core/VaultManagerV2.sol
+
+/// @audit _dNft
+50:     DNft          _dNft, 
+/// @audit _dyad
+51:     Dyad          _dyad,
+/// @audit _licenser
+52:     Licenser      _licenser
+
+/// @audit _keroseneManager
+59:   function setKeroseneManager(KerosineManager _keroseneManager)  
+```
+[50](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L50-L52), [59](https://github.com/code-423n4/2024-04-dyad/blob/main/src/core/VaultManagerV2.sol#L59)
+
+```solidity
+📁 File: /src/staking/KerosineDenominator.sol
+
+/// @audit _kerosine
+12:     Kerosine _kerosine 
+```
+[12](https://github.com/code-423n4/2024-04-dyad/blob/main/src/staking/KerosineDenominator.sol#L12)
+
+</details>
+
