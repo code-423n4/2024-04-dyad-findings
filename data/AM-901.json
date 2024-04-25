@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AM",
+  "risk": "2",
+  "title": "KeroseneManager setter can be frontrun and user could add his own vaults that will manipulate kerosene asset price",
+  "issueId": 901,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/901"
+}
