@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Maroutis",
+  "risk": "2",
+  "title": "Insufficient collateral ratio validation in `liquidate` function",
+  "issueId": 920,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/920"
+}
