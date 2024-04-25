@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Egis_Security",
+  "risk": "2",
+  "title": "Chainlink deviation of 1%, hearbeat 1 hour and possibility to have `dyad.totakSupply() - 1 = TVL` may lead to DoS in specific case",
+  "issueId": 1079,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1079"
+}
