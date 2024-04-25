@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xabhay",
+  "risk": "3",
+  "title": "Vault Double-Counting Bug Leads to Inflated Collateralization and Risk of Under-Collateralization",
+  "issueId": 1029,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1029"
+}
