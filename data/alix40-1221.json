@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "alix40",
+  "risk": "2",
+  "title": "Missing vault address validation in the `VaultManagerV2` for `deposit()` and `withdraw()`, exposes protocol to risk of reentrancy, unfair liquidation and phishing",
+  "issueId": 1221,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1221"
+}
