@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Pechenite",
+  "risk": "2",
+  "title": "`VaultManagerV2.sol#liquidate()`  function burn the dyad tokens of msg.sender (the user that liquidate), not the liquidateable user",
+  "issueId": 1031,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1031"
+}
