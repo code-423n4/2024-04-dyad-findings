@@ -87,6 +87,10 @@ User's and liquidator's vault amount will not decrease or increase due to the tr
           vault.move(id, to, collateral);
 ```
 
+In worse case scenarios, there may be a truncation issue if the user deposits >1 wei.
+
+If the user deposits 100 wei at a 0.778e18 liquidationAssetShare, then (100 * 0.7778e18) / 1e18 = 77.78 which equals to 77. 
+
 https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L223-L226
 
 ### [L-05] Checking collatRatio before burning DYAD may reflect the wrong collatRatio of the user.
@@ -122,6 +126,16 @@ Burn DYAD first before checking the collateral ratio.
 ```
 
 https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L213-L215
+
+### [L-06] The sole reliance on the Chainlink oracle system can result in sandwich oracle attacks, frontrunning oracles or undesirable liquidation due to oracle update times.
+
+The exogenous vaults fetches its price from Chainlink. Chainlink updates each oracle differently, with different heartbeat and at different times. Sometimes, it takes the oracle 24 hours to update one time. Users can also notice the change and do something before / after it.
+
+For example, if there is a flash crash and the oracle updates every hour, then the user can capitalize on the issue and quickly exit their position / liquidate others.
+
+Also, because all the oracle updates at different times, the exact collateralization ratio is extremely hard to determine. If the price of one oracle increases and the price of another oracle decreases, then if the oracle were to update at the same time, the person may not face liquidation but because the oracle updates one at a time, the person will face liquidation.
+
+It would be good to have a dual oracle system, or even better, get the real time TWAP price of each vault token.
 
 ### [NC-01] Integrations with weird ERC20 as vaults will cause accounting issue
 
