@@ -120,9 +120,8 @@ In [Deploy.V2.s.sol::run](https://github.com/code-423n4/2024-04-dyad/blob/cd48c6
 ```
 (https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L88)
 
-As a result, protocol multisig has to manually license kerosine vaults.
+As a result, protocol multisig has to manually license kerosine vaults after migration
 
 Recommendations:
 In [Deploy.V2.s.sol::run](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L36), add a line to license `unboundedKerosineVault`.
-
 
