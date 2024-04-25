@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AamirMK",
+  "risk": "2",
+  "title": "setUnboundedKerosineVault is missed in deploy script",
+  "issueId": 1137,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1137"
+}
