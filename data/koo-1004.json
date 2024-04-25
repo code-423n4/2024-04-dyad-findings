@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "koo",
+  "risk": "3",
+  "title": "Liquidation will transfer the unlicensed vault asset which shouldn't be transfered",
+  "issueId": 1004,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1004"
+}
