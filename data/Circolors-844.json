@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "2",
+  "title": "Depositing collateral and minting dyad to liquidate a position that has a collateral ratio is below `MIN_COLLATERIZATION_RATIO` increases Kerosene price and therefore the positions collateral ratio, making it impossible to liquidate the position",
+  "issueId": 844,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/844"
+}
