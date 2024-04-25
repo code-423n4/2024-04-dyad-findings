@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "c0pp3rscr3w3r",
+  "risk": "3",
+  "title": "Arbitrary vault address can be passed which can lead to loss of user funds",
+  "issueId": 1072,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1072"
+}
