@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "imare",
+  "risk": "2",
+  "title": "when deploying VaultManager#setKeroseneManager call can be frontrun",
+  "issueId": 846,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/846"
+}
