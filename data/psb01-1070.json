@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "psb01",
+  "risk": "2",
+  "title": "assetPrice() may return stale price due to longer STALE_DATA_TIMEOUT compare to oracle Heatbeat.",
+  "issueId": 1070,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1070"
+}
