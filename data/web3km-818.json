@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "web3km",
+  "risk": "2",
+  "title": "`UnboundedKerosineVault::assetPrice` will initially revert due to dyad already having large supply",
+  "issueId": 818,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/818"
+}
