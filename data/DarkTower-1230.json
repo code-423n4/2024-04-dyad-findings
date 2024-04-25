@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "DarkTower",
+  "risk": "3",
+  "title": "Every time a user liquidates another user's `NOTE` they start a cycle where the last person to take on a liquidation loses",
+  "issueId": 1230,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1230"
+}
