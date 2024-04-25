@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "bhilare_",
+  "risk": "2",
+  "title": "Lack of minimum deposit can lead to users depositing dust amounts, which can increase insolvency in the system, since liquidators won't have any incentive to liquidate these positions.",
+  "issueId": 879,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/879"
+}
