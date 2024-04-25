@@ -420,7 +420,7 @@ The mainnet owner will then continously transfer the tokens to the staking contr
   }
 ```
 
-# Protection against kerosine price manipulation can potentially be bypassed
+# 15. Protection against kerosine price manipulation can potentially be bypassed
 
 Links to affected code *
 https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L119
@@ -432,3 +432,74 @@ The vault manager implements a flashloan protection to prevent users from deposi
 
 ## Recommended Mitigation Steps
 Include the same check against withdrawal in the same block in the liquidate function.
+
+***
+# 16. non-Kerosene vaults are wrongly licensed in kerosene manager
+
+Links to affected code *
+https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L64-L65
+https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L269-L287
+## Impact
+In the deployment script, ethVault and wstETH vaults are wrongly added as kerosene vaults. 
+
+```solidity
+    kerosineManager.add(address(ethVault));
+    kerosineManager.add(address(wstEth));
+```
+Users will only be able to add it to kerosene vaults using the `addKerosene` function.
+```solidity
+  function addKerosene(
+      uint    id,
+      address vault
+  ) 
+    external
+      isDNftOwner(id)
+  {
+    if (vaultsKerosene[id].length() >= MAX_VAULTS_KEROSENE) revert TooManyVaults();
+    if (!keroseneManager.isLicensed(vault))                 revert VaultNotLicensed();
+    if (!vaultsKerosene[id].add(vault))                     revert VaultAlreadyAdded();
+    emit Added(id, vault);
+  }
+```
+which will affect their ability to mint as its value will only be calculated as kerosene value.
+```solidity
+  function getKeroseneValue(
+    uint id
+  ) 
+    public 
+    view
+    returns (uint) {
+      uint totalUsdValue;
+      uint numberOfVaults = vaultsKerosene[id].length(); 
+      for (uint i = 0; i < numberOfVaults; i++) {
+        Vault vault = Vault(vaultsKerosene[id].at(i));
+        uint usdValue;
+        if (keroseneManager.isLicensed(address(vault))) {
+          usdValue = vault.getUsdValue(id);        
+        }
+        totalUsdValue += usdValue;
+      }
+      return totalUsdValue;
+  }
+```
+
+Minting is only allowed if user has healthy nonKeroseoneValue, so users who added this as their kerosene vaults will not be able to normally mint.
+
+```solidity
+  function mintDyad(
+    uint    id,
+    uint    amount,
+    address to
+  )
+    external 
+      isDNftOwner(id)
+  {
+    uint newDyadMinted = dyad.mintedDyad(address(this), id) + amount;
+    if (getNonKeroseneValue(id) < newDyadMinted)     revert NotEnoughExoCollat();
+    dyad.mint(id, to, amount);
+    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO) revert CrTooLow(); 
+    emit MintDyad(id, amount, to);
+  }
+```
+## Recommended Mitigation Steps
+Consider removing this and lisitng kerosene vaults instead.
