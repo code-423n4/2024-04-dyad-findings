@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "favelanky",
+  "risk": "3",
+  "title": "Migration to VaultManagerV3 will harm users of the bounded vault",
+  "issueId": 1260,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1260"
+}
