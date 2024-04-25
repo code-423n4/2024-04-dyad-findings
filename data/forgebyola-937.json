@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "forgebyola",
+  "risk": "3",
+  "title": "Malicious user with sufficient kerosene assets can manipulate the asset price in kerosene vaults which can lead to massive liquidations.",
+  "issueId": 937,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/937"
+}
