@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "NentoR",
+  "risk": "2",
+  "title": "Large positions might not always get liquidated due to constraint in `DYAD` needed",
+  "issueId": 904,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/904"
+}
