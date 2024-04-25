@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "The asset of `KeroseneVaults` should be moved during liquidation",
+  "issueId": 867,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/867"
+}
