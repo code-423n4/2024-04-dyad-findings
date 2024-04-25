@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Al-Qa-qa",
+  "risk": "2",
+  "title": "`VaultManagerV2::liquidate()` is not protected from FlashLoans attacks, which causes some issues.",
+  "issueId": 1114,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1114"
+}
