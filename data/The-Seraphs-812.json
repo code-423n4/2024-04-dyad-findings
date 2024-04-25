@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "The-Seraphs",
+  "risk": "3",
+  "title": "Same vault can be added twice as Kerosene and non-Kerosene vault to DNFT, which can then double the actual collateral ratio",
+  "issueId": 812,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/812"
+}
