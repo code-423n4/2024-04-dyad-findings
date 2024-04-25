@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "miaowu",
+  "risk": "3",
+  "title": "VaultManagerV2’s measures to prevent flash loans by limiting withdrawal blocks are ineffective",
+  "issueId": 947,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/947"
+}
