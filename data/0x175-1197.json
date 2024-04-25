@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x175",
+  "risk": "3",
+  "title": "An attacker can front run VaultManagerV2::setKeroseneManager()",
+  "issueId": 1197,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1197"
+}
