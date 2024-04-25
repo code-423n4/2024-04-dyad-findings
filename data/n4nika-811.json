@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "n4nika",
+  "risk": "2",
+  "title": "Tvl can be lower than the dyad totalSupply causing `assetPrice()` in `KerosineManager` to revert",
+  "issueId": 811,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/811"
+}
