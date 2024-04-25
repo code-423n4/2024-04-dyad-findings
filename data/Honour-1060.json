@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Honour",
+  "risk": "3",
+  "title": "Adding keroseneVaults to the vaultLicenser allows collateral to be duplicated",
+  "issueId": 1060,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1060"
+}
