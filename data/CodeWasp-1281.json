@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "CodeWasp",
+  "risk": "2",
+  "title": "Missing checks wrt. min/max prices returned from the oracle",
+  "issueId": 1281,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1281"
+}
