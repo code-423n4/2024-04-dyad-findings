@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AvantGard",
+  "risk": "3",
+  "title": "Missing 'from' Parameter in burnDyad Function restricts burning of minted tokens in certain cases",
+  "issueId": 1283,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1283"
+}
