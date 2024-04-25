@@ -25,7 +25,33 @@ function redeemDyad(
   }
 ```
 
-## [L-2] `IsLicensed` modifier missing  in `VaultManagerV2:deposit` 
+## [L-2] Zero address check missing in withdraw function
+
+```diff
+function withdraw(
+    uint    id,
+    address vault,
+    uint    amount,
+    address to
+  ) 
+    public
+      isDNftOwner(id)
+  {
++   if( to == address(0)) revert ZeroAddress();
+    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
+    uint dyadMinted = dyad.mintedDyad(address(this), id);
+    Vault _vault = Vault(vault);
+    uint value = amount * _vault.assetPrice() 
+                  * 1e18 
+                  / 10**_vault.oracle().decimals() 
+                  / 10**_vault.asset().decimals();
+    if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
+    _vault.withdraw(id, to, amount);
+    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow(); 
+  }
+```
+
+## [L-3] `IsLicensed` modifier missing  in `VaultManagerV2:deposit` 
 
 `VaultManagerV2` is using only licensed vaults. Depositing in vaults that are not licensed is in no use.
 
@@ -46,7 +72,7 @@ function deposit(
   }
 ```
 
-## [L-3] `IsLicensed` modifier missing  in `VaultManagerV2:withdraw` 
+## [L-4] `IsLicensed` modifier missing  in `VaultManagerV2:withdraw` 
 
 `VaultManagerV2` is using only licensed vaults. Depositing in vaults that are not licensed is in no use.
 
@@ -75,7 +101,7 @@ function deposit(
 
 ```
 
-## [L-4] Only the owner of DNft should be able to burn their dyad
+## [L-5] Only the owner of DNft should be able to burn their dyad
 
 
 ```diff
