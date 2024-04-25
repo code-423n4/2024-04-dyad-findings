@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "AM",
+  "risk": "2",
+  "title": "Flash loan protection can be exploited to create a DOS for certain users",
+  "issueId": 896,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/896"
+}
