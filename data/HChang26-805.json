@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "HChang26",
+  "risk": "2",
+  "title": "Rounding Error in `withdraw()` can potentially by pass $1 Non-Kerosene : `1 dyadMinted` check",
+  "issueId": 805,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/805"
+}
