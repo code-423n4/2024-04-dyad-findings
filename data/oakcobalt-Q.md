@@ -125,3 +125,17 @@ As a result, protocol multisig has to manually license kerosine vaults after mig
 Recommendations:
 In [Deploy.V2.s.sol::run](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L36), add a line to license `unboundedKerosineVault`.
 
+### Low -05 The use of `balanceOf(address(vault))` makes `assetPrice()` vulnerable to donation attack.
+**Instances(1)**
+In Vault.kerosine.unbounded.sol - `assetPrice()`, when calcualting tvl, `balanceOf(address(vault))` is used to calculate non-kerosene assets value in deposited.
+
+However, `balanceOf(address(vault))` may not reflect actual deposits and is vulnerable to donation attacks. Especially when in the early phases when total deposit of asset is very low, an attack can perform low-cost donation attack to manipulate kerosine price. And such donation attack may profit the attacker in the context of arbitrage with a secondary market.
+
+Based on [doc](https://dyadstable.notion.site/DYAD-design-outline-v6-3fa96f99425e458abbe574f67b795145), arbitrage is a possible scenario:
+>The secondary market may trade Kerosene above its deterministic protocol-defined value....
+
+Recommendations:
+Consider avoid using `balanceOf(address(vault)` .
+
+
+
