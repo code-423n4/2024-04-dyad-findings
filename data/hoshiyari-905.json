@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "hoshiyari",
+  "risk": "2",
+  "title": "`setKeroseneManager` can be frontrun forcing redeployment due to initializers",
+  "issueId": 905,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/905"
+}
