@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "tezeoffor",
+  "risk": "2",
+  "title": "Vault owner can withdraw even when collateral ratio is less than `MIN_COLLATERIZATION_RATIO`",
+  "issueId": 1234,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1234"
+}
