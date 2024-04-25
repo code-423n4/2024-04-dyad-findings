@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xSmartContractSamurai",
+  "risk": "3",
+  "title": "`VaultManagerV2::liquidate()` - The liquidate() function has multiple problems that need to be addressed.",
+  "issueId": 1287,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1287"
+}
