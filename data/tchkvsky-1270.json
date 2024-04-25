@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "tchkvsky",
+  "risk": "3",
+  "title": "Newly deployed `Licenser` implementation will cause minting of `DYAD` tokens to fail.",
+  "issueId": 1270,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1270"
+}
