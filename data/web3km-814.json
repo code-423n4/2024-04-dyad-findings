@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "web3km",
+  "risk": "2",
+  "title": "Blocking user removing vault possible by depositing small amount into his note",
+  "issueId": 814,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/814"
+}
