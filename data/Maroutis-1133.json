@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Maroutis",
+  "risk": "3",
+  "title": "Design flaw and mismanagement in vault licensing leads to double counting in collateral ratios and position collateralized entirely with kerosine",
+  "issueId": 1133,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1133"
+}
