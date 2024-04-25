@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Imp",
+  "risk": "2",
+  "title": "msg.sender context misuse in liquidate function",
+  "issueId": 788,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/788"
+}
