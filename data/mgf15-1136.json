@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "mgf15",
+  "risk": "2",
+  "title": "wrong implementation of `liquidate` function",
+  "issueId": 1136,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1136"
+}
