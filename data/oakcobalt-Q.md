@@ -183,3 +183,29 @@ In most cases, kerosine is used in the code in scope, with a few exceptions.
 
 Recommendations:
 Unify spelling.
+
+### Low -07 Unnecessary math in some conditions
+**Instance(1)**
+In VaultManagerV2.sol - `liquidate()`, it's not aways necessary to calculate `liquidationAssetShare` value.
+
+When `uint cappedCr` == 1e18, `liquidationAssetShare` will aways be 1e18, which indicates 100% collateral of liquidatee will be moved to the liquidator.
+
+```solidity
+//src/core/VaultManagerV2.sol
+    function liquidate(
+        uint id,
+        uint to
+    ) external isValidDNft(id) isValidDNft(to) {
+    ...
+            uint cappedCr = cr < 1e18 ? 1e18 : cr;
+                    uint liquidationEquityShare = (cappedCr - 1e18).mulWadDown(
+            LIQUIDATION_REWARD
+        );
+|>                uint liquidationAssetShare = (liquidationEquityShare + 1e18).divWadDown(
+            cappedCr
+        );
+...
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L219)
+Recommendations:
+Add a control flow when cappedCr ==1e18, no need to recalculate `liquidationAssetShare`.
