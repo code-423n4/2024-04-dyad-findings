@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xlemon",
+  "risk": "3",
+  "title": "Cannot withdraw Kerosine tokens if their value is > exogenous collateral value",
+  "issueId": 1128,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1128"
+}
