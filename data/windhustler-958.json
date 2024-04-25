@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "windhustler",
+  "risk": "3",
+  "title": "Kerosene feature enables permanent DoS attack on the `VaultManagerV2` contract",
+  "issueId": 958,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/958"
+}
