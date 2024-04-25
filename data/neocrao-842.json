@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "neocrao",
+  "risk": "2",
+  "title": "Deploy script created a new licenser different that the one used in Dyad, which will revert any mints and burns initiated by Vault Manager V2",
+  "issueId": 842,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/842"
+}
