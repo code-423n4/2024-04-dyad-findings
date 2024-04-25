@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "alix40",
+  "risk": "2",
+  "title": "Dangerous use of `balanceOf()` to derive Kerosene Price",
+  "issueId": 773,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/773"
+}
