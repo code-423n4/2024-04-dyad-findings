@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Maroutis",
+  "risk": "2",
+  "title": "Liquidation does not transfer vaultKerosine assets to liquidator who can lose value",
+  "issueId": 874,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/874"
+}
