@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "gumgumzum",
+  "risk": "2",
+  "title": "Deploy script does not set `unboundedKerosineVault` for the deployed `BoundedKerosineVault`",
+  "issueId": 792,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/792"
+}
