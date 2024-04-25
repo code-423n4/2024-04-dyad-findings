@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xleadwizard",
+  "risk": "3",
+  "title": "Zero Liquidation Incentive when CR = 1e18 (100%)",
+  "issueId": 1182,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1182"
+}
