@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "3",
+  "title": "Attacker can block all users withdrawals from `VaultManagerV2` by making zero value deposits",
+  "issueId": 840,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/840"
+}
