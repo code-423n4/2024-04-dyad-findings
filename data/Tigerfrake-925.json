@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Tigerfrake",
+  "risk": "3",
+  "title": "Liquidator gets no compensation if the dNFT `id` used by the user during deposit and minting has no vaults.",
+  "issueId": 925,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/925"
+}
