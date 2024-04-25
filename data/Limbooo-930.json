@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Limbooo",
+  "risk": "2",
+  "title": "Attacker Can Frontruns User's Withdrawals To Make Them Reverts Without Costs",
+  "issueId": 930,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/930"
+}
