@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "itsabinashb",
+  "risk": "2",
+  "title": "Any user can increase the Kerosene price by depositing WETH so when other user will withdraw Keosene more value will be deducted from his nonkerosene amount  for his exogenous collateral check.",
+  "issueId": 774,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/774"
+}
