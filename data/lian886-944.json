@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "lian886",
+  "risk": "2",
+  "title": "Chainlink's latestRoundData may return stale or incorrect result in the `Vault::assetPrice()` function",
+  "issueId": 944,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/944"
+}
