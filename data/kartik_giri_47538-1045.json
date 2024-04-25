@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "kartik_giri_47538",
+  "risk": "3",
+  "title": " The attacker can front-run and make the withdraw function DOS for user. ",
+  "issueId": 1045,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1045"
+}
