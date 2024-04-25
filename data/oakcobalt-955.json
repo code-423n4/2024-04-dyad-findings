@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Users cannot add kerosene vaults to vaultsKerosene due to an incorrect check, a user's kerosene collateral value will be incorrect",
+  "issueId": 955,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/955"
+}
