@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "EaglesSecurity",
+  "risk": "2",
+  "title": "Lack of check in mintDyad() would result in a mint dyad that lacks sufficient collateral.",
+  "issueId": 1012,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1012"
+}
