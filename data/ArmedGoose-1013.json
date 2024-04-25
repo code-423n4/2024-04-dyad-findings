@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "ArmedGoose",
+  "risk": "2",
+  "title": "Fee on transfer tokens usage can cause bad debt or uncollateralized mint of DYAD",
+  "issueId": 1013,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1013"
+}
