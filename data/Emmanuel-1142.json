@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "By adding a vault as both KerosineVault and Vault, users' collateralRatio is instantly 1:1, but protocol thinks it is 2:1.",
+  "issueId": 1142,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1142"
+}
