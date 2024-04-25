@@ -104,28 +104,7 @@ In case of malicious vault address is used for deposit, the user might lose fund
 Recommendations:
 In deposit / withdraw / redeemDyad, check input vault is added in NOTE id and is licensed.
 
-### Low -04 Kerosine vault is not licensed in KerosineManager during migration. 
-**Instances(1)**
-In [Deploy.V2.s.sol::run](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L36), kerosine vault ([unboundedKerosineVault](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L71)) is not added to kerosineManager. Based on VaultManagerV2.sol, any kerosine vault needs to be licensed in `kerosineManager` first to be allowed as kerosine collateral through `addKerosene()`.
-```solidity
-//src/core/VaultManagerV2.sol
-    function addKerosene(uint id, address vault) external isDNftOwner(id) {
-        if (vaultsKerosene[id].length() >= MAX_VAULTS_KEROSENE)
-            revert TooManyVaults();
-        //@audit-info note: any kerosene vault needs to be licensed in keroseneManger first before allowing to be deposited as kerosine collateral in VaultManagerV2
- |>     if (!keroseneManager.isLicensed(vault)) revert VaultNotLicensed();
-        if (!vaultsKerosene[id].add(vault)) revert VaultAlreadyAdded();
-        emit Added(id, vault);
-    }
-```
-(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L88)
-
-As a result, protocol multisig has to manually license kerosine vaults after migration
-
-Recommendations:
-In [Deploy.V2.s.sol::run](https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/script/deploy/Deploy.V2.s.sol#L36), add a line to license `unboundedKerosineVault`.
-
-### Low -05 The use of `balanceOf(address(vault))` makes `assetPrice()` vulnerable to donation attack.
+### Low -04 The use of `balanceOf(address(vault))` makes `assetPrice()` vulnerable to donation attack.
 **Instances(1)**
 In Vault.kerosine.unbounded.sol - `assetPrice()`, when calcualting tvl, `balanceOf(address(vault))` is used to calculate non-kerosene assets value in deposited.
 
@@ -135,7 +114,72 @@ Based on [doc](https://dyadstable.notion.site/DYAD-design-outline-v6-3fa96f99425
 >The secondary market may trade Kerosene above its deterministic protocol-defined value....
 
 Recommendations:
-Consider avoid using `balanceOf(address(vault)` .
+Consider avoid using `balanceOf(address(vault)`.
 
+### Low -05 In normal conditions, well-collateralized users might not be able to withdraw kerosine deposits
+**Instances(1)**
+User who deposited both kerosine and non-kerosine collaterals, minted dyad and well over collateralized might not be able to withdraw kerosine.
 
+In VaultMangerV2::withdraw, there is a check `if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();`
 
+However, it's problematic to directly subtract withdrawal `value` from `getNonKeroseneValue(id)` without checking whether the withdrawal asset is kerosine or non-kerosene. 
+
+If the user is withdrawing kerosine asset then, whenever a user has greater kerosine collaterals than non-kerosene collaterals, this will trigger reverts due to underflow even though the user can be well over-collateralized.
+
+Recommendations:
+Add a check to see whether `vault` is a kerosine vault. Only subtract value from getNonKeroseneValue(id) when checking first that value is non-kerosene assets.
+
+### Low -06 Consider unify spelling of kerosene(kerosine) in code
+**Instance(7)**
+In most cases, kerosine is used in the code in scope, with a few exceptions.
+(1)
+```solidity
+   KerosineManager public keroseneManager;
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L32)
+(2)
+```solidity
+    mapping(uint => EnumerableSet.AddressSet) internal vaultsKerosene;
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L35)
+(3)
+```solidity
+    function setKeroseneManager(
+        KerosineManager _keroseneManager
+    ) external initializer {
+        keroseneManager = _keroseneManager;
+    }
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L59)
+(4)
+```solidity
+    function addKerosene(uint id, address vault) external isDNftOwner(id) {
+        if (vaultsKerosene[id].length() >= MAX_VAULTS_KEROSENE)
+            revert TooManyVaults();
+        if (!keroseneManager.isLicensed(vault)) revert VaultNotLicensed();
+        if (!vaultsKerosene[id].add(vault)) revert VaultAlreadyAdded();
+        emit Added(id, vault);
+    }
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L80)
+(5)
+```solidity
+    function removeKerosene(uint id, address vault) external isDNftOwner(id) {
+...
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L106)
+(6)
+```solidity
+    function getNonKeroseneValue(uint id) public view returns (uint) {
+
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L250)
+(7)
+```solidity
+    function getKeroseneValue(uint id) public view returns (uint) {
+
+```
+(https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L269)
+
+Recommendations:
+Unify spelling.
