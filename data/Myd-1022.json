@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "IIn the event of significant market changes, the fixed `MIN_COLLATERIZATION_RATIO` may become inadequate or overly restrictive.",
+  "issueId": 1022,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1022"
+}
