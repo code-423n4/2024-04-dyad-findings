@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SpicyMeatball",
+  "risk": "3",
+  "title": "Protocol will face DoS if TVL drops lower than DYAD total supply due to price movement",
+  "issueId": 859,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/859"
+}
