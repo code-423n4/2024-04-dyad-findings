@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "fractal_20892",
+  "risk": "2",
+  "title": "Unchecked return values in the liquidate function can result in incomplete asset distributions among vaults ",
+  "issueId": 882,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/882"
+}
