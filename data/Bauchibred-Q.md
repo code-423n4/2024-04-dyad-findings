@@ -1,19 +1,22 @@
-# QA Report
+# QA Report for DYAD
+
 ## Table of Contents
 
-| Issue ID | Description |
-| -------- | ----------- |
-| [QA-01](#qa-01-cr-could-be-over/undervalued-due-to-its-unsafe-dependance-on-vault.getusdvalue()) | `cr` could be over/undervalued due to its unsafe dependance on `vault.getUsdValue()` |
-| [QA-02](#qa-02-protocol-does-not-enforce-cr-buffer-in-regards-to-users-protection) | Protocol does not enforce CR buffer in regards to user's protection |
-| [QA-03](#qa-03-vault.getusdvalue()-should-be-wrappped-in-a-try-catch) | `vault.getUsdValue()` should be wrappped in a try catch |
-| [QA-04](#qa-04-protocol-might-overvalue-the-asset-transferred-in-by-a-user-and-unintentionally-flaw-their-accounting-logic) | Protocol might overvalue the asset transferred in by a user and unintentionally flaw their accounting logic |
-| [QA-05](#qa-05-protocol-intends-to-have-a-duration-between-deposits-and-wothdrawals-but-instead-hardcodes-this-to-0) | Protocol intends to have a duration between deposits and wothdrawals but instead hardcodes this to `0` |
-| [QA-06](#qa-06-dnft-owners-can-liquidate-themselves) | `dNFT` owners can liquidate themselves |
-| [QA-07](#qa-07-protocols-reward-vesting-logic-could-unfairly-make-users-liquidatable) | Protocol's reward vesting logic could unfairly make users liquidatable |
-| [QA-08](#qa-08-update-stale-modifiers-from-vaultmanagerv1-used-in-vaultmanagerv2) | Update stale modifiers from `VaultManagerV1` used in `VaultManagerV2` |
-| [QA-09](#qa-09-owner-transfer-actions-done-in-a-single-step-manner-are-dangerous) | Owner transfer actions done in a single-step manner are dangerous |
-| [QA-10](#qa-10-protocol-might-be-incompatible-with-some-to-be-integrated-tokens-due-to-dependency-on-.decimals()-during-withdrawal-attempts) | Protocol might be incompatible with some to-be integrated tokens due to dependency on `.decimals()` during withdrawal attempts |
-| [QA-11](#qa-11-fix-documentation) | Fix documentation |
+| Issue ID                                                                                                                                       | Description                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [QA-01](<#qa-01-cr-could-be-over/undervalued-due-to-its-unsafe-dependance-on-vault.getusdvalue()>)                                             | `cr` could be over/undervalued due to its unsafe dependance on `vault.getUsdValue()`                                           |
+| [QA-02](#qa-02-protocol-does-not-enforce-cr-buffer-in-regards-to-users-protection)                                                             | Protocol does not enforce CR buffer in regards to user's protection                                                            |
+| [QA-03](<#qa-03-vault.getusdvalue()-should-be-wrappped-in-a-try-catch>)                                                                        | `vault.getUsdValue()` should be wrappped in a try catch                                                                        |
+| [QA-04](#qa-04-protocol-might-overvalue-the-asset-transferred-in-by-a-user-and-unintentionally-flaw-their-accounting-logic)                    | Protocol might overvalue the asset transferred in by a user and unintentionally flaw their accounting logic                    |
+| [QA-05](#qa-05-the-kerosene-price-can-be-manipulated-via-donation-attacks)                           | The kerosene price can be manipulated via donation attacks                      |
+| [QA-06](#qa-06-dnft-owners-can-liquidate-themselves)                                                                                           | `dNFT` owners can liquidate themselves                                                                                         |
+| [QA-07](#qa-07-protocols-reward-vesting-logic-could-unfairly-make-users-liquidatable)                                                          | Protocol's reward vesting logic could unfairly make users liquidatable                                                         |
+| [QA-08](#qa-08-update-stale-modifiers-from-vaultmanagerv1-used-in-vaultmanagerv2)                                                              | Update stale modifiers from `VaultManagerV1` used in `VaultManagerV2`                                                          |
+| [QA-09](#qa-09-owner-transfer-actions-done-in-a-single-step-manner-are-dangerous)                                                              | Owner transfer actions done in a single-step manner are dangerous                                                              |
+| [QA-10](<#qa-10-protocol-might-be-incompatible-with-some-to-be-integrated-tokens-due-to-dependency-on-.decimals()-during-withdrawal-attempts>) | Protocol might be incompatible with some to-be integrated tokens due to dependency on `.decimals()` during withdrawal attempts |
+| [QA-11](#qa-11-fix-documentation)                                                                                                              | Fix documentation                                                                                                              |
+| [QA-05](#qa-05-protocol-intends-to-have-a-duration-between-deposits-and-wothdrawals-but-instead-hardcodes-this-to-0)                           | Protocol intends to have a duration between deposits and wothdrawals but instead hardcodes this to `0`                         |
+
 ## QA-01 `cr` could be over/undervalued due to its unsafe dependance on `vault.getUsdValue()`
 
 ### Proof of Concept
@@ -313,74 +316,60 @@ This bug case is applicable to attempts of `safeTransfer/safeTransferFrom` in sc
 
 > Main focus should be in the instances where these tokens are being deposited to protocol.
 
-## QA-05 Protocol intends to have a duration between deposits and wothdrawals but instead hardcodes this to `0`
+## QA-05 The kerosene price can be manipulated via donation attacks 
 
-### Proof of Concept
+### Proof Concept
 
-Take a look at https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L138-L163
+Take a look at https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/Vault.kerosine.unbounded.sol#L50-L68
 
 ```solidity
-
-  function withdraw(
-    uint    id,
-    address vault,
-    uint    amount,
-    address to
-  )
+  function assetPrice()
     public
-      isDNftOwner(id)
-  {
-      //@audit
-    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
-    uint dyadMinted = dyad.mintedDyad(address(this), id);
-    Vault _vault = Vault(vault);
-    uint value = amount * _vault.assetPrice()
-                  * 1e18
-                  / 10**_vault.oracle().decimals()
-                  / 10**_vault.asset().decimals();
-    if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
-    _vault.withdraw(id, to, amount);
-    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow();
+    view
+    override
+    returns (uint) {
+      uint tvl;
+      address[] memory vaults = kerosineManager.getVaults();
+      uint numberOfVaults = vaults.length;
+      for (uint i = 0; i < numberOfVaults; i++) {
+        Vault vault = Vault(vaults[i]);
+        tvl += vault.asset().balanceOf(address(vault))
+                * vault.assetPrice() * 1e18
+                / (10**vault.asset().decimals())
+                / (10**vault.oracle().decimals());
+      }
+      uint numerator   = tvl - dyad.totalSupply();
+      uint denominator = kerosineDenominator.denominator();
+      return numerator * 1e8 / denominator;
   }
-
 ```
 
-Evidently as hinted by the @audit tag we can see that protocol intends to apply a duration logic, after discussions with the sponsor this check is placed so as not to allow the kerosene price to be manipulated, however this check is not really sufficient as it doesn't have any waiting duration, which means that a user can just deposit and withdraw in the next block allowing them to still game the sytem with a 12 seconds wait time
+Would be key to note that this function is also used in the bounded vault to get the asset price via https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/Vault.kerosine.bounded.sol#L43-L49
 
-### Impact
+```solidity
+  function assetPrice()
+    public
+    view
+    override
+    returns (uint) {
+      return unboundedKerosineVault.assetPrice() * 2;
+  }
+```
 
-Check can easily be sidestepped in 12 seconds (block mining duration).
+The issue with this stems from how the Kerosine token price is calculated, the TVL is determined by fetching the balance of each vault's asset using the `balanceOf()` function and then multiplying it by the vault's asset price:
+
+```solidity
+        tvl += vault.asset().balanceOf(address(vault))
+                * vault.assetPrice() * 1e18
+                / (10**vault.asset().decimals())
+                / (10**vault.oracle().decimals());
+```
+
+However, this method relies on the `balanceOf()` function to retrieve the asset balance of each vault, rather than using a storage variable that internally tracks deposits. This opens up a vulnerability where an attacker could donate an arbitrary amount of assets to any vault, thereby artificially increasing the Kerosine token price.
 
 ### Recommended Mitigation Steps
 
-Consider having a waiting period whenever attemoting to withdraw, i.e apply this pseudo fix to https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L138-L163
-
-```diff
-
-  function withdraw(
-    uint    id,
-    address vault,
-    uint    amount,
-    address to
-  )
-    public
-      isDNftOwner(id)
-  {
-      //@audit
--    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
-+    if (idToBlockTimestampOfLastDeposit[id] + WAITING_DURATION < block.timestamp) revert DepositedForTooShortDuration();
-    uint dyadMinted = dyad.mintedDyad(address(this), id);
-    Vault _vault = Vault(vault);
-    uint value = amount * _vault.assetPrice()
-                  * 1e18
-                  / 10**_vault.oracle().decimals()
-                  / 10**_vault.asset().decimals();
-    if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
-    _vault.withdraw(id, to, amount);
-    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow();
-  }
-
-```
+Devise a solution that ensures the accurate calculation of the Kerosine token price without being susceptible to manipulation via unauthorized asset donations, this can be done by having a storage variable tracking the deposits internally
 
 ## QA-06 `dNFT` owners can liquidate themselves
 
@@ -426,7 +415,6 @@ Some `dNFT` owners can attempt gaming the system by liquidating themselves inste
 
 Consider checking that the position to be liquidated is not owned by the liquidator who's liquidating it.
 
- 
 ## QA-07 Protocol's reward vesting logic could unfairly make users liquidatable
 
 ### Proof of Concept
@@ -567,4 +555,72 @@ Bad documentation make sit harder to understand code.
 ### Recommended Mitigation Steps
 
 Change instances of NOTEs to dNFTs.
- 
+
+## QA-12 Protocol intends to have a duration between deposits and wothdrawals but instead hardcodes this to `0`
+
+### Proof of Concept
+
+Take a look at https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L138-L163
+
+```solidity
+
+  function withdraw(
+    uint    id,
+    address vault,
+    uint    amount,
+    address to
+  )
+    public
+      isDNftOwner(id)
+  {
+      //@audit
+    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
+    uint dyadMinted = dyad.mintedDyad(address(this), id);
+    Vault _vault = Vault(vault);
+    uint value = amount * _vault.assetPrice()
+                  * 1e18
+                  / 10**_vault.oracle().decimals()
+                  / 10**_vault.asset().decimals();
+    if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
+    _vault.withdraw(id, to, amount);
+    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow();
+  }
+
+```
+
+Evidently as hinted by the @audit tag we can see that protocol intends to apply a duration logic, after discussions with the sponsor this check is placed so as not to allow the kerosene price to be manipulated, however this check is not really sufficient as it doesn't have any waiting duration, which means that a user can just deposit and withdraw in the next block allowing them to still game the sytem with a 12 seconds wait time
+
+### Impact
+
+Check can easily be sidestepped in 12 seconds (block mining duration).
+
+### Recommended Mitigation Steps
+
+Consider having a waiting period whenever attemoting to withdraw, i.e apply this pseudo fix to https://github.com/code-423n4/2024-04-dyad/blob/4a987e536576139793a1c04690336d06c93fca90/src/core/VaultManagerV2.sol#L138-L163
+
+```diff
+
+  function withdraw(
+    uint    id,
+    address vault,
+    uint    amount,
+    address to
+  )
+    public
+      isDNftOwner(id)
+  {
+      //@audit
+-    if (idToBlockOfLastDeposit[id] == block.number) revert DepositedInSameBlock();
++    if (idToBlockTimestampOfLastDeposit[id] + WAITING_DURATION < block.timestamp) revert DepositedForTooShortDuration();
+    uint dyadMinted = dyad.mintedDyad(address(this), id);
+    Vault _vault = Vault(vault);
+    uint value = amount * _vault.assetPrice()
+                  * 1e18
+                  / 10**_vault.oracle().decimals()
+                  / 10**_vault.asset().decimals();
+    if (getNonKeroseneValue(id) - value < dyadMinted) revert NotEnoughExoCollat();
+    _vault.withdraw(id, to, amount);
+    if (collatRatio(id) < MIN_COLLATERIZATION_RATIO)  revert CrTooLow();
+  }
+
+```
