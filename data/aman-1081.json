@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "aman",
+  "risk": "2",
+  "title": "The User can be liquidated on old Price due to using large STALE_DATA_TIMEOUT.",
+  "issueId": 1081,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1081"
+}
