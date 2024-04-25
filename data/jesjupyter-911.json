@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "jesjupyter",
+  "risk": "2",
+  "title": "User can deposit into vault not being added and could lose control of the funds",
+  "issueId": 911,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/911"
+}
