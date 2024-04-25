@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "bhilare_",
+  "risk": "3",
+  "title": "Liquidation logic seems flawed, because of which liquidator can lose more amount than earning , even if collateral ratio is ~ 1.5",
+  "issueId": 798,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/798"
+}
