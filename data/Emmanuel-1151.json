@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "User can bypass flashloan checks, manipulate kerosinePrice, and withdraw in same transaction",
+  "issueId": 1151,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1151"
+}
