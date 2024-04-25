@@ -158,7 +158,9 @@ The testing coverage, especially for the files in scope, is not very strong:
 | KerosineDenominator.sol      | 50.00% (1/2)    | 60.00% (3/5)    | 100.00% (0/0) | 50.00% (1/2)  |
 | Deploy.V2.s.sol              | 100.00% (22/22) | 100.00% (31/31) | 100.00% (0/0) | 100.00% (1/1) |
 
-Auditors have to make a lot of assumptions because not all behavior is made clear through documentation and comments. It would be helpful to know why licensing is necessary. Why so users have to pay an increasing fee to mint a `dNFT` while insiders can mint for free?
+Auditors have to make a lot of assumptions because not all behavior is made clear through documentation and comments. It would be helpful to know why licensing is necessary. Why do users have to pay an increasing fee to mint a `dNFT` while insiders can mint for free? While the `dNFT` and Licensing mechanic aren't in the scope of this audit, they are valid centralization concerns that indirectly affect this audit.   
+
+
 
 ### Time spent:
 24 hours
