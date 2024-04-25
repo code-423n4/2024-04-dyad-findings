@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Circolors",
+  "risk": "3",
+  "title": "TVL (Exogenous collateral) backing Dyad can fall below 1:1 while all positions in the protocol remain above `MIN_COLLAERIZATION_RATIO` so cannot be liquidated",
+  "issueId": 1027,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1027"
+}
