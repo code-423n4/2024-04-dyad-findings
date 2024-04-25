@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "smbv-1923",
+  "risk": "3",
+  "title": "collatRatio() in VaultManagerV2 has been calculated wrongly",
+  "issueId": 1069,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1069"
+}
