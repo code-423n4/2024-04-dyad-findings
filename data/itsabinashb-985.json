@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "itsabinashb",
+  "risk": "2",
+  "title": "As of current implementation 1 kerosene token price is 0 when the total deposited amount in both vaults is 9000e18",
+  "issueId": 985,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/985"
+}
