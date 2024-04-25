@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xtankr",
+  "risk": "2",
+  "title": "Users can deposit collateral for any NFT which resets \"block of last deposit\" for that NFT and momentarily prevents collateral withdrawal by NFT's owner",
+  "issueId": 775,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/775"
+}
