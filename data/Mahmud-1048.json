@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Mahmud",
+  "risk": "3",
+  "title": "Withdrawals in VaultManagerV2 will fail if vault is KeroseneVault even for UnboundedKeroseneVaults.",
+  "issueId": 1048,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1048"
+}
