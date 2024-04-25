@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "NentoR",
+  "risk": "3",
+  "title": "`KerosineVault::getUsdValue()` is always assumes 8-decimal tokens",
+  "issueId": 907,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/907"
+}
