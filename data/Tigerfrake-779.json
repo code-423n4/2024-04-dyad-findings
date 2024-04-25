@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Tigerfrake",
+  "risk": "3",
+  "title": "User may liquidate their other undercollateralized position and avoid further losses.",
+  "issueId": 779,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/779"
+}
