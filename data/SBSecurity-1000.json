@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "3",
+  "title": "kerosine assetPrice is not in 8 decimals",
+  "issueId": 1000,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1000"
+}
