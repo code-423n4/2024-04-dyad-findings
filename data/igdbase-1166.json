@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "igdbase",
+  "risk": "2",
+  "title": "M Having no min position easily allows protocol to accept multiple dust positions",
+  "issueId": 1166,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1166"
+}
