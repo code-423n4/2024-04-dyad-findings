@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x175",
+  "risk": "3",
+  "title": "UnboundedKerosineVault::assetPrice() will always revert",
+  "issueId": 1198,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1198"
+}
