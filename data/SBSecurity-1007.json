@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "SBSecurity",
+  "risk": "2",
+  "title": "Full redeem can be blocked by anyone by burning other users 1 wei DYAD",
+  "issueId": 1007,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1007"
+}
