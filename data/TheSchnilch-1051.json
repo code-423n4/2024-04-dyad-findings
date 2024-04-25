@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "TheSchnilch",
+  "risk": "2",
+  "title": "Withdraw of Kerosene reverts because of underflow if there is less non-kerosene value in a position than the kerosene to withdraw",
+  "issueId": 1051,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1051"
+}
