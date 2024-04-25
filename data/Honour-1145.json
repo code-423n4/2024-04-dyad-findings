@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Honour",
+  "risk": "3",
+  "title": "DNft positions with under-collateralized exogenous collateral may not be liquidatable",
+  "issueId": 1145,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1145"
+}
