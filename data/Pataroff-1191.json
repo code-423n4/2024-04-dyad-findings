@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "Pataroff",
+  "risk": "3",
+  "title": "`VaultManagerV2::liquidate` calls `Dyad::burn` on `msg.sender`, burning the tokens from the caller of the function",
+  "issueId": 1191,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1191"
+}
