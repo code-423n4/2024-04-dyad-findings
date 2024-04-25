@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0xleadwizard",
+  "risk": "3",
+  "title": "Wrong Vault added in KeroseneManager",
+  "issueId": 1071,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1071"
+}
