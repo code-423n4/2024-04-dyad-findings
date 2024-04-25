@@ -209,3 +209,15 @@ When `uint cappedCr` == 1e18, `liquidationAssetShare` will aways be 1e18, which 
 (https://github.com/code-423n4/2024-04-dyad/blob/cd48c684a58158de444b24854ffd8f07d046c31b/src/core/VaultManagerV2.sol#L219)
 Recommendations:
 Add a control flow when cappedCr ==1e18, no need to recalculate `liquidationAssetShare`.
+
+### Low -08 Unused modifier
+**Instances(1)**
+IN VaultMangerV2.sol, this modifier isLicensed is not used.
+```solidity
+    modifier isLicensed(address vault) {
+        if (!vaultLicenser.isLicensed(vault)) revert NotLicensed();
+        _;
+    }
+```
+Recommendations:
+remove unused modifier.
