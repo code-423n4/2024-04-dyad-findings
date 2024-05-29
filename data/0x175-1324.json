@@ -1,0 +1,8 @@
+{
+  "contest": 367,
+  "handle": "0x175",
+  "risk": "3",
+  "title": "An attacker can perform a DoS attack by depositing into a dNFT’s vault",
+  "issueId": 1324,
+  "issueUrl": "https://github.com/code-423n4/2024-04-dyad-findings/issues/1324"
+}
